@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.489" timestamp="2026-11-24T21:13:47.903404+08:00" hostname="192.168.1.24"><testcase classname="backend.tests.qa.test_security" name="test_preview_context_change_requires_new_confirmation[verified_profile]" time="0.068"><failure message="AssertionError: ('preview changed silently', '{&quot;id&quot;:&quot;case_e5ea8f5a6eaa436eb79e&quot;,&quot;case_number&quot;:&quot;OF-436EB79E&quot;,&quot;requester_id&quot;:&quot;emp01&quot;,&quot;ca...26-11-24T08:00:00+00:00&quot;,&quot;data_origin&quot;:&quot;test&quot;,&quot;schema_version&quot;:1}],&quot;tasks&quot;:[],&quot;materials&quot;:[],&quot;profile_changed&quot;:false}')&#10;assert 200 == 409&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x10f186cf0&gt;
+change_source = 'verified_profile'
+
+    @pytest.mark.parametrize('change_source',['verified_profile','self_reported'])
+    def test_preview_context_change_requires_new_confirmation(client,change_source):
+        c=client
+        if change_source=='self_reported':
+            login(c,'emp07');assert c.post('/api/assistant/context',json={'city':'广州','planned_start_date':'2026-12-01'}).status_code==200
+            d=draft(c)
+            assert c.post('/api/assistant/context',json={'city':'深圳'}).status_code==200
+        else:
+            login(c);d=draft(c);login(c,'hr01')
+            assert c.post('/api/employees/emp01/profile',json={'planned_start_date':'2027-01-02','expected_planned_start_date':'2026-12-01','reason':'计划变更'}).status_code==200
+            login(c)
+        r=submit(c,d)
+&gt;       assert r.status_code==409,('preview changed silently',r.text)
+E       AssertionError: ('preview changed silently', '{"id":"case_e5ea8f5a6eaa436eb79e","case_number":"OF-436EB79E","requester_id":"emp01","ca...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E       assert 200 == 409
+E        +  where 200 = &lt;Response [200 OK]&gt;.status_code
+
+backend/tests/qa/test_security.py:211: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_preview_context_change_requires_new_confirmation[self_reported]" time="0.053"><failure message="AssertionError: ('preview changed silently', '{&quot;id&quot;:&quot;case_b772bf6cae0743ba8cd7&quot;,&quot;case_number&quot;:&quot;OF-43BA8CD7&quot;,&quot;requester_id&quot;:&quot;emp07&quot;,&quot;ca...26-11-24T08:00:00+00:00&quot;,&quot;data_origin&quot;:&quot;test&quot;,&quot;schema_version&quot;:1}],&quot;tasks&quot;:[],&quot;materials&quot;:[],&quot;profile_changed&quot;:false}')&#10;assert 200 == 409&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x10f07bd90&gt;
+change_source = 'self_reported'
+
+    @pytest.mark.parametrize('change_source',['verified_profile','self_reported'])
+    def test_preview_context_change_requires_new_confirmation(client,change_source):
+        c=client
+        if change_source=='self_reported':
+            login(c,'emp07');assert c.post('/api/assistant/context',json={'city':'广州','planned_start_date':'2026-12-01'}).status_code==200
+            d=draft(c)
+            assert c.post('/api/assistant/context',json={'city':'深圳'}).status_code==200
+        else:
+            login(c);d=draft(c);login(c,'hr01')
+            assert c.post('/api/employees/emp01/profile',json={'planned_start_date':'2027-01-02','expected_planned_start_date':'2026-12-01','reason':'计划变更'}).status_code==200
+            login(c)
+        r=submit(c,d)
+&gt;       assert r.status_code==409,('preview changed silently',r.text)
+E       AssertionError: ('preview changed silently', '{"id":"case_b772bf6cae0743ba8cd7","case_number":"OF-43BA8CD7","requester_id":"emp07","ca...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E       assert 200 == 409
+E        +  where 200 = &lt;Response [200 OK]&gt;.status_code
+
+backend/tests/qa/test_security.py:211: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_token_confirmation_requires_boolean_true_not_coercion" time="0.047"><failure message="AssertionError: ('true', 200, '{&quot;id&quot;:&quot;case_731dd4d7b8d04b61aa9f&quot;,&quot;case_number&quot;:&quot;OF-4B61AA9F&quot;,&quot;requester_id&quot;:&quot;emp01&quot;,&quot;category&quot;:&quot;GENERA...26-11-24T08:00:00+00:00&quot;,&quot;data_origin&quot;:&quot;test&quot;,&quot;schema_version&quot;:1}],&quot;tasks&quot;:[],&quot;materials&quot;:[],&quot;profile_changed&quot;:false}')&#10;assert 200 == 422&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x10f58c2d0&gt;
+
+    def test_token_confirmation_requires_boolean_true_not_coercion(client):
+        login(client);d=draft(client)
+        for value in ['true','yes',1]:
+            r=submit(client,d,confirmed=value)
+&gt;           assert r.status_code==422,(value,r.status_code,r.text)
+E           AssertionError: ('true', 200, '{"id":"case_731dd4d7b8d04b61aa9f","case_number":"OF-4B61AA9F","requester_id":"emp01","category":"GENERA...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E           assert 200 == 422
+E            +  where 200 = &lt;Response [200 OK]&gt;.status_code
+
+backend/tests/qa/test_security.py:224: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_business_date_validation_uses_shanghai_calendar_day" time="0.049"><failure message="AssertionError: {&quot;id&quot;:&quot;case_2132b787c74048429706&quot;,&quot;case_number&quot;:&quot;OF-48429706&quot;,&quot;requester_id&quot;:&quot;emp01&quot;,&quot;category&quot;:&quot;MATERIAL_EXCEPTION&quot;,&quot;status&quot;:&quot;assigned&quot;,&quot;assigned_group&quot;:&quot;广州HR&quot;,&quot;assigned_to&quot;:&quot;hr01&quot;,&quot;description&quot;:&quot;已经是上海次日&quot;,&quot;structured_fields&quot;:{&quot;description&quot;:&quot;已经是上海次日&quot;,&quot;expected_date&quot;:&quot;2026-11-24&quot;,&quot;missing_item&quot;:&quot;入职信息表&quot;},&quot;policy_snapshot_refs&quot;:[{&quot;article_version_id&quot;:&quot;pol-exception-full&quot;,&quot;cities&quot;:[&quot;*&quot;],&quot;content_hash&quot;:&quot;46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30&quot;,&quot;effective_from&quot;:&quot;2026-01-01&quot;,&quot;effective_to&quot;:null,&quot;employment_types&quot;:[&quot;正式员工&quot;],&quot;excerpt&quot;:&quot;办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。&quot;,&quot;section_id&quot;:&quot;section-1&quot;,&quot;title&quot;:&quot;正式员工材料补交申请路径&quot;,&quot;url&quot;:&quot;/api/knowledge/pol-exception-full#section-1&quot;,&quot;version&quot;:&quot;1.0&quot;}],&quot;context_source&quot;:{&quot;city&quot;:&quot;广州&quot;,&quot;employment_type&quot;:&quot;正式员工&quot;,&quot;planned_start_date&quot;:&quot;2026-12-01&quot;,&quot;source&quot;:{&quot;city&quot;:&quot;verified_profile&quot;,&quot;employment_type&quot;:&quot;verified_profile&quot;,&quot;planned_start_date&quot;:&quot;verified_profile&quot;}},&quot;created_at&quot;:&quot;2026-11-24T16:30:00+00:00&quot;,&quot;updated_at&quot;:&quot;2026-11-24T16:30:00+00:00&quot;,&quot;first_human_response_at&quot;:null,&quot;due_at&quot;:&quot;2026-11-26T16:30:00+00:00&quot;,&quot;latest_resolved_at&quot;:null,&quot;closed_at&quot;:null,&quot;cancelled_at&quot;:null,&quot;resolution_code&quot;:null,&quot;reopen_count&quot;:0,&quot;idempotency_key&quot;:&quot;security-request-001&quot;,&quot;row_version&quot;:1,&quot;sla_hours&quot;:48.0,&quot;data_origin&quot;:&quot;test&quot;,&quot;requester&quot;:{&quot;id&quot;:&quot;emp01&quot;,&quot;name&quot;:&quot;演示员工01&quot;,&quot;city&quot;:&quot;广州&quot;,&quot;employment_type&quot;:&quot;正式员工&quot;,&quot;planned_start_date&quot;:&quot;2026-12-01&quot;},&quot;messages&quot;:[],&quot;events&quot;:[{&quot;id&quot;:&quot;ev_62e4b6efd1d14a4480aa&quot;,&quot;kind&quot;:&quot;case_submitted&quot;,&quot;actor_id&quot;:&quot;emp01&quot;,&quot;case_id&quot;:&quot;case_2132b787c74048429706&quot;,&quot;metadata&quot;:{&quot;category&quot;:&quot;MATERIAL_EXCEPTION&quot;,&quot;draft_id&quot;:&quot;draft_83a890e7096b45f08cb9&quot;},&quot;visibility&quot;:&quot;public&quot;,&quot;occurred_at&quot;:&quot;2026-11-24T16:30:00+00:00&quot;,&quot;data_origin&quot;:&quot;test&quot;,&quot;schema_version&quot;:1},{&quot;id&quot;:&quot;ev_6b0630b8cf864dc8866d&quot;,&quot;kind&quot;:&quot;status_changed&quot;,&quot;actor_id&quot;:&quot;emp01&quot;,&quot;case_id&quot;:&quot;case_2132b787c74048429706&quot;,&quot;metadata&quot;:{&quot;from_status&quot;:&quot;new&quot;,&quot;reason&quot;:&quot;规则分派&quot;,&quot;to_status&quot;:&quot;assigned&quot;},&quot;visibility&quot;:&quot;public&quot;,&quot;occurred_at&quot;:&quot;2026-11-24T16:30:00+00:00&quot;,&quot;data_origin&quot;:&quot;test&quot;,&quot;schema_version&quot;:1}],&quot;tasks&quot;:[],&quot;materials&quot;:[{&quot;id&quot;:&quot;mat_1c9b2beed741424d9b20&quot;,&quot;case_id&quot;:&quot;case_2132b787c74048429706&quot;,&quot;required_item_code&quot;:&quot;onboarding_form&quot;,&quot;provided&quot;:false,&quot;format_check_status&quot;:&quot;missing&quot;,&quot;supplied_at&quot;:null}],&quot;profile_changed&quot;:false}&#10;assert 200 == 422&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x10f1d3ce0&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10f5cd7b0&gt;
+
+    def test_business_date_validation_uses_shanghai_calendar_day(client,monkeypatch):
+        # 2026-11-25 00:30 in Shanghai; yesterday must not be accepted as future supply.
+        monkeypatch.setattr(db,'_clock',lambda:datetime(2026,11,24,16,30,tzinfo=timezone.utc))
+        login(client)
+        d=draft(client,'MATERIAL_EXCEPTION',{'description':'已经是上海次日','missing_item':'入职信息表','expected_date':'2026-11-24'})
+&gt;       r=submit(client,d);assert r.status_code==422,r.text
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: {"id":"case_2132b787c74048429706","case_number":"OF-48429706","requester_id":"emp01","category":"MATERIAL_EXCEPTION","status":"assigned","assigned_group":"广州HR","assigned_to":"hr01","description":"已经是上海次日","structured_fields":{"description":"已经是上海次日","expected_date":"2026-11-24","missing_item":"入职信息表"},"policy_snapshot_refs":[{"article_version_id":"pol-exception-full","cities":["*"],"content_hash":"46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30","effective_from":"2026-01-01","effective_to":null,"employment_types":["正式员工"],"excerpt":"办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。","section_id":"section-1","title":"正式员工材料补交申请路径","url":"/api/knowledge/pol-exception-full#section-1","version":"1.0"}],"context_source":{"city":"广州","employment_type":"正式员工","planned_start_date":"2026-12-01","source":{"city":"verified_profile","employment_type":"verified_profile","planned_start_date":"verified_profile"}},"created_at":"2026-11-24T16:30:00+00:00","updated_at":"2026-11-24T16:30:00+00:00","first_human_response_at":null,"due_at":"2026-11-26T16:30:00+00:00","latest_resolved_at":null,"closed_at":null,"cancelled_at":null,"resolution_code":null,"reopen_count":0,"idempotency_key":"security-request-001","row_version":1,"sla_hours":48.0,"data_origin":"test","requester":{"id":"emp01","name":"演示员工01","city":"广州","employment_type":"正式员工","planned_start_date":"2026-12-01"},"messages":[],"events":[{"id":"ev_62e4b6efd1d14a4480aa","kind":"case_submitted","actor_id":"emp01","case_id":"case_2132b787c74048429706","metadata":{"category":"MATERIAL_EXCEPTION","draft_id":"draft_83a890e7096b45f08cb9"},"visibility":"public","occurred_at":"2026-11-24T16:30:00+00:00","data_origin":"test","schema_version":1},{"id":"ev_6b0630b8cf864dc8866d","kind":"status_changed","actor_id":"emp01","case_id":"case_2132b787c74048429706","metadata":{"from_status":"new","reason":"规则分派","to_status":"assigned"},"visibility":"public","occurred_at":"2026-11-24T16:30:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[{"id":"mat_1c9b2beed741424d9b20","case_id":"case_2132b787c74048429706","required_item_code":"onboarding_form","provided":false,"format_check_status":"missing","supplied_at":null}],"profile_changed":false}
+E       assert 200 == 422
+E        +  where 200 = &lt;Response [200 OK]&gt;.status_code
+
+backend/tests/qa/test_security.py:234: AssertionError</failure></testcase></testsuite></testsuites>

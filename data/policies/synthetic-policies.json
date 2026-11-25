@@ -1,0 +1,666 @@
+{
+  "warning": "仅用于作品演示，不代表任何真实企业制度。",
+  "policies": [
+    {
+      "id": "pol-report-gz-v1",
+      "policy_key": "report-gz",
+      "version": "1.0",
+      "title": "广州报到地点与联系人",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "广州"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-11-01",
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n请于计划入职日 09:30 到广州演示园区 A 座 1 楼报到，联系人为广州 HR 演示服务台。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "6d3ed576e48888ec22aefe3bea8af49fb6ca55fc80cc33bbac5f95404cb9d5e3",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-report-gz-v2",
+      "policy_key": "report-gz",
+      "version": "2.0",
+      "title": "广州报到地点与联系人",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "广州"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-11-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n请于计划入职日 09:30 到广州演示园区 A 座 2 楼报到，联系人为广州 HR 演示服务台。先签到，再核对材料清单，随后领取演示设备。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "624548ab5f0d735e0c83a3c7e8abf9c495822d923bb9fb72c76331229b60dc01",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-report-sz-v1",
+      "policy_key": "report-sz",
+      "version": "1.0",
+      "title": "深圳报到地点与联系人",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "深圳"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": "2027-01-01",
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n请于计划入职日 10:00 到深圳演示园区 B 座 3 楼报到，联系人为深圳 HR 演示服务台。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "305fcfe616b21ebe8d134516e4bf5f62db561e22c256381f8bf9893e448b4dcf",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-material-gz-full",
+      "policy_key": "material-gz-full",
+      "version": "1.0",
+      "title": "广州正式员工入职材料清单",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "广州"
+      ],
+      "employment_types": [
+        "正式员工"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n## 结构化办理规则\n适用材料清单：入职信息表、联系信息确认、任职信息确认。这里只记录材料元信息，不核验真伪。\n申请必填项：事项说明。",
+      "content_hash": "efd3957eda5ad44d4c1b60ccbcb7a64973726eb9998561c7681ea5a16a81a11f",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ],
+        "required_items": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表"
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认"
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认"
+          }
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-material-gz-intern",
+      "policy_key": "material-gz-intern",
+      "version": "1.0",
+      "title": "广州实习生入职材料清单",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "广州"
+      ],
+      "employment_types": [
+        "实习生"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n## 结构化办理规则\n适用材料清单：入职信息表、联系信息确认、实习安排确认。这里只记录材料元信息，不核验真伪。\n申请必填项：事项说明。",
+      "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ],
+        "required_items": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表"
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认"
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认"
+          }
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-material-sz-full",
+      "policy_key": "material-sz-full",
+      "version": "1.0",
+      "title": "深圳正式员工入职材料清单",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "深圳"
+      ],
+      "employment_types": [
+        "正式员工"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n深圳正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n## 结构化办理规则\n适用材料清单：入职信息表、联系信息确认、任职信息确认。这里只记录材料元信息，不核验真伪。\n申请必填项：事项说明。",
+      "content_hash": "a0b67963ad9e01ec0224981d277095ca10a57557de48dbf527e2fc8022662a5e",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ],
+        "required_items": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表"
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认"
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认"
+          }
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-material-sz-intern",
+      "policy_key": "material-sz-intern",
+      "version": "1.0",
+      "title": "深圳实习生入职材料清单",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "深圳"
+      ],
+      "employment_types": [
+        "实习生"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n深圳实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n## 结构化办理规则\n适用材料清单：入职信息表、联系信息确认、实习安排确认。这里只记录材料元信息，不核验真伪。\n申请必填项：事项说明。",
+      "content_hash": "14773a90acdb956551b26a37b955647feb61e7a488d6c572ac4b7c8059407d21",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ],
+        "required_items": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表"
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认"
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认"
+          }
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-exception-full",
+      "policy_key": "exception-full",
+      "version": "1.0",
+      "title": "正式员工材料补交申请路径",
+      "category": "MATERIAL_EXCEPTION",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "正式员工"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。\n\n## 结构化办理规则\n补交申请须由 HR 审批。允许申请不等于已获批准，批准延期不表示材料已收齐。\n申请必填项：事项说明、缺失材料、预计补交日期。",
+      "content_hash": "46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30",
+      "rules": {
+        "completion_codes": [
+          "approved_deferred",
+          "rejected"
+        ],
+        "hr_approval_required": true,
+        "required_fields": [
+          "description",
+          "missing_item",
+          "expected_date"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-exception-intern",
+      "policy_key": "exception-intern",
+      "version": "1.0",
+      "title": "实习生材料补交申请路径",
+      "category": "MATERIAL_EXCEPTION",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "实习生"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。\n\n## 结构化办理规则\n补交申请须由 HR 审批。允许申请不等于已获批准，批准延期不表示材料已收齐。\n申请必填项：事项说明、缺失材料、预计补交日期。",
+      "content_hash": "46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30",
+      "rules": {
+        "completion_codes": [
+          "approved_deferred",
+          "rejected"
+        ],
+        "hr_approval_required": true,
+        "required_fields": [
+          "description",
+          "missing_item",
+          "expected_date"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-access-gz",
+      "policy_key": "access-gz",
+      "version": "1.0",
+      "title": "广州账号设备准备与异常处理",
+      "category": "ACCESS_DEVICE",
+      "scope_company": "xingzhou",
+      "cities": [
+        "广州"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。\n\n## 结构化办理规则\n申请必填项：事项说明、账号或设备类型。\n必需 IT 子任务完成后，HR 才能提交结果说明，随后由员工确认。此处仅完成演示任务，不开通真实账号。",
+      "content_hash": "b3d3050c0ac1bb5fab5a00b929c6015dc2be98a2c170413898b169ca6567119e",
+      "rules": {
+        "required_fields": [
+          "description",
+          "device_type"
+        ],
+        "required_it_task": true
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-access-sz",
+      "policy_key": "access-sz",
+      "version": "1.0",
+      "title": "深圳账号设备准备与异常处理",
+      "category": "ACCESS_DEVICE",
+      "scope_company": "xingzhou",
+      "cities": [
+        "深圳"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。\n\n## 结构化办理规则\n申请必填项：事项说明、账号或设备类型。\n必需 IT 子任务完成后，HR 才能提交结果说明，随后由员工确认。此处仅完成演示任务，不开通真实账号。",
+      "content_hash": "b3d3050c0ac1bb5fab5a00b929c6015dc2be98a2c170413898b169ca6567119e",
+      "rules": {
+        "required_fields": [
+          "description",
+          "device_type"
+        ],
+        "required_it_task": true
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-feedback",
+      "policy_key": "service-feedback",
+      "version": "1.0",
+      "title": "请求进度查询与结果反馈",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-first-week",
+      "policy_key": "first-week",
+      "version": "1.0",
+      "title": "入职首周办理流程",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "8ee0d5dc07a949bbe0b65c32c19780b2c45d08a69ef4166dd1a5d9aacde341cb",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-hr-internal",
+      "policy_key": "hr-internal",
+      "version": "1.0",
+      "title": "HR 内部补交审批记录说明",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n内部经办说明：记录审批依据和补交日期，内部备注不能作为员工通知。不可把材料缺失自动标为已提供。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "4717009963f7b6260ce9010351801b30c280a9e2af631d8b7f16445e9cbcaef1",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-report-sz-v2",
+      "policy_key": "report-sz",
+      "version": "2.0",
+      "title": "深圳报到地点与联系人（未来版本）",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "深圳"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "published",
+      "published_at": "2026-10-01T00:00:00+00:00",
+      "effective_from": "2027-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": "admin01",
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n请于计划入职日 10:00 到深圳演示园区 B 座 5 楼报到，联系人为深圳 HR 演示服务台。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "9eb5389b20650a8a63a3bcfcb57a75c824e807b658cf266a16087f68ccb134e1",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    },
+    {
+      "id": "pol-draft-welcome",
+      "policy_key": "welcome-draft",
+      "version": "0.1",
+      "title": "欢迎流程草稿",
+      "category": "GENERAL_ONBOARDING",
+      "scope_company": "xingzhou",
+      "cities": [
+        "*"
+      ],
+      "employment_types": [
+        "*"
+      ],
+      "visibility_roles": [
+        "employee",
+        "hr",
+        "admin"
+      ],
+      "status": "draft",
+      "published_at": null,
+      "effective_from": "2026-01-01",
+      "effective_to": null,
+      "owner_id": "hr01",
+      "approved_by": null,
+      "content_markdown": "仅用于作品演示，不代表任何真实企业制度。\n\n## 办理说明\n尚未审核的欢迎说明，不得用于员工答案。\n\n## 结构化办理规则\n申请必填项：事项说明。",
+      "content_hash": "0a19b3462ade09269fc8ba477a895ccac9e42182fa59b2dd38d1230c05c37e62",
+      "rules": {
+        "citation_required": true,
+        "required_fields": [
+          "description"
+        ]
+      },
+      "created_at": "2026-10-01T00:00:00+00:00",
+      "updated_at": "2026-10-01T00:00:00+00:00",
+      "replaces_id": null,
+      "row_version": 1
+    }
+  ]
+}

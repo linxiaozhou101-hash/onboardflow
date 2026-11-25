@@ -1,0 +1,95 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+___ test_preview_context_change_requires_new_confirmation[verified_profile] ____
+
+client = <starlette.testclient.TestClient object at 0x10f186cf0>
+change_source = 'verified_profile'
+
+    @pytest.mark.parametrize('change_source',['verified_profile','self_reported'])
+    def test_preview_context_change_requires_new_confirmation(client,change_source):
+        c=client
+        if change_source=='self_reported':
+            login(c,'emp07');assert c.post('/api/assistant/context',json={'city':'广州','planned_start_date':'2026-12-01'}).status_code==200
+            d=draft(c)
+            assert c.post('/api/assistant/context',json={'city':'深圳'}).status_code==200
+        else:
+            login(c);d=draft(c);login(c,'hr01')
+            assert c.post('/api/employees/emp01/profile',json={'planned_start_date':'2027-01-02','expected_planned_start_date':'2026-12-01','reason':'计划变更'}).status_code==200
+            login(c)
+        r=submit(c,d)
+>       assert r.status_code==409,('preview changed silently',r.text)
+E       AssertionError: ('preview changed silently', '{"id":"case_e5ea8f5a6eaa436eb79e","case_number":"OF-436EB79E","requester_id":"emp01","ca...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E       assert 200 == 409
+E        +  where 200 = <Response [200 OK]>.status_code
+
+backend/tests/qa/test_security.py:211: AssertionError
+_____ test_preview_context_change_requires_new_confirmation[self_reported] _____
+
+client = <starlette.testclient.TestClient object at 0x10f07bd90>
+change_source = 'self_reported'
+
+    @pytest.mark.parametrize('change_source',['verified_profile','self_reported'])
+    def test_preview_context_change_requires_new_confirmation(client,change_source):
+        c=client
+        if change_source=='self_reported':
+            login(c,'emp07');assert c.post('/api/assistant/context',json={'city':'广州','planned_start_date':'2026-12-01'}).status_code==200
+            d=draft(c)
+            assert c.post('/api/assistant/context',json={'city':'深圳'}).status_code==200
+        else:
+            login(c);d=draft(c);login(c,'hr01')
+            assert c.post('/api/employees/emp01/profile',json={'planned_start_date':'2027-01-02','expected_planned_start_date':'2026-12-01','reason':'计划变更'}).status_code==200
+            login(c)
+        r=submit(c,d)
+>       assert r.status_code==409,('preview changed silently',r.text)
+E       AssertionError: ('preview changed silently', '{"id":"case_b772bf6cae0743ba8cd7","case_number":"OF-43BA8CD7","requester_id":"emp07","ca...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E       assert 200 == 409
+E        +  where 200 = <Response [200 OK]>.status_code
+
+backend/tests/qa/test_security.py:211: AssertionError
+__________ test_token_confirmation_requires_boolean_true_not_coercion __________
+
+client = <starlette.testclient.TestClient object at 0x10f58c2d0>
+
+    def test_token_confirmation_requires_boolean_true_not_coercion(client):
+        login(client);d=draft(client)
+        for value in ['true','yes',1]:
+            r=submit(client,d,confirmed=value)
+>           assert r.status_code==422,(value,r.status_code,r.text)
+E           AssertionError: ('true', 200, '{"id":"case_731dd4d7b8d04b61aa9f","case_number":"OF-4B61AA9F","requester_id":"emp01","category":"GENERA...26-11-24T08:00:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[],"profile_changed":false}')
+E           assert 200 == 422
+E            +  where 200 = <Response [200 OK]>.status_code
+
+backend/tests/qa/test_security.py:224: AssertionError
+___________ test_business_date_validation_uses_shanghai_calendar_day ___________
+
+client = <starlette.testclient.TestClient object at 0x10f1d3ce0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x10f5cd7b0>
+
+    def test_business_date_validation_uses_shanghai_calendar_day(client,monkeypatch):
+        # 2026-11-25 00:30 in Shanghai; yesterday must not be accepted as future supply.
+        monkeypatch.setattr(db,'_clock',lambda:datetime(2026,11,24,16,30,tzinfo=timezone.utc))
+        login(client)
+        d=draft(client,'MATERIAL_EXCEPTION',{'description':'已经是上海次日','missing_item':'入职信息表','expected_date':'2026-11-24'})
+>       r=submit(client,d);assert r.status_code==422,r.text
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: {"id":"case_2132b787c74048429706","case_number":"OF-48429706","requester_id":"emp01","category":"MATERIAL_EXCEPTION","status":"assigned","assigned_group":"广州HR","assigned_to":"hr01","description":"已经是上海次日","structured_fields":{"description":"已经是上海次日","expected_date":"2026-11-24","missing_item":"入职信息表"},"policy_snapshot_refs":[{"article_version_id":"pol-exception-full","cities":["*"],"content_hash":"46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30","effective_from":"2026-01-01","effective_to":null,"employment_types":["正式员工"],"excerpt":"办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。","section_id":"section-1","title":"正式员工材料补交申请路径","url":"/api/knowledge/pol-exception-full#section-1","version":"1.0"}],"context_source":{"city":"广州","employment_type":"正式员工","planned_start_date":"2026-12-01","source":{"city":"verified_profile","employment_type":"verified_profile","planned_start_date":"verified_profile"}},"created_at":"2026-11-24T16:30:00+00:00","updated_at":"2026-11-24T16:30:00+00:00","first_human_response_at":null,"due_at":"2026-11-26T16:30:00+00:00","latest_resolved_at":null,"closed_at":null,"cancelled_at":null,"resolution_code":null,"reopen_count":0,"idempotency_key":"security-request-001","row_version":1,"sla_hours":48.0,"data_origin":"test","requester":{"id":"emp01","name":"演示员工01","city":"广州","employment_type":"正式员工","planned_start_date":"2026-12-01"},"messages":[],"events":[{"id":"ev_62e4b6efd1d14a4480aa","kind":"case_submitted","actor_id":"emp01","case_id":"case_2132b787c74048429706","metadata":{"category":"MATERIAL_EXCEPTION","draft_id":"draft_83a890e7096b45f08cb9"},"visibility":"public","occurred_at":"2026-11-24T16:30:00+00:00","data_origin":"test","schema_version":1},{"id":"ev_6b0630b8cf864dc8866d","kind":"status_changed","actor_id":"emp01","case_id":"case_2132b787c74048429706","metadata":{"from_status":"new","reason":"规则分派","to_status":"assigned"},"visibility":"public","occurred_at":"2026-11-24T16:30:00+00:00","data_origin":"test","schema_version":1}],"tasks":[],"materials":[{"id":"mat_1c9b2beed741424d9b20","case_id":"case_2132b787c74048429706","required_item_code":"onboarding_form","provided":false,"format_check_status":"missing","supplied_at":null}],"profile_changed":false}
+E       assert 200 == 422
+E        +  where 200 = <Response [200 OK]>.status_code
+
+backend/tests/qa/test_security.py:234: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.14/site-packages/starlette/testclient.py:37
+  <repo>/.venv/lib/python3.14/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+.venv/lib/python3.14/site-packages/fastapi/routing.py:233: 60 warnings
+  <repo>/.venv/lib/python3.14/site-packages/fastapi/routing.py:233: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    is_coroutine = asyncio.iscoroutinefunction(dependant.call)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED backend/tests/qa/test_security.py::test_preview_context_change_requires_new_confirmation[verified_profile]
+FAILED backend/tests/qa/test_security.py::test_preview_context_change_requires_new_confirmation[self_reported]
+FAILED backend/tests/qa/test_security.py::test_token_confirmation_requires_boolean_true_not_coercion
+FAILED backend/tests/qa/test_security.py::test_business_date_validation_uses_shanghai_calendar_day
+4 failed, 64 deselected, 61 warnings in 0.49s

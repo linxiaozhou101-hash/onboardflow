@@ -1,0 +1,57 @@
+<testsuites id="" name="" tests="7" failures="0" skipped="0" errors="0" time="267.720375">
+<testsuite name="01-material.spec.ts" timestamp="2026-11-24T14:46:00.324Z" hostname="" tests="2" failures="0" skipped="0" time="7.193" errors="0">
+<testcase name="R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交" classname="01-material.spec.ts" time="3.819">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正" classname="01-material.spec.ts" time="3.374">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="02-it.spec.ts" timestamp="2026-11-24T14:46:00.324Z" hostname="" tests="2" failures="0" skipped="0" time="9.632" errors="0">
+<testcase name="R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正" classname="02-it.spec.ts" time="6.39">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止" classname="02-it.spec.ts" time="3.242">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/02-it-R04-深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="03-admin.spec.ts" timestamp="2026-11-24T14:46:00.324Z" hostname="" tests="3" failures="0" skipped="0" time="8.572" errors="0">
+<testcase name="R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环" classname="03-admin.spec.ts" time="2.529">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据" classname="03-admin.spec.ts" time="3.115">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip]]
+]]>
+</system-out>
+</testcase>
+<testcase name="R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整" classname="03-admin.spec.ts" time="2.928">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|artifacts-1795531559325/03-admin-R07-管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

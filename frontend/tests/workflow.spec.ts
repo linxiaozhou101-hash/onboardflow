@@ -1,0 +1,75 @@
+import {test,expect} from '@playwright/test';
+import type {Page} from '@playwright/test';
+const screenshotDir=process.env.QA_SCREENSHOT_DIR||'../reports';
+async function login(page:Page,id:string){await page.goto('/');await page.locator('.account').filter({hasText:id}).click();await expect(page.locator('.sidebar')).toBeVisible();}
+async function switchTo(page:Page,id:string){await page.getByRole('button',{name:'演示身份切换'}).click();await page.locator('.account').filter({hasText:id}).click();await expect(page.getByRole('dialog')).toHaveCount(0);}
+async function openCase(page:Page,title:string){await page.getByRole('button',{name:title,exact:true}).click();await expect(page.getByRole('dialog')).toBeVisible();}
+test('employee → HR → IT → HR → employee confirmation, with real database state',async({page})=>{
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await login(page,'emp01');
+ await page.getByRole('button',{name:'准备什么，去哪报到'}).click();
+ await expect(page.locator('.answer-text')).not.toBeEmpty();
+ await expect(page.locator('.answer-card .citations button').first()).toBeVisible();
+ await page.locator('.answer-card .citations button').first().click();
+ await expect(page.getByRole('dialog')).toContainText('仅用于作品演示');
+ await page.getByRole('button',{name:'关闭',exact:true}).click();
+ await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:`${screenshotDir}/employee-desktop.png`,fullPage:true});
+ const title='浏览器验证：办公账号准备异常';
+ await page.getByRole('button',{name:'新建服务请求'}).click();
+ await page.getByLabel('办理事项').selectOption('ACCESS_DEVICE');
+ await page.getByLabel('事项说明').fill(title);
+ await page.getByLabel('账号或设备类型').selectOption('account');
+ await page.getByRole('button',{name:'预览请求',exact:true}).click();
+ const duplicate=page.getByLabel('本次为新的独立事项，仍需另建请求');if(await duplicate.isVisible())await duplicate.check();
+ const submitted=page.waitForResponse(r=>r.url().endsWith('/api/cases')&&r.request().method()==='POST');
+ await page.getByRole('button',{name:'确认提交',exact:true}).click();
+ const created=await (await submitted).json();expect(created.status).toBe('assigned');
+ await expect(page.getByRole('dialog')).toHaveCount(0);
+ await switchTo(page,'hr01');await openCase(page,title);
+ await page.getByRole('button',{name:'接单并开始处理'}).click();
+ await expect(page.getByRole('button',{name:'创建协同任务'})).toBeVisible();
+ const taskResponse=page.waitForResponse(r=>r.url().includes('/actions/create_task'));
+ await page.getByRole('button',{name:'创建协同任务'}).click();const updated=await(await taskResponse).json();
+ const taskId=updated.tasks.find((t:any)=>t.type==='IT_ACCESS').id;
+ await page.getByLabel('员工可见回复').fill('演示任务待 IT 完成，之后进行结果核对。');
+ await page.getByRole('button',{name:'处理完毕，交员工确认'}).click();
+ await expect(page.getByRole('alert')).toContainText('必需任务未完成');
+ await page.getByRole('button',{name:'关闭错误'}).click();
+ await page.getByRole('button',{name:'关闭',exact:true}).click();
+ await switchTo(page,'it01');
+ const task=page.locator(`[data-task-id="${taskId}"]`);await expect(task).toBeVisible();
+ await task.getByRole('button',{name:'完成演示任务'}).click();await expect(task).toContainText('演示任务已完成');
+ await switchTo(page,'hr01');await openCase(page,title);
+ await page.getByLabel('员工可见回复').fill('相关演示任务已完成，请确认账号准备异常已解决。');
+ await page.getByRole('button',{name:'处理完毕，交员工确认'}).click();await expect(page.locator('.detail-summary')).toContainText('待员工确认');
+ await page.getByRole('button',{name:'关闭',exact:true}).click();
+ await switchTo(page,'emp01');await openCase(page,title);
+ await page.getByRole('button',{name:'确认处理结果',exact:true}).click();await expect(page.locator('.detail-summary')).toContainText('已确认完成');
+ const final=await page.request.get(`/api/cases/${created.id}`);expect((await final.json()).status).toBe('closed');
+ await page.screenshot({path:`${screenshotDir}/employee-confirmation.png`,fullPage:true});
+ expect(errors).toEqual([]);
+});
+test('blocked first submission keeps input and can be corrected; deferred approval keeps material missing',async({page})=>{
+ await login(page,'emp03');
+ const title='浏览器验证：入职信息表延期补交';
+ await page.getByRole('button',{name:'新建服务请求'}).click();
+ await page.getByLabel('办理事项').selectOption('MATERIAL_EXCEPTION');await page.getByLabel('事项说明').fill(title);await page.getByLabel('缺失材料').fill('入职信息表');
+ await page.getByRole('button',{name:'预览请求',exact:true}).click();
+ const duplicate=page.getByLabel('本次为新的独立事项，仍需另建请求');if(await duplicate.isVisible())await duplicate.check();
+ await page.getByRole('button',{name:'确认提交',exact:true}).click();await expect(page.locator('.form-error')).toContainText('预计补充日期');await expect(page.getByLabel('事项说明')).toHaveValue(title);
+ const next=new Date(Date.now()+7*86400000).toISOString().slice(0,10);await page.getByLabel('预计补充日期').fill(next);await page.getByRole('button',{name:'预览请求',exact:true}).click();
+ const response=page.waitForResponse(r=>r.url().endsWith('/api/cases')&&r.request().method()==='POST');await page.getByRole('button',{name:'确认提交',exact:true}).click();const created=await(await response).json();
+ await expect(page.getByRole('dialog')).toHaveCount(0);await switchTo(page,'admin01');await openCase(page,title);await page.getByRole('button',{name:'接单并开始处理'}).click();await expect(page.locator('.detail-summary')).toContainText('处理中');
+ await page.getByLabel('员工可见回复').fill('批准本次延期补交安排，材料仍需按约定日期补齐。');await page.getByLabel('审批原因').fill('已说明材料准备情况，安排人工跟进。');
+ await page.getByRole('button',{name:'处理完毕，交员工确认'}).click();await expect(page.locator('.detail-summary')).toContainText('待员工确认');
+ const final=await page.request.get(`/api/cases/${created.id}`);const result=await final.json();expect(result.materials[0].provided).toBe(false);expect(result.tasks.find((t:any)=>t.type==='MATERIAL_FOLLOWUP').status).toBe('pending');
+});
+test('analytics drill-down, version editor, and mobile layout',async({page})=>{
+ await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();
+ await expect(page.locator('.metric-card').filter({hasText:'一次提交完整率'})).toContainText('%');
+ await page.locator('.metric-card').filter({hasText:'一次提交完整率'}).click();await expect(page.getByRole('dialog')).toContainText('计算明细');await page.getByRole('button',{name:'关闭',exact:true}).click();
+ await page.screenshot({path:`${screenshotDir}/analytics-desktop.png`,fullPage:true});
+ await page.getByRole('link',{name:'制度知识库'}).click();await page.getByRole('button',{name:'新建制度草稿'}).click();await page.getByLabel('制度名称').fill('浏览器验证制度草稿');await page.getByLabel('制度编号').fill('browser-draft');await page.getByRole('button',{name:'预览正文'}).click();await expect(page.locator('.markdown')).toContainText('仅用于作品演示');await page.getByRole('button',{name:'保存草稿'}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.getByText('浏览器验证制度草稿',{exact:true})).toBeVisible();
+ await switchTo(page,'emp02');await page.setViewportSize({width:390,height:844});await expect(page.getByRole('button',{name:'准备什么，去哪报到'})).toBeVisible();
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth);expect(overflow).toBe(false);await page.screenshot({path:`${screenshotDir}/employee-mobile.png`,fullPage:true});
+});

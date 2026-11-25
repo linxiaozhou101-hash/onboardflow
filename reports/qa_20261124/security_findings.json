@@ -1,0 +1,62 @@
+{
+  "scope": "isolated API application security and command rules",
+  "final_parameter_cases": 70,
+  "findings": [
+    {
+      "id": "SEC-01",
+      "severity": "P2",
+      "title": "Non-ASCII security tokens caused HTTP500",
+      "affected": "auth.py user / cases.py submit",
+      "initial_evidence": "security_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-02",
+      "severity": "P3",
+      "title": "Session accepted at exclusive expiry boundary",
+      "affected": "auth.py user",
+      "initial_evidence": "security_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-03",
+      "severity": "P2",
+      "title": "Confirmed self-reported city ignored by assignment/filter/task context",
+      "affected": "cases.py submit/list_cases/add_task",
+      "initial_evidence": "security_initial.txt; security_routing_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-04",
+      "severity": "P2",
+      "title": "Equal-timestamp case timeline ordered by random identifiers",
+      "affected": "cases.py detail",
+      "initial_evidence": "security_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-05",
+      "severity": "P2",
+      "title": "Preview confirmation silently used changed context",
+      "affected": "cases.py submit",
+      "initial_evidence": "security_context_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-06",
+      "severity": "P2",
+      "title": "String confirmation flag coerced to approval true",
+      "affected": "cases.py SubmitBody",
+      "initial_evidence": "security_context_initial.txt",
+      "status": "fixed_and_regression_passed"
+    },
+    {
+      "id": "SEC-07",
+      "severity": "P2",
+      "title": "Business deadline used UTC rather than Shanghai calendar day",
+      "affected": "cases.py missing_fields / resolve",
+      "initial_evidence": "security_context_initial.txt",
+      "status": "fixed_and_regression_passed"
+    }
+  ]
+}

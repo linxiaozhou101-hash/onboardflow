@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="8" time="0.900" timestamp="2026-11-24T21:12:52.074091+08:00" hostname="192.168.1.24"><testcase classname="backend.tests.qa.test_resilience" name="test_slow_provider_does_not_hold_database_write_lock" time="0.249"><failure message="AssertionError: Outbound model wait held SQLite global writer lock, blocking unrelated users&#10;assert not True">clients = (&lt;starlette.testclient.TestClient object at 0x10f6f2e40&gt;, &lt;starlette.testclient.TestClient object at 0x10f5e3ed0&gt;)
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x10f7983e0&gt;
+
+    def test_slow_provider_does_not_hold_database_write_lock(clients,monkeypatch):
+        a,b=clients;started=threading.Event();release=threading.Event()
+        def blocked_provider(*args,**kwargs):
+            started.set();release.wait(3)
+            raise httpx.ReadTimeout('injected slow provider')
+        monkeypatch.setattr(providers.httpx,'post',blocked_provider)
+        with ThreadPoolExecutor(max_workers=1) as pool:
+            future=pool.submit(a.post,'/api/assistant/query',json={'question':'入职需要准备什么材料？'})
+            assert started.wait(2),'provider injection not reached'
+            connection=db.connect();connection.execute('PRAGMA busy_timeout=150')
+            try:
+                try:
+                    connection.execute('BEGIN IMMEDIATE');locked=False;connection.rollback()
+                except sqlite3.OperationalError as exc:
+                    assert 'locked' in str(exc);locked=True
+            finally:
+                connection.close();release.set()
+            response=future.result(timeout=4)
+        assert response.status_code==200,response.text
+        assert response.json()['provider_mode']=='offline_fallback'
+&gt;       assert not locked,'Outbound model wait held SQLite global writer lock, blocking unrelated users'
+E       AssertionError: Outbound model wait held SQLite global writer lock, blocking unrelated users
+E       assert not True
+
+backend/tests/qa/test_resilience.py:46: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[None]" time="0.060" /><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[payload1]" time="0.056" /><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[payload2]" time="0.054" /><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[payload3]" time="0.054" /><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[payload4]" time="0.055" /><testcase classname="backend.tests.qa.test_resilience" name="test_provider_malformed_payload_does_not_break_authoritative_answer[payload5]" time="0.053" /><testcase classname="backend.tests.qa.test_resilience" name="test_same_conversation_cannot_be_claimed_by_two_users_after_slow_call" time="0.057" /></testsuite></testsuites>

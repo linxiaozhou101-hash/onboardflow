@@ -1,0 +1,20 @@
+{
+  "scenario": "R01",
+  "disclaimer": "AI模拟角色与情境，通过真实浏览器操作；不是人类访谈或人类任务耗时",
+  "steps": [
+    {
+      "actor": "员工 emp01（广州正式，手机）",
+      "scene": "报到前一周",
+      "action": "问入职信息表缺失能否补交并查看制度",
+      "observation": "能看到申请须审批、不能视为已获批的说明，并打开引用原文。",
+      "wall_time": "2026-11-24T14:34:44.948Z"
+    },
+    {
+      "actor": "员工 emp01",
+      "scene": "提交申请",
+      "action": "填缺项和预计日期、预览并明确确认新事项",
+      "observation": "未达到预期：Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m409\u001b[39m",
+      "wall_time": "2026-11-24T14:34:45.111Z"
+    }
+  ]
+}

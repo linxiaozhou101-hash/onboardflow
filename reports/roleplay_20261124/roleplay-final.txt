@@ -1,0 +1,24 @@
+
+> onboardflow@1.0.0 test:e2e
+> playwright test --config playwright.roleplay.config.ts
+
+[2m[WebServer] [22mINFO:     Started server process [32843]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)
+
+Running 7 tests using 1 worker
+
+(node:32847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 (3.8s)
+  ✓  2 tests/roleplay/01-material.spec.ts:163:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 (3.3s)
+  ✓  3 tests/roleplay/02-it.spec.ts:40:1 › R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正 (6.2s)
+  ✓  4 tests/roleplay/02-it.spec.ts:223:1 › R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止 (3.3s)
+  ✓  5 tests/roleplay/03-admin.spec.ts:61:1 › R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环 (2.5s)
+  ✓  6 tests/roleplay/03-admin.spec.ts:134:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 (3.0s)
+  ✓  7 tests/roleplay/03-admin.spec.ts:269:1 › R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整 (3.0s)
+
+  7 passed (32.3s)

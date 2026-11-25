@@ -1,0 +1,80 @@
+
+> onboardflow@1.0.0 test:e2e
+> playwright test --config playwright.roleplay.config.ts
+
+[2m[WebServer] [22mINFO:     Started server process [31984]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)
+
+Running 7 tests using 1 worker
+
+(node:31991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31991) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 (5.4s)
+  ✓  2 tests/roleplay/01-material.spec.ts:163:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 (3.4s)
+  ✓  3 tests/roleplay/02-it.spec.ts:40:1 › R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正 (6.5s)
+  ✓  4 tests/roleplay/02-it.spec.ts:223:1 › R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止 (3.3s)
+  ✓  5 tests/roleplay/03-admin.spec.ts:61:1 › R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环 (2.5s)
+Internal error: step id not found: fixture@135Internal error: step id not found: fixture@135Internal error: step id not found: fixture@135
+  ✘  6 tests/roleplay/03-admin.spec.ts:134:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 (10.7s)
+(node:32229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:32229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 tests/roleplay/03-admin.spec.ts:243:1 › R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整 (3.1s)
+
+
+  1) tests/roleplay/03-admin.spec.ts:134:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 › R06 实习生 emp07 · 再次查最新安排并回看旧请求 · 当前回答匹配新版本，同时旧请求打开原版本全文 
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('dialog').last()
+    Expected substring: [32m"3 楼"[39m
+    Received string:    [31m"OF-4A3C999A · 入职咨询待接单拟真R06｜预先确认深圳报到安排，保留当时制度依据HR 将接单确认你的请求当前负责人hr02 · 深圳HR到期时间 11/26 22:43 · 连续自然小时事项信息申请人演示员工07创建时间11/24 22:43深圳报到地点与联系人 v1.0 · section-1深圳实习生入职材料清单 v1.0 · section-1请求进度查询与结果反馈 v1.0 · section-1沟通记录还没有人工回复。处理时间线请求已提交11/24 22:43状态更新待接单11/24 22:43我可以做什么刷新请求补充信息 / 回复发送补充信息发送为主动进度询问取消请求取消原因确认取消请求未完成任务会同时取消。"[39m
+    Timeout: 8000ms
+
+    Call log:
+    [2m  - Expect "toContainText" with timeout 8000ms[22m
+    [2m  - waiting for getByRole('dialog').last()[22m
+    [2m    12 × locator resolved to <div role="dialog" tabindex="-1" aria-modal="true" class="modal wide" aria-label="OF-4A3C999A · 入职咨询">…</div>[22m
+    [2m       - unexpected value "OF-4A3C999A · 入职咨询待接单拟真R06｜预先确认深圳报到安排，保留当时制度依据HR 将接单确认你的请求当前负责人hr02 · 深圳HR到期时间 11/26 22:43 · 连续自然小时事项信息申请人演示员工07创建时间11/24 22:43深圳报到地点与联系人 v1.0 · section-1深圳实习生入职材料清单 v1.0 · section-1请求进度查询与结果反馈 v1.0 · section-1沟通记录还没有人工回复。处理时间线请求已提交11/24 22:43状态更新待接单11/24 22:43我可以做什么刷新请求补充信息 / 回复发送补充信息发送为主动进度询问取消请求取消原因确认取消请求未完成任务会同时取消。"[22m
+
+
+      100 |    await diary.photo(employee.page,'current-citation');await openCase(employee.page,title);
+      101 |    const original=employee.page.getByRole('dialog').locator('.citations button').filter({hasText:'深圳报到地点与联系人'});await original.click();
+    > 102 |    await expect(employee.page.getByRole('dialog').last()).toContainText('v1.0');await expect(employee.page.getByRole('dialog').last()).toContainText('3 楼');
+          |                                                                                                                                        ^
+      103 |    const old=await readCase(employee.page,ca.id);expect(old.policy_snapshot_refs.some((r:any)=>r.article_version_id==='pol-report-sz-v1')).toBe(true);
+      104 |    await diary.photo(employee.page,'historical-citation');return '同一员工的新咨询引用v1.1-roleplay与4楼；旧请求仍打开v1.0与3楼原文，未悄悄改写原办理依据。';
+      105 |   });
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:102:136
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:97:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531387785/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531387785/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531387785/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531387785/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531387785/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests/roleplay/03-admin.spec.ts:134:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 ──────────────────────
+  6 passed (47.3s)

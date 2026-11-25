@@ -1,0 +1,2678 @@
+{
+  "run_at": "2026-11-24T12:49:02.662585+00:00",
+  "dataset_version": "1.0",
+  "family_disjoint_with_acceptance": true,
+  "accuracy": null,
+  "accuracy_note": "Exploratory labels not validated; this report records observations only. No threshold changed by this runner.",
+  "results": [
+    {
+      "test_id": "DEV-001",
+      "family_id": "development-contact-detail",
+      "input": "联系信息确认怎样准备？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-full",
+            "title": "广州正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-full#section-1",
+            "content_hash": "efd3957eda5ad44d4c1b60ccbcb7a64973726eb9998561c7681ea5a16a81a11f",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "联系信息确认怎样准备？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_9a369ac23bc34a0c9254",
+        "conversation_id": "conv_dd1b218cb6bc433c8da0",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-002",
+      "family_id": "development-intern-arrangement",
+      "input": "实习安排确认是什么意思？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n深圳正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-sz-full",
+            "title": "深圳正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n深圳正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-sz-full#section-1",
+            "content_hash": "a0b67963ad9e01ec0224981d277095ca10a57557de48dbf527e2fc8022662a5e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "深圳"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "实习安排确认是什么意思？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_86033859dd65411197aa",
+        "conversation_id": "conv_b2d785a15797426085a5",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-003",
+      "family_id": "development-employment-info",
+      "input": "任职信息确认要准备什么？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-intern",
+            "title": "广州实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-intern#section-1",
+            "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "任职信息确认要准备什么？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_f25a12f491734cc1a74a",
+        "conversation_id": "conv_c5f59f9a11f34783afa4",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-004",
+      "family_id": "development-signin-order",
+      "input": "签到之后去哪里？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-first-week",
+            "title": "入职首周办理流程",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。",
+            "url": "/api/knowledge/pol-first-week#section-1",
+            "content_hash": "8ee0d5dc07a949bbe0b65c32c19780b2c45d08a69ef4166dd1a5d9aacde341cb",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "签到之后去哪里？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_2b60a803abce46d0a935",
+        "conversation_id": "conv_66a5ea49cae1425fb92a",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-005",
+      "family_id": "development-reopen-guidance",
+      "input": "结果不符合预期怎么申请重开？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "结果不符合预期怎么申请重开？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_2296f43f7fad4e768549",
+        "conversation_id": "conv_170bbe42721743efa443",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-006",
+      "family_id": "development-feedback-scale",
+      "input": "员工反馈容易程度如何填写？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "员工反馈容易程度如何填写？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_be9376cbfaa84599867b",
+        "conversation_id": "conv_338a4f967179480993a8",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-007",
+      "family_id": "development-metadata-only",
+      "input": "需要上传真实证件吗？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-intern",
+            "title": "广州实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-intern#section-1",
+            "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "需要上传真实证件吗？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_a854b2d033314c51bb0e",
+        "conversation_id": "conv_ccb83d2e2a3747e78f31",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-008",
+      "family_id": "development-coordination-owner",
+      "input": "谁负责账号设备异常？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。\n\n下一步：预览账号/设备准备异常请求，由 HR 协调 IT 演示任务。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-access-sz",
+            "title": "深圳账号设备准备与异常处理",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。",
+            "url": "/api/knowledge/pol-access-sz#section-1",
+            "content_hash": "b3d3050c0ac1bb5fab5a00b929c6015dc2be98a2c170413898b169ca6567119e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "深圳"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "ACCESS_DEVICE",
+          "fields": {
+            "description": "谁负责账号设备异常？",
+            "device_type": "设备"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_b3559c9c89b843cc8f09",
+        "conversation_id": "conv_6ab555b8f7a7450082cc",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "ACCESS_DEVICE",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-009",
+      "family_id": "development-team-visibility",
+      "input": "哪里能看请求的处理团队？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "哪里能看请求的处理团队？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_7542a034177541d5b69a",
+        "conversation_id": "conv_e48aafd0e00149db8ee4",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-010",
+      "family_id": "development-unknown-defer-date",
+      "input": "补交日期还不确定该怎么处理？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。\n\n下一步：填写缺项和预计补交日期，预览并确认申请。允许申请不代表已获批准；材料保持缺失，须等待 HR 决定。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-exception-full",
+            "title": "正式员工材料补交申请路径",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。",
+            "url": "/api/knowledge/pol-exception-full#section-1",
+            "content_hash": "46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "MATERIAL_EXCEPTION",
+          "fields": {
+            "description": "补交日期还不确定该怎么处理？",
+            "missing_item": "",
+            "expected_date": ""
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_b71b592ee1944a51a1c9",
+        "conversation_id": "conv_1f260f0a2f6d4cb78369",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "MATERIAL_EXCEPTION",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-011",
+      "family_id": "development-contact-detail",
+      "input": "联系信息确认怎样准备？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-intern",
+            "title": "广州实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-intern#section-1",
+            "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "联系信息确认怎样准备？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_45e877a872244a2d901c",
+        "conversation_id": "conv_713c05ffe0594144ad66",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-012",
+      "family_id": "development-intern-arrangement",
+      "input": "实习安排确认是什么意思？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n深圳实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-sz-intern",
+            "title": "深圳实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n深圳实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-sz-intern#section-1",
+            "content_hash": "14773a90acdb956551b26a37b955647feb61e7a488d6c572ac4b7c8059407d21",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "深圳"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "实习安排确认是什么意思？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_bf2bab42fa1c43bb835f",
+        "conversation_id": "conv_9ac7aa34f0bb42888cf3",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-013",
+      "family_id": "development-employment-info",
+      "input": "任职信息确认要准备什么？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-full",
+            "title": "广州正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-full#section-1",
+            "content_hash": "efd3957eda5ad44d4c1b60ccbcb7a64973726eb9998561c7681ea5a16a81a11f",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "任职信息确认要准备什么？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_1254e6eec55c45f28066",
+        "conversation_id": "conv_b6cae38d720b4686a4eb",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-014",
+      "family_id": "development-signin-order",
+      "input": "签到之后去哪里？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-first-week",
+            "title": "入职首周办理流程",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。",
+            "url": "/api/knowledge/pol-first-week#section-1",
+            "content_hash": "8ee0d5dc07a949bbe0b65c32c19780b2c45d08a69ef4166dd1a5d9aacde341cb",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "签到之后去哪里？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_6fdd2f08ba01471f8345",
+        "conversation_id": "conv_25c67390c7054249ae79",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-015",
+      "family_id": "development-reopen-guidance",
+      "input": "结果不符合预期怎么申请重开？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "结果不符合预期怎么申请重开？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_0bff6a62f9434a8597ee",
+        "conversation_id": "conv_05a5f4ba24ef4e96b762",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-016",
+      "family_id": "development-feedback-scale",
+      "input": "员工反馈容易程度如何填写？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "员工反馈容易程度如何填写？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_e87eccbb5b4c48e28414",
+        "conversation_id": "conv_252a5d49ef7143e3971e",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-017",
+      "family_id": "development-metadata-only",
+      "input": "需要上传真实证件吗？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-full",
+            "title": "广州正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-full#section-1",
+            "content_hash": "efd3957eda5ad44d4c1b60ccbcb7a64973726eb9998561c7681ea5a16a81a11f",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "需要上传真实证件吗？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_4daa4b84b7874749bcbb",
+        "conversation_id": "conv_884584b5997b4c749364",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-018",
+      "family_id": "development-coordination-owner",
+      "input": "谁负责账号设备异常？",
+      "http_status": 200,
+      "observed": {
+        "action": "show_status",
+        "answer_text": "找到你已有的账号/设备准备请求。以下状态直接来自本地数据库，请先查看进度；有不同的新事项仍可创建请求。",
+        "required_context_fields": [],
+        "citation_refs": [],
+        "draft_case": {
+          "category": "ACCESS_DEVICE",
+          "fields": {
+            "description": "谁负责账号设备异常？"
+          }
+        },
+        "reason_code": "existing_case",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_df7cdc19e7a142b1a233",
+        "conversation_id": "conv_fea0692cf8eb4e22b619",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "ACCESS_DEVICE",
+        "checklist": [],
+        "cases": [
+          {
+            "id": "demo_case_050",
+            "case_number": "OF-DEMO-050",
+            "status": "waiting_employee",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-20T04:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_49",
+                "type": "IT_ACCESS",
+                "status": "pending",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工补充信息"
+          },
+          {
+            "id": "demo_case_002",
+            "case_number": "OF-DEMO-002",
+            "status": "waiting_employee",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-20T03:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_1",
+                "type": "IT_ACCESS",
+                "status": "pending",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工补充信息"
+          },
+          {
+            "id": "demo_case_026",
+            "case_number": "OF-DEMO-026",
+            "status": "waiting_employee",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-20T00:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_25",
+                "type": "IT_ACCESS",
+                "status": "pending",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工补充信息"
+          },
+          {
+            "id": "demo_case_008",
+            "case_number": "OF-DEMO-008",
+            "status": "in_progress",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-14T12:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_7",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待 HR 经办人处理"
+          },
+          {
+            "id": "demo_case_032",
+            "case_number": "OF-DEMO-032",
+            "status": "in_progress",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-14T09:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_31",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待 HR 经办人处理"
+          },
+          {
+            "id": "demo_case_056",
+            "case_number": "OF-DEMO-056",
+            "status": "in_progress",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-14T06:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_55",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待 HR 经办人处理"
+          },
+          {
+            "id": "demo_case_038",
+            "case_number": "OF-DEMO-038",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-10T12:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_37",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          },
+          {
+            "id": "demo_case_062",
+            "case_number": "OF-DEMO-062",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-10T09:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_61",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          },
+          {
+            "id": "demo_case_014",
+            "case_number": "OF-DEMO-014",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-10T08:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_13",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          },
+          {
+            "id": "demo_case_044",
+            "case_number": "OF-DEMO-044",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-02T09:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_43",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          },
+          {
+            "id": "demo_case_068",
+            "case_number": "OF-DEMO-068",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-02T06:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_67",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          },
+          {
+            "id": "demo_case_020",
+            "case_number": "OF-DEMO-020",
+            "status": "resolved",
+            "assigned_group": "深圳HR",
+            "assigned_to": "hr02",
+            "updated_at": "2026-11-02T05:00:00+00:00",
+            "tasks": [
+              {
+                "id": "seed_task_19",
+                "type": "IT_ACCESS",
+                "status": "completed",
+                "required": 1
+              }
+            ],
+            "blocker": "等待员工确认结果"
+          }
+        ],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-019",
+      "family_id": "development-team-visibility",
+      "input": "哪里能看请求的处理团队？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "哪里能看请求的处理团队？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_fe257829924c47739a44",
+        "conversation_id": "conv_1010c457256d43a7b5de",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-020",
+      "family_id": "development-unknown-defer-date",
+      "input": "补交日期还不确定该怎么处理？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。\n\n下一步：填写缺项和预计补交日期，预览并确认申请。允许申请不代表已获批准；材料保持缺失，须等待 HR 决定。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-exception-intern",
+            "title": "实习生材料补交申请路径",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。",
+            "url": "/api/knowledge/pol-exception-intern#section-1",
+            "content_hash": "46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "MATERIAL_EXCEPTION",
+          "fields": {
+            "description": "补交日期还不确定该怎么处理？",
+            "missing_item": "",
+            "expected_date": ""
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_7f3ab63e065e48d9b1d5",
+        "conversation_id": "conv_f3294b8b01024090b1c9",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "MATERIAL_EXCEPTION",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-021",
+      "family_id": "development-contact-detail",
+      "input": "联系信息确认怎样准备？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-full",
+            "title": "广州正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-full#section-1",
+            "content_hash": "efd3957eda5ad44d4c1b60ccbcb7a64973726eb9998561c7681ea5a16a81a11f",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "联系信息确认怎样准备？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_55bd4a14fbc245819472",
+        "conversation_id": "conv_ade7aabb81a84d2481eb",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-022",
+      "family_id": "development-intern-arrangement",
+      "input": "实习安排确认是什么意思？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n深圳正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-sz-full",
+            "title": "深圳正式员工入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n深圳正式员工应准备：入职信息表、联系信息确认、任职信息确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-sz-full#section-1",
+            "content_hash": "a0b67963ad9e01ec0224981d277095ca10a57557de48dbf527e2fc8022662a5e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "深圳"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "实习安排确认是什么意思？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_55d46a11dd724af08d60",
+        "conversation_id": "conv_303454f8b01a48a8923f",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-023",
+      "family_id": "development-employment-info",
+      "input": "任职信息确认要准备什么？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-intern",
+            "title": "广州实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-intern#section-1",
+            "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "任职信息确认要准备什么？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_c0e916dba0054ee78785",
+        "conversation_id": "conv_d3a6a7e6eda443849e4b",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-024",
+      "family_id": "development-signin-order",
+      "input": "签到之后去哪里？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-first-week",
+            "title": "入职首周办理流程",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n第一天报到签到、核对材料并查看账号设备准备情况；首周遇到流程问题可向 HR 提交一般入职咨询请求。",
+            "url": "/api/knowledge/pol-first-week#section-1",
+            "content_hash": "8ee0d5dc07a949bbe0b65c32c19780b2c45d08a69ef4166dd1a5d9aacde341cb",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "签到之后去哪里？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_1cbbc46649f242089ccc",
+        "conversation_id": "conv_524525d2e25b4f67b40d",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-025",
+      "family_id": "development-reopen-guidance",
+      "input": "结果不符合预期怎么申请重开？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "结果不符合预期怎么申请重开？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_fcf811dd1b424bdcbb73",
+        "conversation_id": "conv_30c39f9adb724a66b15f",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-026",
+      "family_id": "development-feedback-scale",
+      "input": "员工反馈容易程度如何填写？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "员工反馈容易程度如何填写？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_41dafa5624c94385b269",
+        "conversation_id": "conv_994e68f6b6c540e28b86",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-027",
+      "family_id": "development-metadata-only",
+      "input": "需要上传真实证件吗？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 实习生。\n\n办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-material-gz-intern",
+            "title": "广州实习生入职材料清单",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n广州实习生应准备：入职信息表、联系信息确认、实习安排确认。只记录是否准备好，不上传真实证件。",
+            "url": "/api/knowledge/pol-material-gz-intern#section-1",
+            "content_hash": "4c1478857a251ebb46bcdf366a17554be14963c41b5064346807b5a41f9e8c4e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "广州"
+            ],
+            "employment_types": [
+              "实习生"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "需要上传真实证件吗？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_4c65c77d8b224be2b861",
+        "conversation_id": "conv_75150b2fa0404a7cb971",
+        "context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-028",
+      "family_id": "development-coordination-owner",
+      "input": "谁负责账号设备异常？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 实习生。\n\n办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。\n\n下一步：预览账号/设备准备异常请求，由 HR 协调 IT 演示任务。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-access-sz",
+            "title": "深圳账号设备准备与异常处理",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n账号、邮箱或电脑设备尚未准备好时，先查看已有请求。没有记录时提交异常，由 HR 负责协调 IT；完成结果仅为“演示任务已完成”，不代表真实账号开通。",
+            "url": "/api/knowledge/pol-access-sz#section-1",
+            "content_hash": "b3d3050c0ac1bb5fab5a00b929c6015dc2be98a2c170413898b169ca6567119e",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "深圳"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "ACCESS_DEVICE",
+          "fields": {
+            "description": "谁负责账号设备异常？",
+            "device_type": "设备"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_d5dd02d2ea444ea1b757",
+        "conversation_id": "conv_360b3059c7dc43e7b2a2",
+        "context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "实习生",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "ACCESS_DEVICE",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "internship_arrangement",
+            "label": "实习安排确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-029",
+      "family_id": "development-team-visibility",
+      "input": "哪里能看请求的处理团队？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：广州 / 正式员工。\n\n办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。\n\n下一步：对照适用清单准备；信息有误或存在异常时，可创建请求请 HR 核对。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-feedback",
+            "title": "请求进度查询与结果反馈",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n员工可在我的请求查看处理团队、缺项和下一步。HR 给出结果后员工确认完成，也可说明原因申请重开。请反馈容易程度 1–5 分和问题是否解决。",
+            "url": "/api/knowledge/pol-feedback#section-1",
+            "content_hash": "99e7b582efd7b77692e6cde5a9db6868ff90b0705dcde57998b1dfc0c8c137a9",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "*"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "GENERAL_ONBOARDING",
+          "fields": {
+            "description": "哪里能看请求的处理团队？"
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_35c3e51efd1c4fc5ba29",
+        "conversation_id": "conv_202178f7c14d418390b8",
+        "context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "广州",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "GENERAL_ONBOARDING",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    },
+    {
+      "test_id": "DEV-030",
+      "family_id": "development-unknown-defer-date",
+      "input": "补交日期还不确定该怎么处理？",
+      "http_status": 200,
+      "observed": {
+        "action": "answer",
+        "answer_text": "按计划入职日 2026-12-01 匹配：深圳 / 正式员工。\n\n办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。\n\n下一步：填写缺项和预计补交日期，预览并确认申请。允许申请不代表已获批准；材料保持缺失，须等待 HR 决定。",
+        "required_context_fields": [],
+        "citation_refs": [
+          {
+            "article_version_id": "pol-exception-full",
+            "title": "正式员工材料补交申请路径",
+            "version": "1.0",
+            "section_id": "section-1",
+            "excerpt": "办理说明\n缺失材料时可填写缺失项、原因和预计补交日期，提交 HR 审批。HR 可批准本次延期安排或拒绝申请；未经审批不能视作已获批准。延期获批不代表材料已收齐，员工仍需补交。",
+            "url": "/api/knowledge/pol-exception-full#section-1",
+            "content_hash": "46025841b743fe5452b8946d1af40c85dc76ef67cd492e8ef1e43d399765ec30",
+            "effective_from": "2026-01-01",
+            "effective_to": null,
+            "cities": [
+              "*"
+            ],
+            "employment_types": [
+              "正式员工"
+            ]
+          }
+        ],
+        "draft_case": {
+          "category": "MATERIAL_EXCEPTION",
+          "fields": {
+            "description": "补交日期还不确定该怎么处理？",
+            "missing_item": "",
+            "expected_date": ""
+          }
+        },
+        "reason_code": "supported",
+        "provider_mode": "offline",
+        "retrieval_trace_id": "trace_63d6e9c1bcd0437bbfb8",
+        "conversation_id": "conv_7cd73c0332824adc8421",
+        "context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "query_context": {
+          "city": "深圳",
+          "employment_type": "正式员工",
+          "planned_start_date": "2026-12-01",
+          "source": {
+            "city": "verified_profile",
+            "employment_type": "verified_profile",
+            "planned_start_date": "verified_profile"
+          }
+        },
+        "category": "MATERIAL_EXCEPTION",
+        "checklist": [
+          {
+            "code": "onboarding_form",
+            "label": "入职信息表",
+            "provided": false
+          },
+          {
+            "code": "contact_confirmation",
+            "label": "联系信息确认",
+            "provided": false
+          },
+          {
+            "code": "employment_information",
+            "label": "任职信息确认",
+            "provided": false
+          }
+        ],
+        "cases": [],
+        "provider_failure": null,
+        "remote_summary_draft": null,
+        "provider_note": null
+      },
+      "label_validation": "pending_human_review"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "dataset": "xingzhou-synthetic-v1",
+  "data_origin": "demo",
+  "company": "星舟科技（模拟企业）",
+  "fixed_reference_time": "2026-11-24T02:00:00+00:00",
+  "employees": 8,
+  "hr_handlers": 2,
+  "hr_admins": 1,
+  "it_handlers": 2,
+  "policy_versions": 16,
+  "historical_cases": 72,
+  "generator": "backend/app/seed.py",
+  "determinism": "固定构造，无随机抽样，已有数据库不重复初始化",
+  "warning": "全部为模拟数据；不代表真实企业、真实工作量或业务收益"
+}

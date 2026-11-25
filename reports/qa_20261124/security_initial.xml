@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="13" skipped="0" tests="64" time="3.867" timestamp="2026-11-24T21:12:40.234598+08:00" hostname="192.168.1.24"><testcase classname="backend.tests.qa.test_security" name="test_cross_object_read_write_denials_leave_no_side_effects[emp02]" time="0.100" /><testcase classname="backend.tests.qa.test_security" name="test_cross_object_read_write_denials_leave_no_side_effects[hr02]" time="0.074" /><testcase classname="backend.tests.qa.test_security" name="test_cross_object_read_write_denials_leave_no_side_effects[it01]" time="0.074" /><testcase classname="backend.tests.qa.test_security" name="test_staff_only_apis_deny_employee_and_it[emp01]" time="0.050" /><testcase classname="backend.tests.qa.test_security" name="test_staff_only_apis_deny_employee_and_it[it01]" time="0.049" /><testcase classname="backend.tests.qa.test_security" name="test_only_assigned_it_can_complete_tasks[emp01]" time="0.060" /><testcase classname="backend.tests.qa.test_security" name="test_only_assigned_it_can_complete_tasks[hr01]" time="0.058" /><testcase classname="backend.tests.qa.test_security" name="test_only_assigned_it_can_complete_tasks[admin01]" time="0.059" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-assigned]" time="0.056"><failure message="AssertionError: assert 'assigned' == 'in_progress'&#10;  &#10;  - in_progress&#10;  + assigned">client = &lt;starlette.testclient.TestClient object at 0x10fca5150&gt;
+state = 'assigned', command = 'accept'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+&gt;           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'in_progress'
+E             
+E             - in_progress
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-in_progress]" time="0.056" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-waiting_employee]" time="0.055" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-resolved]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-closed]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[accept-cancelled]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-assigned]" time="0.056" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-in_progress]" time="0.057"><failure message="AssertionError: assert 'assigned' == 'waiting_employee'&#10;  &#10;  - waiting_employee&#10;  + assigned">client = &lt;starlette.testclient.TestClient object at 0x10fde56a0&gt;
+state = 'in_progress', command = 'ask_employee'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+&gt;           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'waiting_employee'
+E             
+E             - waiting_employee
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-waiting_employee]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-resolved]" time="0.056" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-closed]" time="0.055" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[ask_employee-cancelled]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-assigned]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-in_progress]" time="0.054"><failure message="AssertionError: assert 'assigned' == 'resolved'&#10;  &#10;  - resolved&#10;  + assigned">client = &lt;starlette.testclient.TestClient object at 0x10ff3c380&gt;
+state = 'in_progress', command = 'resolve'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+&gt;           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'resolved'
+E             
+E             - resolved
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-waiting_employee]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-resolved]" time="0.052" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-closed]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[resolve-cancelled]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-assigned]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-in_progress]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-waiting_employee]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-resolved]" time="0.054"><failure message="AssertionError: assert 'assigned' == 'closed'&#10;  &#10;  - closed&#10;  + assigned">client = &lt;starlette.testclient.TestClient object at 0x10ffabf00&gt;
+state = 'resolved', command = 'confirm'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+&gt;           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'closed'
+E             
+E             - closed
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-closed]" time="0.068" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[confirm-cancelled]" time="0.055" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-assigned]" time="0.053" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-in_progress]" time="0.053" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-waiting_employee]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-resolved]" time="0.053" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-closed]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[reopen-cancelled]" time="0.055" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-assigned]" time="0.053" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-in_progress]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-waiting_employee]" time="0.054"><failure message="AssertionError: assert 'assigned' == 'cancelled'&#10;  &#10;  - cancelled&#10;  + assigned">client = &lt;starlette.testclient.TestClient object at 0x1101d99d0&gt;
+state = 'waiting_employee', command = 'cancel'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+&gt;           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'cancelled'
+E             
+E             - cancelled
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-resolved]" time="0.053" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-closed]" time="0.054" /><testcase classname="backend.tests.qa.test_security" name="test_requirement_state_transition_matrix[cancel-cancelled]" time="0.052" /><testcase classname="backend.tests.qa.test_security" name="test_unicode_csrf_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c]" time="0.071"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 403&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x11028de10&gt;
+bad_token = '中文令牌'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+&gt;       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_unicode_csrf_token_is_clean_denial_not_server_error[\xe9]" time="0.048"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 403&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x1101db680&gt;
+bad_token = 'é'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+&gt;       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_unicode_csrf_token_is_clean_denial_not_server_error[\u200b]" time="0.049"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 403&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x1101d9bf0&gt;
+bad_token = '\u200b'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+&gt;       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_unicode_confirmation_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c]" time="0.046"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 400&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x11007ff00&gt;
+bad_token = '中文令牌'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+&gt;       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_unicode_confirmation_token_is_clean_denial_not_server_error[\xe9]" time="0.046"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 400&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x11007f240&gt;
+bad_token = 'é'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+&gt;       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_unicode_confirmation_token_is_clean_denial_not_server_error[\u200b]" time="0.046"><failure message="AssertionError: Internal Server Error&#10;assert 500 == 400&#10; +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code">client = &lt;starlette.testclient.TestClient object at 0x11007e140&gt;
+bad_token = '\u200b'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+&gt;       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = &lt;Response [500 Internal Server Error]&gt;.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_session_expiry_boundary_is_exclusive[elapsed0]" time="0.043"><failure message="AssertionError: assert 200 == 401&#10; +  where 200 = &lt;Response [200 OK]&gt;.status_code&#10; +    where &lt;Response [200 OK]&gt; = get('/api/me')&#10; +      where get = &lt;starlette.testclient.TestClient object at 0x11007c8d0&gt;.get">client = &lt;starlette.testclient.TestClient object at 0x11007c8d0&gt;
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x110259390&gt;
+elapsed = datetime.timedelta(seconds=43200)
+
+    @pytest.mark.parametrize('elapsed',[timedelta(hours=12),timedelta(hours=12,seconds=1)])
+    def test_session_expiry_boundary_is_exclusive(client,monkeypatch,elapsed):
+        login(client);monkeypatch.setattr(db,'_clock',lambda:STAMP+elapsed)
+&gt;       assert client.get('/api/me').status_code==401
+E       AssertionError: assert 200 == 401
+E        +  where 200 = &lt;Response [200 OK]&gt;.status_code
+E        +    where &lt;Response [200 OK]&gt; = get('/api/me')
+E        +      where get = &lt;starlette.testclient.TestClient object at 0x11007c8d0&gt;.get
+
+backend/tests/qa/test_security.py:131: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_session_expiry_boundary_is_exclusive[elapsed1]" time="0.042" /><testcase classname="backend.tests.qa.test_security" name="test_logout_invalidates_saved_cookie_and_csrf" time="0.048" /><testcase classname="backend.tests.qa.test_security" name="test_outer_mass_assignment_cannot_override_identity_or_status[role-admin]" time="0.042" /><testcase classname="backend.tests.qa.test_security" name="test_outer_mass_assignment_cannot_override_identity_or_status[requester_id-emp02]" time="0.041" /><testcase classname="backend.tests.qa.test_security" name="test_outer_mass_assignment_cannot_override_identity_or_status[status-resolved]" time="0.041" /><testcase classname="backend.tests.qa.test_security" name="test_outer_mass_assignment_cannot_override_identity_or_status[policy_snapshot_refs-value3]" time="0.043" /><testcase classname="backend.tests.qa.test_security" name="test_malformed_business_field_persists_failed_confirmation_without_500[value0]" time="0.047" /><testcase classname="backend.tests.qa.test_security" name="test_malformed_business_field_persists_failed_confirmation_without_500[value1]" time="0.046" /><testcase classname="backend.tests.qa.test_security" name="test_malformed_business_field_persists_failed_confirmation_without_500[1]" time="0.046" /><testcase classname="backend.tests.qa.test_security" name="test_malformed_business_field_persists_failed_confirmation_without_500[True]" time="0.046" /><testcase classname="backend.tests.qa.test_security" name="test_self_reported_shenzhen_case_routes_to_shenzhen_hr" time="0.050"><failure message="AssertionError: assert ('广州HR' == '深圳HR'&#10;  &#10;  - 深圳HR&#10;  + 广州HR)">client = &lt;starlette.testclient.TestClient object at 0x10fba6690&gt;
+
+    def test_self_reported_shenzhen_case_routes_to_shenzhen_hr(client):
+        c=client;login(c,'emp07')
+        r=c.post('/api/assistant/context',json={'city':'深圳','planned_start_date':'2026-12-01'});assert r.status_code==200
+        ca=submit(c,draft(c)).json()
+        assert ca['context_source']['city']=='深圳'
+&gt;       assert ca['assigned_group']=='深圳HR' and ca['assigned_to']=='hr02'
+E       AssertionError: assert ('广州HR' == '深圳HR'
+E         
+E         - 深圳HR
+E         + 广州HR)
+
+backend/tests/qa/test_security.py:161: AssertionError</failure></testcase><testcase classname="backend.tests.qa.test_security" name="test_concurrent_invalid_retry_is_one_attempt_then_fresh_confirm_is_second" time="0.093" /><testcase classname="backend.tests.qa.test_security" name="test_approval_then_reopen_rejection_preserves_real_material_truth" time="0.078" /></testsuite></testsuites>

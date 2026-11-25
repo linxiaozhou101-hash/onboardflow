@@ -1,0 +1,20 @@
+{
+  "scenario": "R02",
+  "disclaimer": "AI模拟角色与情境，通过真实浏览器操作；不是人类访谈或人类任务耗时",
+  "steps": [
+    {
+      "actor": "实习生 emp03",
+      "scene": "入职前遇到材料异常",
+      "action": "查询实习生材料后创建补交申请",
+      "observation": "请求OF-4E79B103已分派广州HR，实习安排确认仍缺失。",
+      "wall_time": "2026-11-24T14:34:46.774Z"
+    },
+    {
+      "actor": "HR hr01",
+      "scene": "首次审查",
+      "action": "解释暂不批准原因并给出可执行下一步",
+      "observation": "未达到预期：TimeoutError: locator.selectOption: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('补交审批结果', { exact: true })\u001b[22m\n",
+      "wall_time": "2026-11-24T14:34:59.112Z"
+    }
+  ]
+}

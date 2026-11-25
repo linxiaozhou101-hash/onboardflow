@@ -1,0 +1,170 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.qa.config.ts",
+    "rootDir": "<repo>/frontend/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/qa_20261124/browser-artifacts-1795526487013",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8003",
+      "url": "http://127.0.0.1:8003/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-qa-browser-29337.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8003"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "qa/exploratory.spec.ts",
+      "file": "qa/exploratory.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "QA-UI-14 calendar filter and CSV export use Shanghai midnight with explicit exclusive end",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 555,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"2026-11-01\u001b[7mT00:00:00+08:00\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"2026-11-01\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"2026-11-01\u001b[7mT00:00:00+08:00\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"2026-11-01\"\u001b[39m\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:87:67",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 67,
+                      "line": 87
+                    },
+                    "snippet": "  85 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();\n  86 |  const request=page.waitForRequest(r=>r.url().includes('/api/analytics/summary?')&&r.url().includes('start='));await page.getByLabel('开始日期').fill('2026-11-01');\n> 87 |  expect(new URL((await request).url()).searchParams.get('start')).toBe('2026-11-01T00:00:00+08:00');\n     |                                                                   ^\n  88 |  await page.getByLabel('结束日期（不含）',{exact:true}).fill('2026-11-02');await expect(page.locator('.metric-card').first()).toBeVisible();\n  89 |  const href=await page.getByRole('link',{name:'导出记录'}).getAttribute('href');const url=new URL(href!,'http://127.0.0.1:8003');expect(url.searchParams.get('end')).toBe('2026-11-02T00:00:00+08:00');expect(url.searchParams.get('start')).toBe('2026-11-01T00:00:00+08:00');\n  90 |  const response=await page.request.get(url.href);expect(response.status()).toBe(200);expect(response.headers()['content-type']).toContain('text/csv');"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 67,
+                        "line": 87
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"2026-11-01\u001b[7mT00:00:00+08:00\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"2026-11-01\"\u001b[39m\n\n  85 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();\n  86 |  const request=page.waitForRequest(r=>r.url().includes('/api/analytics/summary?')&&r.url().includes('start='));await page.getByLabel('开始日期').fill('2026-11-01');\n> 87 |  expect(new URL((await request).url()).searchParams.get('start')).toBe('2026-11-01T00:00:00+08:00');\n     |                                                                   ^\n  88 |  await page.getByLabel('结束日期（不含）',{exact:true}).fill('2026-11-02');await expect(page.locator('.metric-card').first()).toBeVisible();\n  89 |  const href=await page.getByRole('link',{name:'导出记录'}).getAttribute('href');const url=new URL(href!,'http://127.0.0.1:8003');expect(url.searchParams.get('end')).toBe('2026-11-02T00:00:00+08:00');expect(url.searchParams.get('start')).toBe('2026-11-01T00:00:00+08:00');\n  90 |  const response=await page.request.get(url.href);expect(response.status()).toBe(200);expect(response.headers()['content-type']).toContain('text/csv');\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:87:67"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:21:28.257Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts-1795526488246/qa-exploratory-QA-UI-14-ca-c03eb-with-explicit-exclusive-end/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts-1795526488246/qa-exploratory-QA-UI-14-ca-c03eb-with-explicit-exclusive-end/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts-1795526488246/qa-exploratory-QA-UI-14-ca-c03eb-with-explicit-exclusive-end/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 67,
+                    "line": 87
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "9edb8749b6df2c627cd6-e8a72936d30effa04a1d",
+          "file": "qa/exploratory.spec.ts",
+          "line": 385,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T13:21:27.016Z",
+    "duration": 2142.278,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

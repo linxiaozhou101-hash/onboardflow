@@ -1,0 +1,448 @@
+{
+  "source_database": "<tmp>/onboardflow-roleplay-32842.sqlite3",
+  "captured_at": "2026-11-24T14:52:10.886021+00:00",
+  "method": "Read-only SQLite after UI scenarios; no business writes or clock changes by this audit. All inputs and ratings synthetic.",
+  "cases": [
+    {
+      "id": "case_44a51a276a70466fb5a5",
+      "case_number": "OF-466FB5A5",
+      "requester_id": "emp01",
+      "category": "MATERIAL_EXCEPTION",
+      "status": "closed",
+      "resolution_code": "approved_deferred",
+      "assigned_to": "hr01",
+      "description": "R01拟真：联系信息待确认，入职信息表申请延期",
+      "reopen_count": 0,
+      "due_at": "2026-11-26T14:51:09.766540+00:00",
+      "created_at": "2026-11-24T14:51:09.766540+00:00",
+      "latest_resolved_at": "2026-11-24T14:51:11.225416+00:00",
+      "closed_at": "2026-11-24T14:51:11.764150+00:00"
+    },
+    {
+      "id": "case_b23de098eba940429974",
+      "case_number": "OF-40429974",
+      "requester_id": "emp03",
+      "category": "MATERIAL_EXCEPTION",
+      "status": "closed",
+      "resolution_code": "approved_deferred",
+      "assigned_to": "hr01",
+      "description": "R02拟真：实习安排未最终确认，申请补交",
+      "reopen_count": 1,
+      "due_at": "2026-11-26T14:51:13.521722+00:00",
+      "created_at": "2026-11-24T14:51:13.521722+00:00",
+      "latest_resolved_at": "2026-11-24T14:51:15.221345+00:00",
+      "closed_at": "2026-11-24T14:51:15.401248+00:00"
+    },
+    {
+      "id": "case_4265c163bfed4b64afc8",
+      "case_number": "OF-4B64AFC8",
+      "requester_id": "emp02",
+      "category": "ACCESS_DEVICE",
+      "status": "closed",
+      "resolution_code": "answered",
+      "assigned_to": "hr02",
+      "description": "拟真R03｜深圳首日：办公账号和Windows演示电脑都未准备，项目培训即将开始",
+      "reopen_count": 1,
+      "due_at": "2026-11-25T14:51:17.155811+00:00",
+      "created_at": "2026-11-24T14:51:17.155811+00:00",
+      "latest_resolved_at": "2026-11-24T14:51:20.987916+00:00",
+      "closed_at": "2026-11-24T14:51:21.171768+00:00"
+    },
+    {
+      "id": "case_0cf9feb6f1b9402999ed",
+      "case_number": "OF-402999ED",
+      "requester_id": "emp06",
+      "category": "ACCESS_DEVICE",
+      "status": "cancelled",
+      "resolution_code": null,
+      "assigned_to": "hr02",
+      "description": "拟真R04｜深圳备用培训场地需要临时账号和演示电脑，后续安排可能调整",
+      "reopen_count": 0,
+      "due_at": "2026-11-25T14:51:23.239063+00:00",
+      "created_at": "2026-11-24T14:51:23.239063+00:00",
+      "latest_resolved_at": null,
+      "closed_at": null
+    },
+    {
+      "id": "case_c587968a410444f2ad14",
+      "case_number": "OF-44F2AD14",
+      "requester_id": "emp07",
+      "category": "GENERAL_ONBOARDING",
+      "status": "closed",
+      "resolution_code": "answered",
+      "assigned_to": "hr02",
+      "description": "拟真R05｜实习入职前：请深圳HR确认报到楼层、时间和联系人",
+      "reopen_count": 0,
+      "due_at": "2026-11-26T14:51:26.431129+00:00",
+      "created_at": "2026-11-24T14:51:26.431129+00:00",
+      "latest_resolved_at": "2026-11-24T14:51:27.317617+00:00",
+      "closed_at": "2026-11-24T14:51:27.499230+00:00"
+    },
+    {
+      "id": "case_23561341a7724c0c8468",
+      "case_number": "OF-4C0C8468",
+      "requester_id": "emp07",
+      "category": "GENERAL_ONBOARDING",
+      "status": "assigned",
+      "resolution_code": null,
+      "assigned_to": "hr02",
+      "description": "拟真R06｜预先确认深圳报到安排，保留当时制度依据",
+      "reopen_count": 0,
+      "due_at": "2026-11-26T14:51:28.841913+00:00",
+      "created_at": "2026-11-24T14:51:28.841913+00:00",
+      "latest_resolved_at": null,
+      "closed_at": null
+    },
+    {
+      "id": "case_7371b942953047359c28",
+      "case_number": "OF-47359C28",
+      "requester_id": "emp06",
+      "category": "GENERAL_ONBOARDING",
+      "status": "resolved",
+      "resolution_code": "answered",
+      "assigned_to": "hr02",
+      "description": "拟真R07｜赶时间漏填说明后补全：请HR确认深圳报到联系人",
+      "reopen_count": 0,
+      "due_at": "2026-11-26T14:51:32.135720+00:00",
+      "created_at": "2026-11-24T14:51:32.135720+00:00",
+      "latest_resolved_at": "2026-11-24T14:51:32.538775+00:00",
+      "closed_at": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task_940a7c1971e24fa1aba3",
+      "case_id": "case_44a51a276a70466fb5a5",
+      "type": "MATERIAL_FOLLOWUP",
+      "assignee_id": "hr01",
+      "status": "completed",
+      "required": 0,
+      "dependency_task_ids": [],
+      "due_at": "2026-12-01T15:59:59+00:00",
+      "completed_at": "2026-11-24T14:51:11.981535+00:00",
+      "minimal_context": {
+        "city": "广州",
+        "id": "emp01",
+        "instruction": "跟进材料元信息",
+        "name": "演示员工01",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    },
+    {
+      "id": "task_a43766270efa4513854a",
+      "case_id": "case_b23de098eba940429974",
+      "type": "MATERIAL_FOLLOWUP",
+      "assignee_id": "hr01",
+      "status": "pending",
+      "required": 0,
+      "dependency_task_ids": [],
+      "due_at": "2026-11-29T15:59:59+00:00",
+      "completed_at": null,
+      "minimal_context": {
+        "city": "广州",
+        "id": "emp03",
+        "instruction": "跟进材料元信息",
+        "name": "演示员工03",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 1
+    },
+    {
+      "id": "task_990f30afd5c445c4988a",
+      "case_id": "case_4265c163bfed4b64afc8",
+      "type": "IT_ACCESS",
+      "assignee_id": "it01",
+      "status": "completed",
+      "required": 1,
+      "dependency_task_ids": [],
+      "due_at": "2026-11-25T14:51:17.155811+00:00",
+      "completed_at": "2026-11-24T14:51:18.952354+00:00",
+      "minimal_context": {
+        "city": "深圳",
+        "id": "emp02",
+        "instruction": "准备培训演示账号，不开通真实账号。",
+        "name": "演示员工02",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    },
+    {
+      "id": "task_c44081474122421dacf1",
+      "case_id": "case_4265c163bfed4b64afc8",
+      "type": "IT_DEVICE",
+      "assignee_id": "it02",
+      "status": "completed",
+      "required": 1,
+      "dependency_task_ids": [
+        "task_990f30afd5c445c4988a"
+      ],
+      "due_at": "2026-11-25T14:51:17.155811+00:00",
+      "completed_at": "2026-11-24T14:51:19.107874+00:00",
+      "minimal_context": {
+        "city": "深圳",
+        "id": "emp02",
+        "instruction": "准备Windows演示电脑供培训展示，账号任务完成后核对；仅模拟执行。",
+        "name": "演示员工02",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    },
+    {
+      "id": "task_bcf4e42b13dc4fffa1ca",
+      "case_id": "case_4265c163bfed4b64afc8",
+      "type": "IT_DEVICE",
+      "assignee_id": "it02",
+      "status": "completed",
+      "required": 1,
+      "dependency_task_ids": [],
+      "due_at": "2026-11-25T14:51:17.155811+00:00",
+      "completed_at": "2026-11-24T14:51:20.690873+00:00",
+      "minimal_context": {
+        "city": "深圳",
+        "id": "emp02",
+        "instruction": "核对Windows演示电脑的培训展示安排，补录确认结果；仅模拟执行。",
+        "name": "演示员工02",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    },
+    {
+      "id": "task_e9eb512e33ce4374a9ff",
+      "case_id": "case_0cf9feb6f1b9402999ed",
+      "type": "IT_ACCESS",
+      "assignee_id": "it01",
+      "status": "completed",
+      "required": 1,
+      "dependency_task_ids": [],
+      "due_at": "2026-11-25T14:51:23.239063+00:00",
+      "completed_at": "2026-11-24T14:51:24.059281+00:00",
+      "minimal_context": {
+        "city": "深圳",
+        "id": "emp06",
+        "instruction": "为备用培训方案准备演示账号；仅模拟，不开通真实账号。",
+        "name": "演示员工06",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    },
+    {
+      "id": "task_e68638b07dc64d569dce",
+      "case_id": "case_0cf9feb6f1b9402999ed",
+      "type": "IT_DEVICE",
+      "assignee_id": "it02",
+      "status": "cancelled",
+      "required": 1,
+      "dependency_task_ids": [
+        "task_e9eb512e33ce4374a9ff"
+      ],
+      "due_at": "2026-11-25T14:51:23.239063+00:00",
+      "completed_at": null,
+      "minimal_context": {
+        "city": "深圳",
+        "id": "emp06",
+        "instruction": "为备用培训场地准备Windows演示电脑，先等待账号任务完成；仅模拟执行。",
+        "name": "演示员工06",
+        "planned_start_date": "2026-12-01"
+      },
+      "row_version": 2
+    }
+  ],
+  "materials": [
+    {
+      "id": "mat_459ab50d3a9d488a960f",
+      "case_id": "case_44a51a276a70466fb5a5",
+      "required_item_code": "onboarding_form",
+      "provided": 1,
+      "format_check_status": "metadata_valid",
+      "supplied_at": "2026-11-24T14:51:11.981240+00:00"
+    },
+    {
+      "id": "mat_9ac3c7f67b264e6e9703",
+      "case_id": "case_b23de098eba940429974",
+      "required_item_code": "internship_arrangement",
+      "provided": 0,
+      "format_check_status": "missing",
+      "supplied_at": null
+    }
+  ],
+  "attempts": [
+    {
+      "id": "attempt_a0d47b7947834e7fb260",
+      "draft_id": "draft_87b863cc1ff84efeb51b",
+      "requester_id": "emp01",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:09.766060+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_44a51a276a70466fb5a5"
+    },
+    {
+      "id": "attempt_7b82ceae958c40c68577",
+      "draft_id": "draft_a8c2a24093814585add9",
+      "requester_id": "emp03",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:13.521292+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_b23de098eba940429974"
+    },
+    {
+      "id": "attempt_67ea1fdb57e04a40a14f",
+      "draft_id": "draft_e0f2edbb916a42729c07",
+      "requester_id": "emp02",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:17.155323+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_4265c163bfed4b64afc8"
+    },
+    {
+      "id": "attempt_05566f7122054e869317",
+      "draft_id": "draft_52ee690bc9174c2da6ae",
+      "requester_id": "emp06",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:23.238603+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_0cf9feb6f1b9402999ed"
+    },
+    {
+      "id": "attempt_88f5396e646e423494fd",
+      "draft_id": "draft_ec828f1311fe423d938b",
+      "requester_id": "emp07",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:26.430688+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_c587968a410444f2ad14"
+    },
+    {
+      "id": "attempt_7035da633f61479dad63",
+      "draft_id": "draft_f1fb3b7302d54ca98f33",
+      "requester_id": "emp07",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:28.841393+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_23561341a7724c0c8468"
+    },
+    {
+      "id": "attempt_8866cd62a6184b40b95a",
+      "draft_id": "draft_6485249897754bed8036",
+      "requester_id": "emp06",
+      "attempt_no": 1,
+      "attempted_at": "2026-11-24T14:51:31.849751+00:00",
+      "validation_result": "invalid",
+      "missing_field_codes": "[\"description\"]",
+      "result_case_id": null
+    },
+    {
+      "id": "attempt_ef72f55ca726468d9eea",
+      "draft_id": "draft_6485249897754bed8036",
+      "requester_id": "emp06",
+      "attempt_no": 2,
+      "attempted_at": "2026-11-24T14:51:32.135165+00:00",
+      "validation_result": "valid",
+      "missing_field_codes": "[]",
+      "result_case_id": "case_7371b942953047359c28"
+    }
+  ],
+  "feedback": [
+    {
+      "id": "feedback_94d66be24f2d479bb6d9",
+      "case_id": "case_44a51a276a70466fb5a5",
+      "conversation_id": null,
+      "user_id": "emp01",
+      "ease": 4,
+      "outcome": "resolved",
+      "created_at": "2026-11-24T14:51:12.148789+00:00",
+      "data_origin": "test"
+    },
+    {
+      "id": "feedback_ea57be620caf4b8684e0",
+      "case_id": "case_b23de098eba940429974",
+      "conversation_id": null,
+      "user_id": "emp03",
+      "ease": 1,
+      "outcome": "unresolved",
+      "created_at": "2026-11-24T14:51:14.269424+00:00",
+      "data_origin": "test"
+    },
+    {
+      "id": "feedback_9fa5c0889bd24631bf6e",
+      "case_id": "case_4265c163bfed4b64afc8",
+      "conversation_id": null,
+      "user_id": "emp02",
+      "ease": 3,
+      "outcome": "resolved",
+      "created_at": "2026-11-24T14:51:21.323137+00:00",
+      "data_origin": "test"
+    },
+    {
+      "id": "feedback_8dfd038c7f774730bdc1",
+      "case_id": "case_7371b942953047359c28",
+      "conversation_id": null,
+      "user_id": "emp06",
+      "ease": 1,
+      "outcome": "unresolved",
+      "created_at": "2026-11-24T14:51:32.885351+00:00",
+      "data_origin": "test"
+    }
+  ],
+  "policies": [
+    {
+      "id": "pol-report-sz-v1",
+      "policy_key": "report-sz",
+      "version": "1.0",
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-11-26",
+      "status": "published",
+      "owner_id": "hr01",
+      "approved_by": "admin01"
+    },
+    {
+      "id": "pol_84dcd57e26cf48fd98b4",
+      "policy_key": "report-sz",
+      "version": "1.1-roleplay",
+      "effective_from": "2026-11-26",
+      "effective_to": "2027-01-01",
+      "status": "published",
+      "owner_id": "hr02",
+      "approved_by": "admin01"
+    },
+    {
+      "id": "pol-report-sz-v2",
+      "policy_key": "report-sz",
+      "version": "2.0",
+      "effective_from": "2027-01-01",
+      "effective_to": null,
+      "status": "published",
+      "owner_id": "hr01",
+      "approved_by": "admin01"
+    }
+  ],
+  "independent_recalculation": {
+    "case_count": 7,
+    "states": {
+      "closed": 4,
+      "cancelled": 1,
+      "assigned": 1,
+      "resolved": 1
+    },
+    "reopened_cases": 2,
+    "tasks_by_status": {
+      "completed": 5,
+      "pending": 1,
+      "cancelled": 1
+    },
+    "first_submission_complete": {
+      "numerator": 6,
+      "denominator": 7
+    },
+    "submission_attempt_count": 8,
+    "feedback_count": 4,
+    "synthetic_ease_mean": 2.25,
+    "progress_inquiries": 1
+  }
+}

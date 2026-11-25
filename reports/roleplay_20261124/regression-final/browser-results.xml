@@ -1,0 +1,40 @@
+<testsuites id="" name="" tests="17" failures="0" skipped="0" errors="0" time="69.601022">
+<testsuite name="qa/exploratory.spec.ts" timestamp="2026-11-24T14:46:05.609Z" hostname="" tests="14" failures="0" skipped="0" time="9.854" errors="0">
+<testcase name="QA-UI-01 real keyboard typing preserves focus and full text in modal" classname="qa/exploratory.spec.ts" time="1.061">
+</testcase>
+<testcase name="QA-UI-02 modal initially traps reverse tab and restores opener on Escape" classname="qa/exploratory.spec.ts" time="0.357">
+</testcase>
+<testcase name="QA-UI-03 failed submission response retry creates only one case and preserves draft" classname="qa/exploratory.spec.ts" time="0.716">
+</testcase>
+<testcase name="QA-UI-04 delayed HR01 list never replaces HR02 list after identity switch" classname="qa/exploratory.spec.ts" time="0.764">
+</testcase>
+<testcase name="QA-UI-05 delayed case detail cannot surface under a new employee session" classname="qa/exploratory.spec.ts" time="0.738">
+</testcase>
+<testcase name="QA-UI-06 rejected analytics filters must not keep previous metric results as current" classname="qa/exploratory.spec.ts" time="0.568">
+</testcase>
+<testcase name="QA-UI-07 ordinary text contrast sampling is at least 4.5 to 1" classname="qa/exploratory.spec.ts" time="0.341">
+</testcase>
+<testcase name="QA-UI-08 mobile 320 and 390 allow horizontal table scrolling without body overflow" classname="qa/exploratory.spec.ts" time="0.468">
+</testcase>
+<testcase name="QA-UI-09 independent HR author/admin publish and new policy is searchable" classname="qa/exploratory.spec.ts" time="1.253">
+</testcase>
+<testcase name="QA-UI-10 expired case row detects conflict and allows refresh without losing response" classname="qa/exploratory.spec.ts" time="0.774">
+</testcase>
+<testcase name="QA-UI-11 knowledge editor supports typing without per-keystroke focus reset" classname="qa/exploratory.spec.ts" time="0.7">
+</testcase>
+<testcase name="QA-UI-12 changed policy context requires new preview without losing fields" classname="qa/exploratory.spec.ts" time="0.705">
+</testcase>
+<testcase name="QA-UI-13 stored user text is inert and survives browser reload" classname="qa/exploratory.spec.ts" time="0.814">
+</testcase>
+<testcase name="QA-UI-14 calendar filter and CSV export use Shanghai midnight with explicit exclusive end" classname="qa/exploratory.spec.ts" time="0.595">
+</testcase>
+</testsuite>
+<testsuite name="workflow.spec.ts" timestamp="2026-11-24T14:46:05.609Z" hostname="" tests="3" failures="0" skipped="0" time="10.295" errors="0">
+<testcase name="employee → HR → IT → HR → employee confirmation, with real database state" classname="workflow.spec.ts" time="7.761">
+</testcase>
+<testcase name="blocked first submission keeps input and can be corrected; deferred approval keeps material missing" classname="workflow.spec.ts" time="1.329">
+</testcase>
+<testcase name="analytics drill-down, version editor, and mobile layout" classname="workflow.spec.ts" time="1.205">
+</testcase>
+</testsuite>
+</testsuites>

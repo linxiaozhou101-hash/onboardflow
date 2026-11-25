@@ -1,0 +1,318 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.qa.config.ts",
+    "rootDir": "<repo>/frontend/tests/qa",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/qa_20261124/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests/qa",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8003",
+      "url": "http://127.0.0.1:8003/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-qa-browser-28690.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8003"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "exploratory.spec.ts",
+      "file": "exploratory.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "QA-UI-04 delayed HR01 list never replaces HR02 list after identity switch",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4817,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nReceived string: \u001b[31m\"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01\u001b[7m广州\u001b[27mHR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[39m\nTimeout: 4000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n\u001b[2m    8 × locator resolved to <tbody>…</tbody>\u001b[22m\n\u001b[2m      - unexpected value \"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01广州HR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nReceived string: \u001b[31m\"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01\u001b[7m广州\u001b[27mHR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[39m\nTimeout: 4000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n\u001b[2m    8 × locator resolved to <tbody>…</tbody>\u001b[22m\n\u001b[2m      - unexpected value \"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01广州HR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[22m\n\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:32:42",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 42,
+                      "line": 32
+                    },
+                    "snippet": "  30 |  await page.getByLabel('状态').selectOption('assigned');await ready;\n  31 |  await switchTo(page,'hr02');await expect(page.locator('.user-block')).toContainText('深圳');release();await page.waitForTimeout(200);\n> 32 |  await expect(page.locator('tbody')).not.toContainText('广州');\n     |                                          ^\n  33 | });\n  34 | test('QA-UI-05 delayed case detail cannot surface under a new employee session',async({page})=>{\n  35 |  await login(page,'hr01');await expect(page.locator('tbody tr').first()).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 42,
+                        "line": 32
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nReceived string: \u001b[31m\"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01\u001b[7m广州\u001b[27mHR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[39m\nTimeout: 4000ms\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n\u001b[2m    8 × locator resolved to <tbody>…</tbody>\u001b[22m\n\u001b[2m      - unexpected value \"入职信息表暂缺，申请延期补交OF-DEMO-001 · 材料补交申请待接单hr01广州HR11/21 10:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-025 · 材料补交申请待接单hr01广州HR11/21 07:00等待 HR 接单入职信息表暂缺，申请延期补交OF-DEMO-049 · 材料补交申请待接单hr01广州HR11/21 04:00等待 HR 接单确认报到地点与联系流程OF-DEMO-057 · 入职咨询待接单hr01广州HR11/13 10:00等待 HR 接单确认报到地点与联系流程OF-DEMO-009 · 入职咨询待接单hr01广州HR11/13 09:00等待 HR 接单确认报到地点与联系流程OF-DEMO-033 · 入职咨询待接单hr01广州HR11/13 06:00等待 HR 接单入职演示账号尚未准备OF-DEMO-065 · 账号 / 设备异常待接单hr01广州HR11/05 09:00等待 HR 接单入职演示账号尚未准备OF-DEMO-017 · 账号 / 设备异常待接单hr01广州HR11/05 08:00等待 HR 接单入职演示账号尚未准备OF-DEMO-041 · 账号 / 设备异常待接单hr01广州HR11/05 05:00等待 HR 接单\"\u001b[22m\n\n\n  30 |  await page.getByLabel('状态').selectOption('assigned');await ready;\n  31 |  await switchTo(page,'hr02');await expect(page.locator('.user-block')).toContainText('深圳');release();await page.waitForTimeout(200);\n> 32 |  await expect(page.locator('tbody')).not.toContainText('广州');\n     |                                          ^\n  33 | });\n  34 | test('QA-UI-05 delayed case detail cannot surface under a new employee session',async({page})=>{\n  35 |  await login(page,'hr01');await expect(page.locator('tbody tr').first()).toBeVisible();\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:32:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:15:22.878Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 42,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-581365722696e50221e1",
+          "file": "exploratory.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-05 delayed case detail cannot surface under a new employee session",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4825,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\u001b[2m    8 × locator resolved to 1 element\u001b[22m\n\u001b[2m      - unexpected value \"1\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\u001b[2m    8 × locator resolved to 1 element\u001b[22m\n\u001b[2m      - unexpected value \"1\"\u001b[22m\n\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:39:41",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 41,
+                      "line": 39
+                    },
+                    "snippet": "  37 |  await page.route(/\\/api\\/cases\\/demo_case_\\d+$/,async route=>{const response=await route.fetch();intercepted();await gate;await route.fulfill({response})});\n  38 |  await page.locator('tbody tr').filter({hasText:'OF-DEMO'}).first().locator('button').click();await ready;await switchTo(page,'emp02');release();await page.waitForTimeout(200);\n> 39 |  await expect(page.getByRole('dialog')).toHaveCount(0);\n     |                                         ^\n  40 | });\n  41 | test('QA-UI-06 rejected analytics filters must not keep previous metric results as current',async({page})=>{\n  42 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 41,
+                        "line": 39
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('dialog')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m1\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\u001b[2m    8 × locator resolved to 1 element\u001b[22m\n\u001b[2m      - unexpected value \"1\"\u001b[22m\n\n\n  37 |  await page.route(/\\/api\\/cases\\/demo_case_\\d+$/,async route=>{const response=await route.fetch();intercepted();await gate;await route.fulfill({response})});\n  38 |  await page.locator('tbody tr').filter({hasText:'OF-DEMO'}).first().locator('button').click();await ready;await switchTo(page,'emp02');release();await page.waitForTimeout(200);\n> 39 |  await expect(page.getByRole('dialog')).toHaveCount(0);\n     |                                         ^\n  40 | });\n  41 | test('QA-UI-06 rejected analytics filters must not keep previous metric results as current',async({page})=>{\n  42 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:39:41"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:15:28.281Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 41,
+                    "line": 39
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-761b5df4fa634bf93824",
+          "file": "exploratory.spec.ts",
+          "line": 122,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-11 knowledge editor supports typing without per-keystroke focus reset",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4809,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('制度名称')\nExpected: \u001b[32m\"P\u001b[7molicy editor keyboard\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"P\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('制度名称')\u001b[22m\n\u001b[2m    8 × locator resolved to <input value=\"P\"/>\u001b[22m\n\u001b[2m      - unexpected value \"P\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('制度名称')\nExpected: \u001b[32m\"P\u001b[7molicy editor keyboard\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"P\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('制度名称')\u001b[22m\n\u001b[2m    8 × locator resolved to <input value=\"P\"/>\u001b[22m\n\u001b[2m      - unexpected value \"P\"\u001b[22m\n\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:71:145",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 145,
+                      "line": 71
+                    },
+                    "snippet": "  69 | test('QA-UI-11 knowledge editor supports typing without per-keystroke focus reset',async({page})=>{\n  70 |  await login(page,'hr01');await page.getByRole('link',{name:'制度知识库'}).click();await page.getByRole('button',{name:'新建制度草稿'}).click();\n> 71 |  const input=page.getByLabel('制度名称');await input.click();await input.pressSequentially('Policy editor keyboard',{delay:10});await expect(input).toHaveValue('Policy editor keyboard');await expect(input).toBeFocused();\n     |                                                                                                                                                 ^\n  72 | });\n  73 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 145,
+                        "line": 71
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('制度名称')\nExpected: \u001b[32m\"P\u001b[7molicy editor keyboard\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"P\"\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('制度名称')\u001b[22m\n\u001b[2m    8 × locator resolved to <input value=\"P\"/>\u001b[22m\n\u001b[2m      - unexpected value \"P\"\u001b[22m\n\n\n  69 | test('QA-UI-11 knowledge editor supports typing without per-keystroke focus reset',async({page})=>{\n  70 |  await login(page,'hr01');await page.getByRole('link',{name:'制度知识库'}).click();await page.getByRole('button',{name:'新建制度草稿'}).click();\n> 71 |  const input=page.getByLabel('制度名称');await input.click();await input.pressSequentially('Policy editor keyboard',{delay:10});await expect(input).toHaveValue('Policy editor keyboard');await expect(input).toBeFocused();\n     |                                                                                                                                                 ^\n  72 | });\n  73 |\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:71:145"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:15:33.592Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-11-knowl-38af8-t-per-keystroke-focus-reset/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-11-knowl-38af8-t-per-keystroke-focus-reset/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-11-knowl-38af8-t-per-keystroke-focus-reset/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 145,
+                    "line": 71
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-454778c15e4e887ff7e0",
+          "file": "exploratory.spec.ts",
+          "line": 305,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T13:15:22.185Z",
+    "duration": 16464.816000000003,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

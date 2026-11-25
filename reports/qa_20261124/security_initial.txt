@@ -1,0 +1,287 @@
+........F......F.....F.......F..........F...FFFFFFF..........F..         [100%]
+=================================== FAILURES ===================================
+__________ test_requirement_state_transition_matrix[accept-assigned] ___________
+
+client = <starlette.testclient.TestClient object at 0x10fca5150>
+state = 'assigned', command = 'accept'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+>           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'in_progress'
+E             
+E             - in_progress
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError
+______ test_requirement_state_transition_matrix[ask_employee-in_progress] ______
+
+client = <starlette.testclient.TestClient object at 0x10fde56a0>
+state = 'in_progress', command = 'ask_employee'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+>           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'waiting_employee'
+E             
+E             - waiting_employee
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError
+________ test_requirement_state_transition_matrix[resolve-in_progress] _________
+
+client = <starlette.testclient.TestClient object at 0x10ff3c380>
+state = 'in_progress', command = 'resolve'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+>           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'resolved'
+E             
+E             - resolved
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError
+__________ test_requirement_state_transition_matrix[confirm-resolved] __________
+
+client = <starlette.testclient.TestClient object at 0x10ffabf00>
+state = 'resolved', command = 'confirm'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+>           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'closed'
+E             
+E             - closed
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError
+______ test_requirement_state_transition_matrix[cancel-waiting_employee] _______
+
+client = <starlette.testclient.TestClient object at 0x1101d99d0>
+state = 'waiting_employee', command = 'cancel'
+
+    @pytest.mark.parametrize('state',list(ALLOWED))
+    @pytest.mark.parametrize('command',['accept','ask_employee','resolve','confirm','reopen','cancel'])
+    def test_requirement_state_transition_matrix(client,state,command):
+        c=client;ca=create(c)
+        # Isolated direct fixture selects a precondition; command itself always uses API.
+        with db.tx() as con:con.execute('UPDATE cases SET status=? WHERE id=?',(state,ca['id']))
+        login(c,'emp01' if command in ('confirm','reopen','cancel') else 'hr01')
+        ca=c.get('/api/cases/'+ca['id']).json();before=persisted(ca['id'])
+        r=act(c,ca,command,body='依据本请求所附入职制度，请按地点与时间安排报到。',reason='独立状态机测试')
+        expected=ALLOWED[state].get(command)
+        if expected:
+            assert r.status_code==200,(state,command,r.text)
+            assert r.json()['status']==expected
+            assert r.json()['row_version']==ca['row_version']+1
+            transitions=[e for e in r.json()['events'] if e['kind']=='status_changed']
+>           assert transitions[-1]['metadata']['to_status']==expected
+E           AssertionError: assert 'assigned' == 'cancelled'
+E             
+E             - cancelled
+E             + assigned
+
+backend/tests/qa/test_security.py:107: AssertionError
+_ test_unicode_csrf_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c] _
+
+client = <starlette.testclient.TestClient object at 0x11028de10>
+bad_token = '中文令牌'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+>       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError
+________ test_unicode_csrf_token_is_clean_denial_not_server_error[\xe9] ________
+
+client = <starlette.testclient.TestClient object at 0x1101db680>
+bad_token = 'é'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+>       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError
+_______ test_unicode_csrf_token_is_clean_denial_not_server_error[\u200b] _______
+
+client = <starlette.testclient.TestClient object at 0x1101d9bf0>
+bad_token = '\u200b'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_csrf_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;ca=create(c);before=persisted(ca['id'])
+        # HTTP headers are bytes on wire; latin1 decoding permits non-ASCII values.
+        r=c.post(f"/api/cases/{ca['id']}/actions/cancel",json={'row_version':1,'reason':'无效令牌'},headers={b'X-CSRF-Token':bad_token.encode('utf-8')})
+>       assert r.status_code==403,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 403
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:117: AssertionError
+_ test_unicode_confirmation_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c] _
+
+client = <starlette.testclient.TestClient object at 0x11007ff00>
+bad_token = '中文令牌'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+>       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError
+____ test_unicode_confirmation_token_is_clean_denial_not_server_error[\xe9] ____
+
+client = <starlette.testclient.TestClient object at 0x11007f240>
+bad_token = 'é'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+>       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError
+___ test_unicode_confirmation_token_is_clean_denial_not_server_error[\u200b] ___
+
+client = <starlette.testclient.TestClient object at 0x11007e140>
+bad_token = '\u200b'
+
+    @pytest.mark.parametrize('bad_token',['中文令牌','é','\u200b'])
+    def test_unicode_confirmation_token_is_clean_denial_not_server_error(client,bad_token):
+        c=client;login(c);d=draft(c)
+        r=submit(c,d,confirmation_token=bad_token)
+>       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:124: AssertionError
+_____________ test_session_expiry_boundary_is_exclusive[elapsed0] ______________
+
+client = <starlette.testclient.TestClient object at 0x11007c8d0>
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x110259390>
+elapsed = datetime.timedelta(seconds=43200)
+
+    @pytest.mark.parametrize('elapsed',[timedelta(hours=12),timedelta(hours=12,seconds=1)])
+    def test_session_expiry_boundary_is_exclusive(client,monkeypatch,elapsed):
+        login(client);monkeypatch.setattr(db,'_clock',lambda:STAMP+elapsed)
+>       assert client.get('/api/me').status_code==401
+E       AssertionError: assert 200 == 401
+E        +  where 200 = <Response [200 OK]>.status_code
+E        +    where <Response [200 OK]> = get('/api/me')
+E        +      where get = <starlette.testclient.TestClient object at 0x11007c8d0>.get
+
+backend/tests/qa/test_security.py:131: AssertionError
+____________ test_self_reported_shenzhen_case_routes_to_shenzhen_hr ____________
+
+client = <starlette.testclient.TestClient object at 0x10fba6690>
+
+    def test_self_reported_shenzhen_case_routes_to_shenzhen_hr(client):
+        c=client;login(c,'emp07')
+        r=c.post('/api/assistant/context',json={'city':'深圳','planned_start_date':'2026-12-01'});assert r.status_code==200
+        ca=submit(c,draft(c)).json()
+        assert ca['context_source']['city']=='深圳'
+>       assert ca['assigned_group']=='深圳HR' and ca['assigned_to']=='hr02'
+E       AssertionError: assert ('广州HR' == '深圳HR'
+E         
+E         - 深圳HR
+E         + 广州HR)
+
+backend/tests/qa/test_security.py:161: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.14/site-packages/starlette/testclient.py:37
+  <repo>/.venv/lib/python3.14/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+.venv/lib/python3.14/site-packages/fastapi/routing.py:233: 60 warnings
+  <repo>/.venv/lib/python3.14/site-packages/fastapi/routing.py:233: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    is_coroutine = asyncio.iscoroutinefunction(dependant.call)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED backend/tests/qa/test_security.py::test_requirement_state_transition_matrix[accept-assigned]
+FAILED backend/tests/qa/test_security.py::test_requirement_state_transition_matrix[ask_employee-in_progress]
+FAILED backend/tests/qa/test_security.py::test_requirement_state_transition_matrix[resolve-in_progress]
+FAILED backend/tests/qa/test_security.py::test_requirement_state_transition_matrix[confirm-resolved]
+FAILED backend/tests/qa/test_security.py::test_requirement_state_transition_matrix[cancel-waiting_employee]
+FAILED backend/tests/qa/test_security.py::test_unicode_csrf_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c]
+FAILED backend/tests/qa/test_security.py::test_unicode_csrf_token_is_clean_denial_not_server_error[\xe9]
+FAILED backend/tests/qa/test_security.py::test_unicode_csrf_token_is_clean_denial_not_server_error[\u200b]
+FAILED backend/tests/qa/test_security.py::test_unicode_confirmation_token_is_clean_denial_not_server_error[\u4e2d\u6587\u4ee4\u724c]
+FAILED backend/tests/qa/test_security.py::test_unicode_confirmation_token_is_clean_denial_not_server_error[\xe9]
+FAILED backend/tests/qa/test_security.py::test_unicode_confirmation_token_is_clean_denial_not_server_error[\u200b]
+FAILED backend/tests/qa/test_security.py::test_session_expiry_boundary_is_exclusive[elapsed0]
+FAILED backend/tests/qa/test_security.py::test_self_reported_shenzhen_case_routes_to_shenzhen_hr
+13 failed, 51 passed, 61 warnings in 3.87s

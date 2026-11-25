@@ -1,0 +1,214 @@
+{
+  "started_at": "2026-11-24T13:24:13.820764+00:00",
+  "transport": "real loopback HTTP",
+  "platform": "macOS-26.6.2-x86_64-i386-64bit-Mach-O",
+  "python": "3.14.2",
+  "workers": 1,
+  "seed_cases": 72,
+  "thresholds": {
+    "unexpected_http_errors": 0,
+    "duplicate_cases_on_retries": 0,
+    "integrity_check": "ok",
+    "latency": "observational only, no enterprise SLA or capacity claim"
+  },
+  "runs": [
+    {
+      "scenario": "case_list",
+      "operations": 60,
+      "concurrency": 1,
+      "elapsed_seconds": 0.404,
+      "operations_per_second": 148.61,
+      "p50_ms": 5.73,
+      "p95_ms": 7.18,
+      "p99_ms": 8.77,
+      "max_ms": 52.8,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "case_list",
+      "operations": 60,
+      "concurrency": 4,
+      "elapsed_seconds": 0.238,
+      "operations_per_second": 252.03,
+      "p50_ms": 7.57,
+      "p95_ms": 29.73,
+      "p99_ms": 92.11,
+      "max_ms": 212.61,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "case_list",
+      "operations": 60,
+      "concurrency": 8,
+      "elapsed_seconds": 0.309,
+      "operations_per_second": 194.37,
+      "p50_ms": 10.01,
+      "p95_ms": 123.33,
+      "p99_ms": 171.14,
+      "max_ms": 271.31,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "grounded_query",
+      "operations": 40,
+      "concurrency": 1,
+      "elapsed_seconds": 0.355,
+      "operations_per_second": 112.59,
+      "p50_ms": 8.46,
+      "p95_ms": 9.23,
+      "p99_ms": 9.26,
+      "max_ms": 29.51,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "grounded_query",
+      "operations": 40,
+      "concurrency": 4,
+      "elapsed_seconds": 0.298,
+      "operations_per_second": 134.45,
+      "p50_ms": 14.28,
+      "p95_ms": 65.31,
+      "p99_ms": 143.79,
+      "max_ms": 268.76,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "grounded_query",
+      "operations": 40,
+      "concurrency": 8,
+      "elapsed_seconds": 0.377,
+      "operations_per_second": 106.09,
+      "p50_ms": 24.55,
+      "p95_ms": 230.03,
+      "p99_ms": 271.71,
+      "max_ms": 271.94,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "draft_and_confirm",
+      "operations": 20,
+      "concurrency": 1,
+      "elapsed_seconds": 0.189,
+      "operations_per_second": 106.04,
+      "p50_ms": 8.94,
+      "p95_ms": 11.04,
+      "p99_ms": 11.04,
+      "max_ms": 13.04,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "draft_and_confirm",
+      "operations": 20,
+      "concurrency": 4,
+      "elapsed_seconds": 0.168,
+      "operations_per_second": 119.26,
+      "p50_ms": 16.02,
+      "p95_ms": 38.77,
+      "p99_ms": 38.77,
+      "max_ms": 167.44,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "draft_and_confirm",
+      "operations": 20,
+      "concurrency": 8,
+      "elapsed_seconds": 0.179,
+      "operations_per_second": 111.94,
+      "p50_ms": 27.02,
+      "p95_ms": 149.75,
+      "p99_ms": 149.75,
+      "max_ms": 176.1,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "analytics",
+      "operations": 30,
+      "concurrency": 1,
+      "elapsed_seconds": 0.298,
+      "operations_per_second": 100.78,
+      "p50_ms": 9.58,
+      "p95_ms": 10.32,
+      "p99_ms": 14.76,
+      "max_ms": 14.89,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "analytics",
+      "operations": 30,
+      "concurrency": 4,
+      "elapsed_seconds": 0.484,
+      "operations_per_second": 61.92,
+      "p50_ms": 61.86,
+      "p95_ms": 67.3,
+      "p99_ms": 69.73,
+      "max_ms": 113.0,
+      "unexpected_errors": []
+    },
+    {
+      "scenario": "analytics",
+      "operations": 30,
+      "concurrency": 8,
+      "elapsed_seconds": 1.513,
+      "operations_per_second": 19.82,
+      "p50_ms": 417.69,
+      "p95_ms": 436.4,
+      "p99_ms": 436.57,
+      "max_ms": 440.04,
+      "unexpected_errors": []
+    }
+  ],
+  "dependencies": {
+    "fastapi": "0.165.0",
+    "starlette": "1.10.0",
+    "pydantic": "2.12.4",
+    "httpx": "0.28.1"
+  },
+  "source_hashes": {
+    "backend/app/auth.py": "8105f3da610f42221de66ba4a5a1d848269eb4b5653d4d0503edc47e9ce3c64c",
+    "backend/app/db.py": "8b8ffad0beb42858a0fd6a0d9002021f86f8e62c738bfdbd324836658a7b1078",
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/cases.py": "3a135584474c2168c81a80a1bd42ae806dcbacb14aca88f5517ccd7772eb7951",
+    "backend/app/providers.py": "7aa0d071896298e5130aacc08eafdb235f0bf1b3c4742d7c9d253f9cdc30c6cf",
+    "backend/app/seed.py": "24d695a817644e338a66a8592e5acdfade2304254fd714d7b5faef5f246f3e4d",
+    "backend/app/schemas.py": "c709fdd73b4cde9f55f4ab1cca3ee3eb6791fc4c40eca70a3cc078568d686b2c",
+    "backend/app/analytics.py": "9432e19c12e49236818a4dd82edcab37f02481e0d0dd3def7035bf5c4c3e4822",
+    "backend/app/main.py": "45f3b201eb21c147dea4f2d0f4022186167c3473e34b71bd93c334354da26ca2",
+    "backend/app/knowledge.py": "83157d132350a3ae5ed1bce0c12df6b504271bcd512eb53c34ebcfa5a790abd8"
+  },
+  "startup_ms": 700.65,
+  "sixteen_way_retry": {
+    "http_statuses": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+    ],
+    "unique_case_ids": 1,
+    "expected_unique_case_ids": 1
+  },
+  "abrupt_restart": {
+    "startup_ms": 501.71,
+    "existing_session_http_status": 200,
+    "same_case_and_timeline": true
+  },
+  "database": {
+    "integrity_check": "ok",
+    "foreign_key_violations": [],
+    "case_count": 133,
+    "retry_key_rows": 1
+  },
+  "status": "passed",
+  "finished_at": "2026-11-24T13:24:20.164935+00:00"
+}

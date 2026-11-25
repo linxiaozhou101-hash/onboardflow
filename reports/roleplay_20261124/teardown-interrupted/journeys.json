@@ -1,0 +1,566 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.roleplay.config.ts",
+    "rootDir": "<repo>/frontend/tests/roleplay",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/roleplay_20261124/artifacts-1795531559325",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests/roleplay",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8004",
+      "url": "http://127.0.0.1:8004/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-roleplay-32365.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8004"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "01-material.spec.ts",
+      "file": "01-material.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3819,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R01 员工 emp01（广州正式，手机） · 报到前一周 · 问入职信息表缺失能否补交并查看制度",
+                      "duration": 238
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 提交申请 · 填缺项和预计日期、预览并明确确认新事项",
+                      "duration": 546
+                    },
+                    {
+                      "title": "R01 HR hr01 · 晨间接单 · 接单、留内部交接备注，再向员工提出具体补问",
+                      "duration": 644
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 等待过程中焦虑 · 先询问进度，尚未回答HR要求的原因",
+                      "duration": 179
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 拿到可说明的信息 · 提交真实补充说明",
+                      "duration": 158
+                    },
+                    {
+                      "title": "R01 HR hr01 · 审批环节 · 根据说明批准一次延期，并保留实际补交待办",
+                      "duration": 441
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 误解完成含义 · 追问批准后是否已经收齐，再确认审批结果",
+                      "duration": 464
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 剧情推进至实际准备好后（未伪造系统时钟） · 结案后记录材料已提供，并查看清单",
+                      "duration": 395
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:00.555Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "31ceed59d9ecfbe9a223-d1df785fa344535cec03",
+          "file": "01-material.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R02 实习生 emp03 · 入职前遇到材料异常 · 查询实习生材料后创建补交申请",
+                      "duration": 303
+                    },
+                    {
+                      "title": "R02 HR hr01 · 首次审查 · 解释暂不批准原因并给出可执行下一步",
+                      "duration": 508
+                    },
+                    {
+                      "title": "R02 实习生 emp03 · 第一次结果未解决实际困境 · 如实提交负面反馈，取得新信息后重开",
+                      "duration": 586
+                    },
+                    {
+                      "title": "R02 管理员 admin01 · 同时观察服务质量 · 重开期间检查已有负面反馈仍参与统计",
+                      "duration": 377
+                    },
+                    {
+                      "title": "R02 HR hr01 · 看到新信息后重新办理 · 基于新证据批准延期并明确剩余义务",
+                      "duration": 337
+                    },
+                    {
+                      "title": "R02 实习生 emp03 · 确认修改后的处理结果 · 确认申请并核对材料仍待补交",
+                      "duration": 275
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:04.709Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "31ceed59d9ecfbe9a223-0d6e0c36ade331995d6e",
+          "file": "01-material.spec.ts",
+          "line": 163,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "02-it.spec.ts",
+      "file": "02-it.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6390,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R03 员工 emp02 · 入职第一天上午（情境设定） · 查看当前账号进度，再明确创建新的培训设备事项",
+                      "duration": 613
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 收到员工紧急请求 · 接单、解释安排，并分开保存内部协调说明",
+                      "duration": 672
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 需要跨两位IT协同 · 账号任务派it01，电脑任务派it02并设为依赖账号",
+                      "duration": 330
+                    },
+                    {
+                      "title": "R03 设备IT it02 · 先看到自己的任务 · 尝试在账号尚未完成时先完成电脑任务，确认拦截及信息边界",
+                      "duration": 406
+                    },
+                    {
+                      "title": "R03 账号IT it01 → 设备IT it02 · 前置依赖交接 · 先完成账号演示任务，再由另一账号完成电脑演示任务",
+                      "duration": 540
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 两个演示任务已完成 · 核对依赖后明确交付结果",
+                      "duration": 426
+                    },
+                    {
+                      "title": "R03 员工 emp02 · 核对结果发现仍不符合预期 · 暂不确认，说明演示电脑缺少培训展示安排并申请重开",
+                      "duration": 293
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 → 设备IT it02 · 收到员工纠正 · HR明确新增修正任务，设备IT完成后再次交付",
+                      "duration": 1071
+                    },
+                    {
+                      "title": "R03 员工 emp02 · 再次核对后 · 确认结果，提交模拟反馈并刷新页面验证留存",
+                      "duration": 623
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:08.151Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-96a9619da4252bb20c8c",
+          "file": "02-it.spec.ts",
+          "line": 40,
+          "column": 1
+        },
+        {
+          "title": "R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3242,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R04 员工 emp06 → 深圳HR hr02 · 提前准备备用培训方案 · 提交账号设备请求，HR接单并安排两个任务",
+                      "duration": 888
+                    },
+                    {
+                      "title": "R04 账号IT it01 · 收到准备任务 · 先完成账号演示任务，电脑仍待准备",
+                      "duration": 249
+                    },
+                    {
+                      "title": "R04 员工 emp06 · 培训安排改变（情境设定） · 在原请求说明撤销原因并取消",
+                      "duration": 436
+                    },
+                    {
+                      "title": "R04 设备IT it02 → 深圳HR hr02 · 准备开始设备工作前 · 刷新自己的待办和HR原请求，确认已终止",
+                      "duration": 356
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:14.677Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/02-it-R04-深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-bae5b6b092e7801e468e",
+          "file": "02-it.spec.ts",
+          "line": 223,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "03-admin.spec.ts",
+      "file": "03-admin.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R05 实习生 emp07 · 入职前整理通知（情境设定） · 用自然语言询问报到信息，补充系统缺少的城市和日期",
+                      "duration": 207
+                    },
+                    {
+                      "title": "R05 实习生 emp07 · 需要人工确认行程 · 创建入职咨询并查看主责团队",
+                      "duration": 404
+                    },
+                    {
+                      "title": "R05 广州HR hr01 与 深圳HR hr02 · 两个城市独立登录 · 验证跨城市不可见，并由深圳HR接单公开解释",
+                      "duration": 627
+                    },
+                    {
+                      "title": "R05 深圳HR hr02 → 实习生 emp07 · 人工解释后交付 · 给出带出处的报到说明，由员工阅读并确认",
+                      "duration": 417
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:17.982Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-f1b7f7a06df8201ef1ac",
+          "file": "03-admin.spec.ts",
+          "line": 61,
+          "column": 1
+        },
+        {
+          "title": "R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3115,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R06 实习生 emp07 · 制度变更前提出咨询 · 查看旧报到说明，创建需保留原始依据的请求",
+                      "duration": 504
+                    },
+                    {
+                      "title": "R06 深圳HR hr02 · 准备一次临时楼层调整 · 创建v1.0后续草稿，先遗漏结束日期以还原实际编写失误",
+                      "duration": 310
+                    },
+                    {
+                      "title": "R06 管理员 admin01 · 审核日常制度发布 · 尝试发布并识别与既有2027版日期重叠，保留草稿返修",
+                      "duration": 194
+                    },
+                    {
+                      "title": "R06 深圳HR hr02 → 管理员 admin01 · 原作者纠正后重新审核 · 补上不含结束日2027-01-01，再由不同身份发布",
+                      "duration": 372
+                    },
+                    {
+                      "title": "R06 实习生 emp07 · 再次查最新安排并回看旧请求 · 当前回答匹配新版本，同时旧请求打开原版本全文",
+                      "duration": 837
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:20.565Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-fc20bec0867c006fb697",
+          "file": "03-admin.spec.ts",
+          "line": 134,
+          "column": 1
+        },
+        {
+          "title": "R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2928,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R07 管理员 admin01 · 晨间服务复盘（情境设定） · 明确选择自动测试数据，记录首次完整率基线",
+                      "duration": 147
+                    },
+                    {
+                      "title": "R07 员工 emp06 · 通勤途中赶着提交（情境设定） · 漏填事项说明仍点确认，阅读缺项提示后在同一草稿补填重试",
+                      "duration": 449
+                    },
+                    {
+                      "title": "R07 深圳HR hr02 → 员工 emp06 · 收到解释但仍觉得不清楚 · HR提交结果，员工如实选择困难与未解决，而不是被迫打高分",
+                      "duration": 895
+                    },
+                    {
+                      "title": "R07 管理员 admin01 · 寻找具体改进对象 · 从一次提交完整率追到缺项记录，再检查评价明细并复算",
+                      "duration": 575
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:46:23.741Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531559325/03-admin-R07-管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-4f829d0bb5ecfc5dd520",
+          "file": "03-admin.spec.ts",
+          "line": 269,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T14:45:59.327Z",
+    "duration": 267720.375,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

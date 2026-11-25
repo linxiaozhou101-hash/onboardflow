@@ -1,0 +1,27 @@
+{
+  "scenario": "R05",
+  "disclaimer": "AI模拟角色与情境，通过真实浏览器操作；不是人类访谈或人类任务耗时",
+  "steps": [
+    {
+      "actor": "实习生 emp07",
+      "scene": "入职前整理通知（情境设定）",
+      "action": "用自然语言询问报到信息，补充系统缺少的城市和日期",
+      "observation": "员工自报深圳及2026-12-06，雇佣类型仍取档案中的实习生；离线回答显示适用条件与引用。档案欢迎区仍显示待完善，自报条件出现在回答区域。",
+      "wall_time": "2026-11-24T14:39:15.974Z"
+    },
+    {
+      "actor": "实习生 emp07",
+      "scene": "需要人工确认行程",
+      "action": "创建入职咨询并查看主责团队",
+      "observation": "创建OF-46248C4E，自报城市参与路由，未因原档案城市为空误派广州HR。",
+      "wall_time": "2026-11-24T14:39:16.360Z"
+    },
+    {
+      "actor": "广州HR hr01 与 深圳HR hr02",
+      "scene": "两个城市独立登录",
+      "action": "验证跨城市不可见，并由深圳HR接单公开解释",
+      "observation": "未达到预期：Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+      "wall_time": "2026-11-24T14:39:16.394Z"
+    }
+  ]
+}

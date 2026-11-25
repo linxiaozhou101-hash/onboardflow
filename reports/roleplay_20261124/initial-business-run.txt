@@ -1,0 +1,274 @@
+
+> onboardflow@1.0.0 test:e2e
+> playwright test --config playwright.roleplay.config.ts
+
+[2m[WebServer] [22mINFO:     Started server process [31388]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)
+
+Running 7 tests using 1 worker
+
+(node:31397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@111Internal error: step id not found: fixture@111
+  ✘  1 tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 (2.3s)
+(node:31432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@128Internal error: step id not found: fixture@128Internal error: step id not found: fixture@128
+  ✘  2 tests/roleplay/01-material.spec.ts:175:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 (15.2s)
+(node:31491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@252Internal error: step id not found: fixture@252Internal error: step id not found: fixture@252Internal error: step id not found: fixture@252
+  ✘  3 tests/roleplay/02-it.spec.ts:39:1 › R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正 (14.6s)
+(node:31568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 tests/roleplay/02-it.spec.ts:211:1 › R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止 (3.3s)
+Internal error: step id not found: fixture@88Internal error: step id not found: fixture@88Internal error: step id not found: fixture@88
+  ✘  5 tests/roleplay/03-admin.spec.ts:65:1 › R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环 (1.5s)
+(node:31620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31620) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@85Internal error: step id not found: fixture@85Internal error: step id not found: fixture@85
+  ✘  6 tests/roleplay/03-admin.spec.ts:135:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 (13.7s)
+(node:31663) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31663) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 tests/roleplay/03-admin.spec.ts:246:1 › R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整 (3.2s)
+
+
+  1) tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 › R01 员工 emp01 · 等待过程中焦虑 · 先询问进度，尚未回答HR要求的原因 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"waiting_employee"[39m
+    Received: [31m"in_progress"[39m
+
+      36 |    const response=e.waitForResponse(r=>r.url().endsWith(`/cases/${id}/messages`)&&r.request().method()==='POST');await e.getByRole('button',{name:'发送为主动进度询问',exact:true}).click();const result=await(await response).json();
+      37 |    diary.entries.push({actor:'观察员',scene:'催问后状态实测',action:'读取真实消息响应',observation:`催问类型progress_inquiry后status=${result.status}；预期仍waiting_employee，因未补充所问内容。`,wall_time:new Date().toISOString()});diary.save();
+    > 38 |    await diary.photo(e,'progress-inquiry-state');expect(result.status).toBe('waiting_employee');
+         |                                                                        ^
+      39 |    expect(result.events.filter((x:any)=>x.kind==='progress_inquiry')).toHaveLength(1);
+      40 |    return '催问已记录；仍明确等待员工补充，不把催问当作材料或信息补齐。';
+      41 |   });
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:38:72
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:33:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/roleplay/01-material.spec.ts:175:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 › R02 HR hr01 · 看到新信息后重新办理 · 基于新证据批准延期并明确剩余义务 
+
+    TimeoutError: locator.fill: Timeout 12000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('审批原因', { exact: true })[22m
+
+
+       96 |   });
+       97 |   await diary.step('HR hr01','看到新信息后重新办理','基于新证据批准延期并明确剩余义务',async()=>{
+    >  98 |    await refreshCase(h);await expect(h.locator('.messages')).toContainText('学校刚确认');await h.getByLabel('员工可见回复',{exact:true}).fill(`根据学校新确认的信息，修正本次审批为批准延期至${due}。请届时实际补交实习安排确认，材料仍未收齐。`);await h.getByLabel('补交审批结果').selectOption('approved_deferred');await h.getByLabel('约定补交日期',{exact:true}).fill(due);await h.getByLabel('审批原因',{exact:true}).fill('新信息给出明确补交安排，需继续跟进实际提交。');
+          |                                                                                                                                                                                                                                                                                                                                                      ^
+       99 |    await h.getByRole('button',{name:'处理完毕，交员工确认',exact:true}).click();await expect(h.locator('.detail-summary')).toContainText('待员工确认');const ca=await readCase(h,id);expect(ca.resolution_code).toBe('approved_deferred');expect(ca.reopen_count).toBe(1);expect(ca.materials[0].provided).toBe(false);expect(ca.tasks.filter((t:any)=>t.type==='MATERIAL_FOLLOWUP')).toHaveLength(1);
+      100 |    expect(ca.messages.some((m:any)=>m.body.includes('暂不批准'))).toBe(true);return '新审批覆盖当前结论，但首次拒绝解释、负面反馈、重开原因均保留。';
+      101 |   });
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:98:342
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:97:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) tests/roleplay/02-it.spec.ts:39:1 › R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正 › R03 深圳HR hr02 · 两个演示任务已完成 · 核对依赖后明确交付结果 
+
+    Error: 账号设备事项不应带补交审批代码
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"approved_deferred"[39m
+
+      90 |       await diary.photo(hr.page,'hr-delivery');
+      91 |       // A device result must not announce deferred material approval.
+    > 92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');
+         |                                                                ^
+      93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');
+      94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');
+      95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;
+        at <repo>/frontend/tests/roleplay/02-it.spec.ts:92:64
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5
+
+    Error: 账号设备事项不应显示材料延期获批提示
+
+    [2mexpect([22m[31mlocator[39m[2m).not.[22mtoContainText[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator: getByRole('dialog')
+    Expected substring: not [32m"补交安排已获批"[39m
+    Received string: [31m"OF-439783D2 · 账号 / 设备异常待员工确认拟真R03｜深圳首日：办公账号和Windows演示电脑都未准备，项目培训即将开始请查看处理结果，并确认是否解决了你的问题当前负责人hr02 · 深圳HR到期时间 11/25 22:38 · 连续自然小时事项信息申请人演示员工02创建时间11/24 22:38账号或设备类型both处理结论批准延期补交[7m补交安排已获批[27m。申请处理完毕不代表材料收齐，实际补交状态仍单独记录。深圳账号设备准备与异常处理 v1.0 · section-1协同任务账号准备it01 · 办结前必须完成已完成设备准备it02 · 办结前必须完成已完成沟通记录hr02员工可见回复 · 11/24 22:38已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。hr02仅 HR 可见 · 内部备注 · 11/24 22:38HR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。hr02员工可见回复 · 11/24 22:39两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。处理时间线请求已提交11/24 22:38状态更新待接单11/24 22:38状态更新处理中11/24 22:38HR 公开回复已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。11/24 22:38notification_recorded11/24 22:38internal_noteHR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。11/24 22:38创建协同任务11/24 22:38创建协同任务11/24 22:38协同任务完成11/24 22:38协同任务完成11/24 22:38HR 公开回复两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。11/24 22:39notification_recorded11/24 22:39状态更新待员工确认11/24 22:39处理此请求刷新请求员工可见回复生成可编辑回复草稿发送公开回复重开原因申请重新处理HR 内部备注（员工不可见）保存内部备注取消请求取消原因确认取消请求未完成任务会同时取消。"[39m
+    Timeout: 8000ms
+
+    Call log:
+    [2m  - 账号设备事项不应显示材料延期获批提示 with timeout 8000ms[22m
+    [2m  - waiting for getByRole('dialog')[22m
+    [2m    12 × locator resolved to <div role="dialog" tabindex="-1" aria-modal="true" class="modal wide" aria-label="OF-439783D2 · 账号 / 设备异常">…</div>[22m
+    [2m       - unexpected value "OF-439783D2 · 账号 / 设备异常待员工确认拟真R03｜深圳首日：办公账号和Windows演示电脑都未准备，项目培训即将开始请查看处理结果，并确认是否解决了你的问题当前负责人hr02 · 深圳HR到期时间 11/25 22:38 · 连续自然小时事项信息申请人演示员工02创建时间11/24 22:38账号或设备类型both处理结论批准延期补交补交安排已获批。申请处理完毕不代表材料收齐，实际补交状态仍单独记录。深圳账号设备准备与异常处理 v1.0 · section-1协同任务账号准备it01 · 办结前必须完成已完成设备准备it02 · 办结前必须完成已完成沟通记录hr02员工可见回复 · 11/24 22:38已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。hr02仅 HR 可见 · 内部备注 · 11/24 22:38HR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。hr02员工可见回复 · 11/24 22:39两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。处理时间线请求已提交11/24 22:38状态更新待接单11/24 22:38状态更新处理中11/24 22:38HR 公开回复已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。11/24 22:38notification_recorded11/24 22:38internal_noteHR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。11/24 22:38创建协同任务11/24 22:38创建协同任务11/24 22:38协同任务完成11/24 22:38协同任务完成11/24 22:38HR 公开回复两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。11/24 22:39notification_recorded11/24 22:39状态更新待员工确认11/24 22:39处理此请求刷新请求员工可见回复生成可编辑回复草稿发送公开回复重开原因申请重新处理HR 内部备注（员工不可见）保存内部备注取消请求取消原因确认取消请求未完成任务会同时取消。"[22m
+
+
+      92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');
+      93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');
+    > 94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');
+         |                                                                               ^
+      95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;
+      96 |     });
+      97 |     await diary.step('员工 emp02','核对结果发现仍不符合预期','暂不确认，说明演示电脑缺少培训展示安排并申请重开',async()=>{
+        at <repo>/frontend/tests/roleplay/02-it.spec.ts:94:79
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-4.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) tests/roleplay/03-admin.spec.ts:65:1 › R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环 › R05 广州HR hr01 与 深圳HR hr02 · 两个城市独立登录 · 验证跨城市不可见，并由深圳HR接单公开解释 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m403[39m
+    Received: [31m404[39m
+
+       95 |    await diary.photo(admin.page,'published');return '原v1.0结束于新版本开始日，临时v1.1结束于2027版开始日。作者和发布审核人不同，日期边界无重叠。';
+       96 |   });
+    >  97 |   await diary.step('实习生 emp07','再次查最新安排并回看旧请求','当前回答匹配新版本，同时旧请求打开原版本全文',async()=>{
+          |                               ^
+       98 |    await closeDialog(employee.page);await ask(employee.page,'深圳报到地点和联系人是什么？');
+       99 |    await expect(employee.page.locator('.answer-card .citations')).toContainText(version);await expect(employee.page.locator('.answer-text')).toContainText('4楼');
+      100 |    await diary.photo(employee.page,'current-citation');await openCase(employee.page,title);
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:97:31
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:90:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) tests/roleplay/03-admin.spec.ts:135:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 › R06 深圳HR hr02 · 准备一次临时楼层调整 · 创建v1.0后续草稿，先遗漏结束日期以还原实际编写失误 
+
+    TimeoutError: locator.fill: Timeout 12000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('正文（Markdown）', { exact: true })[22m
+
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:167:10
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/03-admin.spec.ts:153:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 ──────────────────
+    tests/roleplay/01-material.spec.ts:175:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 ────────────────────
+    tests/roleplay/02-it.spec.ts:39:1 › R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正 ──────────────────────────
+    tests/roleplay/03-admin.spec.ts:65:1 › R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环 ─────────────────────────
+    tests/roleplay/03-admin.spec.ts:135:1 › R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据 ──────────────────────
+  2 passed (58.4s)

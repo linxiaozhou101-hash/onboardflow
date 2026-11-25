@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-11-24T13:27:01.781150+00:00",
+  "assessment": "local_demo_verified_with_documented_limits",
+  "backend": {
+    "tests": 151,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 10.181,
+    "new_cases": 99,
+    "baseline_cases": 52
+  },
+  "browser": {
+    "startTime": "2026-11-24T13:23:53.674Z",
+    "duration": 47729.681,
+    "expected": 17,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0,
+    "new_cases": 14,
+    "baseline_cases": 3,
+    "retries": 0
+  },
+  "synthetic_evaluation": {
+    "total": 60,
+    "passed": 60,
+    "failed": 0,
+    "groups": {
+      "answer": {
+        "passed": 20,
+        "total": 20
+      },
+      "clarify": {
+        "passed": 10,
+        "total": 10
+      },
+      "handoff": {
+        "passed": 10,
+        "total": 10
+      },
+      "workflow": {
+        "passed": 10,
+        "total": 10
+      },
+      "boundary": {
+        "passed": 10,
+        "total": 10
+      }
+    },
+    "semantic_accuracy": "pending_human_review"
+  },
+  "dependency_audit": {
+    "packages_checked": 146,
+    "matched_advisory_records": 0,
+    "queried_at": "2026-11-24T13:24:14.120730+00:00"
+  },
+  "load": {
+    "operations": 450,
+    "unexpected_http_errors": 0,
+    "max_scenario_p95_ms": 436.4,
+    "sixteen_way_retry": {
+      "http_statuses": [
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "unique_case_ids": 1,
+      "expected_unique_case_ids": 1
+    },
+    "abrupt_restart": {
+      "startup_ms": 501.71,
+      "existing_session_http_status": 200,
+      "same_case_and_timeline": true
+    },
+    "database": {
+      "integrity_check": "ok",
+      "foreign_key_violations": [],
+      "case_count": 133,
+      "retry_key_rows": 1
+    }
+  },
+  "fixed_finding_groups": {
+    "security_commands": 7,
+    "policy_metrics": 8,
+    "browser": 7,
+    "remote_request_isolation": 1,
+    "dependency_patch_group": 1
+  },
+  "not_executed": [
+    "real remote model",
+    "real enterprise integrations",
+    "human semantic review/user research",
+    "cross-platform and cross-browser qualification",
+    "screenreader/full WCAG audit",
+    "long soak or enterprise capacity test"
+  ]
+}

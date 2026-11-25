@@ -1,0 +1,178 @@
+[
+  {
+    "text": "从准备到报到，我们陪你把每一步安排好。",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "12px",
+    "ratio": 6.00040204138261
+  },
+  {
+    "text": "工作城市",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 6.00040204138261
+  },
+  {
+    "text": "雇佣类型",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 6.00040204138261
+  },
+  {
+    "text": "计划入职日",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 6.00040204138261
+  },
+  {
+    "text": "有依据 · 可核查",
+    "selector": "subtle",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "按计划入职日 2026-12-01 匹配",
+    "selector": "subtle",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "12 项处理中 · 3 项待我补充",
+    "selector": "subtle",
+    "foreground": "rgb(82, 99, 77)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "ratio": 6.460210396096661
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  },
+  {
+    "text": "待补充信息",
+    "selector": "badge waiting_employee",
+    "foreground": "rgb(121, 92, 32)",
+    "background": "rgb(252, 243, 223)",
+    "fontSize": "10px",
+    "ratio": 5.654245834495486
+  },
+  {
+    "text": "待补充信息",
+    "selector": "badge waiting_employee",
+    "foreground": "rgb(121, 92, 32)",
+    "background": "rgb(252, 243, 223)",
+    "fontSize": "10px",
+    "ratio": 5.654245834495486
+  },
+  {
+    "text": "待补充信息",
+    "selector": "badge waiting_employee",
+    "foreground": "rgb(121, 92, 32)",
+    "background": "rgb(252, 243, 223)",
+    "fontSize": "10px",
+    "ratio": 5.654245834495486
+  },
+  {
+    "text": "处理中",
+    "selector": "badge in_progress",
+    "foreground": "rgb(69, 97, 50)",
+    "background": "rgb(237, 243, 231)",
+    "fontSize": "10px",
+    "ratio": 6.17320907580368
+  },
+  {
+    "text": "处理中",
+    "selector": "badge in_progress",
+    "foreground": "rgb(69, 97, 50)",
+    "background": "rgb(237, 243, 231)",
+    "fontSize": "10px",
+    "ratio": 6.17320907580368
+  },
+  {
+    "text": "处理中",
+    "selector": "badge in_progress",
+    "foreground": "rgb(69, 97, 50)",
+    "background": "rgb(237, 243, 231)",
+    "fontSize": "10px",
+    "ratio": 6.17320907580368
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  },
+  {
+    "text": "待员工确认",
+    "selector": "badge resolved",
+    "foreground": "rgb(54, 92, 114)",
+    "background": "rgb(232, 240, 244)",
+    "fontSize": "10px",
+    "ratio": 6.21065542780305
+  }
+]

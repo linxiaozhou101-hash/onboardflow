@@ -1,0 +1,105 @@
+
+> onboardflow@1.0.0 test:e2e
+> playwright test --config playwright.roleplay.config.ts 01-material.spec.ts
+
+[2m[WebServer] [22mINFO:     Started server process [31074]
+[2m[WebServer] [22mINFO:     Waiting for application startup.
+[2m[WebServer] [22mINFO:     Application startup complete.
+[2m[WebServer] [22mINFO:     Uvicorn running on http://127.0.0.1:8004 (Press CTRL+C to quit)
+
+Running 2 tests using 1 worker
+
+(node:31078) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31078) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@69Internal error: step id not found: fixture@69
+  ✘  1 tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 (1.2s)
+(node:31100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:31100) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Internal error: step id not found: fixture@79Internal error: step id not found: fixture@79Internal error: step id not found: fixture@79
+  ✘  2 tests/roleplay/01-material.spec.ts:179:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 (13.7s)
+
+
+  1) tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 › R01 员工 emp01 · 提交申请 · 填缺项和预计日期、预览并明确确认新事项 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m200[39m
+    Received: [31m409[39m
+
+       at helpers.ts:17
+
+      15 | export async function accept(page:Page){await page.getByRole('button',{name:'接单并开始处理'}).click();await expect(page.locator('.detail-summary')).toContainText('处理中');}
+      16 | export async function ask(page:Page,text:string){await page.getByLabel('输入入职问题').fill(text);const response=page.waitForResponse(r=>r.url().endsWith('/api/assistant/query')&&r.request().method()==='POST');await page.getByRole('button',{name:'发送',exact:true}).click();expect((await response).status()).toBe(200);await expect(page.locator('.answer-card')).toBeVisible();await expect(page.locator('.loading')).toHaveCount(0);return await page.locator('.answer-text').innerText();}
+    > 17 | export async function createCase(page:Page,title:string,category:string,extra:Record<string,string>={}){await page.getByRole('button',{name:'新建服务请求'}).click();await page.getByLabel('办理事项').selectOption(category);await page.getByLabel('事项说明').fill(title);if(category==='MATERIAL_EXCEPTION'){await page.getByLabel('缺失材料').fill(extra.missing_item||'入职信息表');if(extra.expected_date)await page.getByLabel('预计补充日期').fill(extra.expected_date)}if(category==='ACCESS_DEVICE')await page.getByLabel('账号或设备类型').selectOption(extra.device_type||'both');await page.getByRole('button',{name:'预览请求',exact:true}).click();const dup=page.getByLabel('本次为新的独立事项，仍需另建请求');if(await dup.isVisible())await dup.check();const wait=page.waitForResponse(r=>r.url().endsWith('/api/cases')&&r.request().method()==='POST');await page.getByRole('button',{name:'确认提交',exact:true}).click();const response=await wait;expect(response.status()).toBe(200);await expect(page.getByRole('dialog')).toHaveCount(0);return response.json();}
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ^
+      18 | export async function readCase(page:Page,id:string){const r=await page.request.get('/api/cases/'+id);expect(r.status()).toBe(200);return r.json();}
+      19 | export async function publicReply(page:Page,text:string,button='发送公开回复'){await page.getByLabel('员工可见回复',{exact:true}).fill(text);await page.getByRole('button',{name:button,exact:true}).click();await expect(page.locator('.messages')).toContainText(text);}
+      20 | export const futureDate=(days=7)=>new Date(Date.now()+days*86400000).toISOString().slice(0,10);
+        at createCase (<repo>/frontend/tests/roleplay/helpers.ts:17:906)
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:20:13
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:19:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530883465/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530883465/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530883465/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795530883465/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests/roleplay/01-material.spec.ts:179:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 › R02 HR hr01 · 首次审查 · 解释暂不批准原因并给出可执行下一步 
+
+    TimeoutError: locator.selectOption: Timeout 12000ms exceeded.
+    Call log:
+    [2m  - waiting for getByLabel('补交审批结果', { exact: true })[22m
+
+
+      78 |   });
+      79 |   await diary.step('HR hr01','首次审查','解释暂不批准原因并给出可执行下一步',async()=>{
+    > 80 |    await openCase(h,title);await accept(h);await h.getByLabel('员工可见回复',{exact:true}).fill('本次暂不批准延期：目前没有确认的补交安排。请先取得学校的具体答复，再在原请求中说明新情况申请重新处理。');await h.getByLabel('补交审批结果',{exact:true}).selectOption('rejected');await h.getByLabel('审批原因',{exact:true}).fill('尚缺可核实的补交安排，当前无法同意本次模拟延期。');
+         |                                                                                                                                                                                            ^
+      81 |    await h.getByRole('button',{name:'处理完毕，交员工确认',exact:true}).click();await expect(h.locator('.detail-summary')).toContainText('待员工确认');
+      82 |    const ca=await readCase(h,id);firstResolved=ca.latest_resolved_at;expect(ca.resolution_code).toBe('rejected');expect(ca.materials[0].provided).toBe(false);expect(ca.tasks.filter((t:any)=>t.type==='MATERIAL_FOLLOWUP')).toHaveLength(0);
+      83 |    return '拒绝结论和原因员工可见；没有把拒绝当成材料已齐，也没有创建虚假的已完成跟进。';
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:80:188
+        at <repo>/frontend/tests/roleplay/helpers.ts:7:172
+        at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)
+        at <repo>/frontend/tests/roleplay/01-material.spec.ts:79:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530885538/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530885538/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530885538/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-3.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../reports/roleplay_20261124/artifacts-1795530885538/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip
+    Usage:
+
+        npx playwright show-trace ../reports/roleplay_20261124/artifacts-1795530885538/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    tests/roleplay/01-material.spec.ts:7:1 › R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交 ──────────────────
+    tests/roleplay/01-material.spec.ts:179:1 › R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正 ────────────────────

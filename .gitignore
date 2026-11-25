@@ -1,0 +1,40 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite3
+*.sqlite3-*
+.env
+.env.*
+!.env.example
+frontend/node_modules/
+frontend/dist/
+frontend/test-results/
+frontend/playwright-report/
+*.tsbuildinfo
+reports/screenshots/
+*.log
+!reports/**/*.log
+.DS_Store
+
+# Original evidence backups and browser traces stay local. Traces contain
+# session cookies; the public evidence scope is documented in reports/PUBLICATION.md.
+reports/local-originals/
+reports/**/artifacts-*/
+reports/**/browser-artifacts*/
+**/.playwright-artifacts-*/
+reports/**/*.zip
+reports/**/*.trace
+reports/**/*.network
+
+# Keep final screenshots and the five older images cited in the IT findings.
+reports/roleplay_20261124/initial-business/screenshots/*
+!reports/roleplay_20261124/initial-business/screenshots/R03-device-blocked.png
+!reports/roleplay_20261124/initial-business/screenshots/R03-device-pending-and-completed-queue.png
+!reports/roleplay_20261124/initial-business/screenshots/R03-hr-delivery.png
+reports/roleplay_20261124/retest-1/screenshots/*
+!reports/roleplay_20261124/retest-1/screenshots/R03-device-blocked.png
+!reports/roleplay_20261124/retest-1/screenshots/R03-hr-delivery.png
+reports/roleplay_20261124/teardown-interrupted/screenshots/
+reports/roleplay_20261124/regression/screenshots/
+reports/roleplay_20261124/initial-fixture/screenshots/

@@ -1,0 +1,6 @@
+{
+  "create_status": 200,
+  "publish_status": 200,
+  "checklist_status": 500,
+  "checklist_body": "Internal Server Error"
+}

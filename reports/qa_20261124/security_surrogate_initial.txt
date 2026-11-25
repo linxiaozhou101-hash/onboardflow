@@ -1,0 +1,29 @@
+....................................................................F.   [100%]
+=================================== FAILURES ===================================
+______ test_escaped_unpaired_surrogate_confirmation_token_does_not_crash _______
+
+client = <starlette.testclient.TestClient object at 0x10da6d7b0>
+
+    def test_escaped_unpaired_surrogate_confirmation_token_does_not_crash(client):
+        login(client);d=draft(client)
+        body={'draft_id':d['id'],'draft_version':d['draft_version'],'confirmation_token':'\ud800','confirmed':True,'allow_duplicate':True}
+        r=client.post('/api/cases',content=json.dumps(body),headers={'Content-Type':'application/json','Idempotency-Key':'surrogate-key'})
+>       assert r.status_code==400,r.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 400
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+backend/tests/qa/test_security.py:246: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.14/site-packages/starlette/testclient.py:37
+  <repo>/.venv/lib/python3.14/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]
+
+.venv/lib/python3.14/site-packages/fastapi/routing.py:233: 60 warnings
+  <repo>/.venv/lib/python3.14/site-packages/fastapi/routing.py:233: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    is_coroutine = asyncio.iscoroutinefunction(dependant.call)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED backend/tests/qa/test_security.py::test_escaped_unpaired_surrogate_confirmation_token_does_not_crash
+1 failed, 69 passed, 61 warnings in 4.31s

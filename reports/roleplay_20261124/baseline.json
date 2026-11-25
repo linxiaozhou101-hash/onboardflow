@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-11-24T14:29:45.086779+00:00",
+  "demo_counts": {
+    "users": 13,
+    "cases": 76,
+    "tasks": 37,
+    "messages": 102,
+    "events": 720,
+    "policies": 16,
+    "submission_attempts": 97
+  },
+  "source_hashes": {
+    "backend/app/auth.py": "8105f3da610f42221de66ba4a5a1d848269eb4b5653d4d0503edc47e9ce3c64c",
+    "backend/app/db.py": "8b8ffad0beb42858a0fd6a0d9002021f86f8e62c738bfdbd324836658a7b1078",
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/cases.py": "3a135584474c2168c81a80a1bd42ae806dcbacb14aca88f5517ccd7772eb7951",
+    "backend/app/providers.py": "7aa0d071896298e5130aacc08eafdb235f0bf1b3c4742d7c9d253f9cdc30c6cf",
+    "backend/app/seed.py": "24d695a817644e338a66a8592e5acdfade2304254fd714d7b5faef5f246f3e4d",
+    "backend/app/schemas.py": "c709fdd73b4cde9f55f4ab1cca3ee3eb6791fc4c40eca70a3cc078568d686b2c",
+    "backend/app/analytics.py": "9432e19c12e49236818a4dd82edcab37f02481e0d0dd3def7035bf5c4c3e4822",
+    "backend/app/main.py": "45f3b201eb21c147dea4f2d0f4022186167c3473e34b71bd93c334354da26ca2",
+    "backend/app/knowledge.py": "83157d132350a3ae5ed1bce0c12df6b504271bcd512eb53c34ebcfa5a790abd8",
+    "frontend/src/App.tsx": "8b5fdc9080c9ed12f744cec1e63a0606e45895da46046e172e8dbee52b2415d9",
+    "frontend/src/main.tsx": "e34b50223ac942759bc00c81a3d886fa77fc39645c31a32bd14841cbaceb2300",
+    "frontend/src/styles.css": "13f1d773804e4e68925280626e9bb8905526c35b294790d90e70a1a3472927bf",
+    "frontend/src/api.ts": "26c7b75e77f9600db4124f0078e5499747d520140c98ea1221ce84be3513f8d3"
+  },
+  "method": "synthetic role enactment with separate authenticated browser contexts; not human user research"
+}

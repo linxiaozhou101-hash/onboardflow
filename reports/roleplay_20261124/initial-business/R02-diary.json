@@ -1,0 +1,41 @@
+{
+  "scenario": "R02",
+  "disclaimer": "AI模拟角色与情境，通过真实浏览器操作；不是人类访谈或人类任务耗时",
+  "steps": [
+    {
+      "actor": "实习生 emp03",
+      "scene": "入职前遇到材料异常",
+      "action": "查询实习生材料后创建补交申请",
+      "observation": "请求OF-413C85DB已分派广州HR，实习安排确认仍缺失。",
+      "wall_time": "2026-11-24T14:38:41.700Z"
+    },
+    {
+      "actor": "HR hr01",
+      "scene": "首次审查",
+      "action": "解释暂不批准原因并给出可执行下一步",
+      "observation": "拒绝结论和原因员工可见；没有把拒绝当成材料已齐，也没有创建虚假的已完成跟进。",
+      "wall_time": "2026-11-24T14:38:42.231Z"
+    },
+    {
+      "actor": "实习生 emp03",
+      "scene": "第一次结果未解决实际困境",
+      "action": "如实提交负面反馈，取得新信息后重开",
+      "observation": "合成输入1分/未解决保存后，再以新证据重开；这不是人类满意度数据。",
+      "wall_time": "2026-11-24T14:38:42.895Z"
+    },
+    {
+      "actor": "管理员 admin01",
+      "scene": "同时观察服务质量",
+      "action": "重开期间检查已有负面反馈仍参与统计",
+      "observation": "真实记录验证：请求重开没有移除已有1分负面反馈。管理员画面仅查看测试数据。",
+      "wall_time": "2026-11-24T14:38:43.312Z"
+    },
+    {
+      "actor": "HR hr01",
+      "scene": "看到新信息后重新办理",
+      "action": "基于新证据批准延期并明确剩余义务",
+      "observation": "未达到预期：TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n",
+      "wall_time": "2026-11-24T14:38:55.493Z"
+    }
+  ]
+}

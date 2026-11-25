@@ -1,0 +1,788 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.roleplay.config.ts",
+    "rootDir": "<repo>/frontend/tests/roleplay",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/roleplay_20261124/artifacts-1795531116200",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests/roleplay",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8004",
+      "url": "http://127.0.0.1:8004/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-roleplay-31387.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8004"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "01-material.spec.ts",
+      "file": "01-material.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R01 广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2347,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"waiting_employee\"\u001b[39m\nReceived: \u001b[31m\"in_progress\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"waiting_employee\"\u001b[39m\nReceived: \u001b[31m\"in_progress\"\u001b[39m\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:38:72\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:33:3",
+                    "location": {
+                      "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                      "column": 72,
+                      "line": 38
+                    },
+                    "snippet": "  36 |    const response=e.waitForResponse(r=>r.url().endsWith(`/cases/${id}/messages`)&&r.request().method()==='POST');await e.getByRole('button',{name:'发送为主动进度询问',exact:true}).click();const result=await(await response).json();\n  37 |    diary.entries.push({actor:'观察员',scene:'催问后状态实测',action:'读取真实消息响应',observation:`催问类型progress_inquiry后status=${result.status}；预期仍waiting_employee，因未补充所问内容。`,wall_time:new Date().toISOString()});diary.save();\n> 38 |    await diary.photo(e,'progress-inquiry-state');expect(result.status).toBe('waiting_employee');\n     |                                                                        ^\n  39 |    expect(result.events.filter((x:any)=>x.kind==='progress_inquiry')).toHaveLength(1);\n  40 |    return '催问已记录；仍明确等待员工补充，不把催问当作材料或信息补齐。';\n  41 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                        "column": 72,
+                        "line": 38
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"waiting_employee\"\u001b[39m\nReceived: \u001b[31m\"in_progress\"\u001b[39m\n\n  36 |    const response=e.waitForResponse(r=>r.url().endsWith(`/cases/${id}/messages`)&&r.request().method()==='POST');await e.getByRole('button',{name:'发送为主动进度询问',exact:true}).click();const result=await(await response).json();\n  37 |    diary.entries.push({actor:'观察员',scene:'催问后状态实测',action:'读取真实消息响应',observation:`催问类型progress_inquiry后status=${result.status}；预期仍waiting_employee，因未补充所问内容。`,wall_time:new Date().toISOString()});diary.save();\n> 38 |    await diary.photo(e,'progress-inquiry-state');expect(result.status).toBe('waiting_employee');\n     |                                                                        ^\n  39 |    expect(result.events.filter((x:any)=>x.kind==='progress_inquiry')).toHaveLength(1);\n  40 |    return '催问已记录；仍明确等待员工补充，不把催问当作材料或信息补齐。';\n  41 |   });\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:38:72\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:33:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R01 员工 emp01（广州正式，手机） · 报到前一周 · 问入职信息表缺失能否补交并查看制度",
+                      "duration": 259
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 提交申请 · 填缺项和预计日期、预览并明确确认新事项",
+                      "duration": 545
+                    },
+                    {
+                      "title": "R01 HR hr01 · 晨间接单 · 接单、留内部交接备注，再向员工提出具体补问",
+                      "duration": 638
+                    },
+                    {
+                      "title": "R01 员工 emp01 · 等待过程中焦虑 · 先询问进度，尚未回答HR要求的原因",
+                      "duration": 160,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"waiting_employee\"\u001b[39m\nReceived: \u001b[31m\"in_progress\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"waiting_employee\"\u001b[39m\nReceived: \u001b[31m\"in_progress\"\u001b[39m\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:38:72\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:33:3",
+                        "location": {
+                          "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                          "column": 72,
+                          "line": 38
+                        },
+                        "snippet": "  36 |    const response=e.waitForResponse(r=>r.url().endsWith(`/cases/${id}/messages`)&&r.request().method()==='POST');await e.getByRole('button',{name:'发送为主动进度询问',exact:true}).click();const result=await(await response).json();\n  37 |    diary.entries.push({actor:'观察员',scene:'催问后状态实测',action:'读取真实消息响应',observation:`催问类型progress_inquiry后status=${result.status}；预期仍waiting_employee，因未补充所问内容。`,wall_time:new Date().toISOString()});diary.save();\n> 38 |    await diary.photo(e,'progress-inquiry-state');expect(result.status).toBe('waiting_employee');\n     |                                                                        ^\n  39 |    expect(result.events.filter((x:any)=>x.kind==='progress_inquiry')).toHaveLength(1);\n  40 |    return '催问已记录；仍明确等待员工补充，不把催问当作材料或信息补齐。';\n  41 |   });"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:38:37.436Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/test-failed-2.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531117425/01-material-R01-广州正式员工：补交咨询、HR补问、催问、延期审批、确认后实际补交/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                    "column": 72,
+                    "line": 38
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "31ceed59d9ecfbe9a223-d1df785fa344535cec03",
+          "file": "01-material.spec.ts",
+          "line": 7,
+          "column": 1
+        },
+        {
+          "title": "R02 广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 15213,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:98:342\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:97:3",
+                    "location": {
+                      "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                      "column": 342,
+                      "line": 98
+                    },
+                    "snippet": "   96 |   });\n   97 |   await diary.step('HR hr01','看到新信息后重新办理','基于新证据批准延期并明确剩余义务',async()=>{\n>  98 |    await refreshCase(h);await expect(h.locator('.messages')).toContainText('学校刚确认');await h.getByLabel('员工可见回复',{exact:true}).fill(`根据学校新确认的信息，修正本次审批为批准延期至${due}。请届时实际补交实习安排确认，材料仍未收齐。`);await h.getByLabel('补交审批结果').selectOption('approved_deferred');await h.getByLabel('约定补交日期',{exact:true}).fill(due);await h.getByLabel('审批原因',{exact:true}).fill('新信息给出明确补交安排，需继续跟进实际提交。');\n      |                                                                                                                                                                                                                                                                                                                                                      ^\n   99 |    await h.getByRole('button',{name:'处理完毕，交员工确认',exact:true}).click();await expect(h.locator('.detail-summary')).toContainText('待员工确认');const ca=await readCase(h,id);expect(ca.resolution_code).toBe('approved_deferred');expect(ca.reopen_count).toBe(1);expect(ca.materials[0].provided).toBe(false);expect(ca.tasks.filter((t:any)=>t.type==='MATERIAL_FOLLOWUP')).toHaveLength(1);\n  100 |    expect(ca.messages.some((m:any)=>m.body.includes('暂不批准'))).toBe(true);return '新审批覆盖当前结论，但首次拒绝解释、负面反馈、重开原因均保留。';\n  101 |   });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                        "column": 342,
+                        "line": 98
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n\n\n   96 |   });\n   97 |   await diary.step('HR hr01','看到新信息后重新办理','基于新证据批准延期并明确剩余义务',async()=>{\n>  98 |    await refreshCase(h);await expect(h.locator('.messages')).toContainText('学校刚确认');await h.getByLabel('员工可见回复',{exact:true}).fill(`根据学校新确认的信息，修正本次审批为批准延期至${due}。请届时实际补交实习安排确认，材料仍未收齐。`);await h.getByLabel('补交审批结果').selectOption('approved_deferred');await h.getByLabel('约定补交日期',{exact:true}).fill(due);await h.getByLabel('审批原因',{exact:true}).fill('新信息给出明确补交安排，需继续跟进实际提交。');\n      |                                                                                                                                                                                                                                                                                                                                                      ^\n   99 |    await h.getByRole('button',{name:'处理完毕，交员工确认',exact:true}).click();await expect(h.locator('.detail-summary')).toContainText('待员工确认');const ca=await readCase(h,id);expect(ca.resolution_code).toBe('approved_deferred');expect(ca.reopen_count).toBe(1);expect(ca.materials[0].provided).toBe(false);expect(ca.tasks.filter((t:any)=>t.type==='MATERIAL_FOLLOWUP')).toHaveLength(1);\n  100 |    expect(ca.messages.some((m:any)=>m.body.includes('暂不批准'))).toBe(true);return '新审批覆盖当前结论，但首次拒绝解释、负面反馈、重开原因均保留。';\n  101 |   });\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:98:342\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:97:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R02 实习生 emp03 · 入职前遇到材料异常 · 查询实习生材料后创建补交申请",
+                      "duration": 313
+                    },
+                    {
+                      "title": "R02 HR hr01 · 首次审查 · 解释暂不批准原因并给出可执行下一步",
+                      "duration": 531
+                    },
+                    {
+                      "title": "R02 实习生 emp03 · 第一次结果未解决实际困境 · 如实提交负面反馈，取得新信息后重开",
+                      "duration": 664
+                    },
+                    {
+                      "title": "R02 管理员 admin01 · 同时观察服务质量 · 重开期间检查已有负面反馈仍参与统计",
+                      "duration": 418
+                    },
+                    {
+                      "title": "R02 HR hr01 · 看到新信息后重新办理 · 基于新证据批准延期并明确剩余义务",
+                      "duration": 12180,
+                      "error": {
+                        "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n",
+                        "stack": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('审批原因', { exact: true })\u001b[22m\n\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:98:342\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/01-material.spec.ts:97:3",
+                        "location": {
+                          "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                          "column": 342,
+                          "line": 98
+                        },
+                        "snippet": "   96 |   });\n   97 |   await diary.step('HR hr01','看到新信息后重新办理','基于新证据批准延期并明确剩余义务',async()=>{\n>  98 |    await refreshCase(h);await expect(h.locator('.messages')).toContainText('学校刚确认');await h.getByLabel('员工可见回复',{exact:true}).fill(`根据学校新确认的信息，修正本次审批为批准延期至${due}。请届时实际补交实习安排确认，材料仍未收齐。`);await h.getByLabel('补交审批结果').selectOption('approved_deferred');await h.getByLabel('约定补交日期',{exact:true}).fill(due);await h.getByLabel('审批原因',{exact:true}).fill('新信息给出明确补交安排，需继续跟进实际提交。');\n      |                                                                                                                                                                                                                                                                                                                                                      ^\n   99 |    await h.getByRole('button',{name:'处理完毕，交员工确认',exact:true}).click();await expect(h.locator('.detail-summary')).toContainText('待员工确认');const ca=await readCase(h,id);expect(ca.resolution_code).toBe('approved_deferred');expect(ca.reopen_count).toBe(1);expect(ca.materials[0].provided).toBe(false);expect(ca.tasks.filter((t:any)=>t.type==='MATERIAL_FOLLOWUP')).toHaveLength(1);\n  100 |    expect(ca.messages.some((m:any)=>m.body.includes('暂不批准'))).toBe(true);return '新审批覆盖当前结论，但首次拒绝解释、负面反馈、重开原因均保留。';\n  101 |   });"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:38:40.385Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/test-failed-3.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531120375/01-material-R02-广州实习生：延期被拒、给出负面反馈、补充新证据重开后修正/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/roleplay/01-material.spec.ts",
+                    "column": 342,
+                    "line": 98
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "31ceed59d9ecfbe9a223-0d6e0c36ade331995d6e",
+          "file": "01-material.spec.ts",
+          "line": 175,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "02-it.spec.ts",
+      "file": "02-it.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14625,
+                  "error": {
+                    "message": "Error: 账号设备事项不应带补交审批代码\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"approved_deferred\"\u001b[39m",
+                    "stack": "Error: 账号设备事项不应带补交审批代码\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"approved_deferred\"\u001b[39m\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:92:64\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5",
+                    "location": {
+                      "file": "<repo>/frontend/tests/roleplay/02-it.spec.ts",
+                      "column": 64,
+                      "line": 92
+                    },
+                    "snippet": "  90 |       await diary.photo(hr.page,'hr-delivery');\n  91 |       // A device result must not announce deferred material approval.\n> 92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');\n     |                                                                ^\n  93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');\n  94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');\n  95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/02-it.spec.ts",
+                        "column": 64,
+                        "line": 92
+                      },
+                      "message": "Error: 账号设备事项不应带补交审批代码\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"approved_deferred\"\u001b[39m\n\n  90 |       await diary.photo(hr.page,'hr-delivery');\n  91 |       // A device result must not announce deferred material approval.\n> 92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');\n     |                                                                ^\n  93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');\n  94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');\n  95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:92:64\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5"
+                    },
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/02-it.spec.ts",
+                        "column": 79,
+                        "line": 94
+                      },
+                      "message": "Error: 账号设备事项不应显示材料延期获批提示\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected substring: not \u001b[32m\"补交安排已获批\"\u001b[39m\nReceived string: \u001b[31m\"OF-439783D2 · 账号 / 设备异常待员工确认拟真R03｜深圳首日：办公账号和Windows演示电脑都未准备，项目培训即将开始请查看处理结果，并确认是否解决了你的问题当前负责人hr02 · 深圳HR到期时间 11/25 22:38 · 连续自然小时事项信息申请人演示员工02创建时间11/24 22:38账号或设备类型both处理结论批准延期补交\u001b[7m补交安排已获批\u001b[27m。申请处理完毕不代表材料收齐，实际补交状态仍单独记录。深圳账号设备准备与异常处理 v1.0 · section-1协同任务账号准备it01 · 办结前必须完成已完成设备准备it02 · 办结前必须完成已完成沟通记录hr02员工可见回复 · 11/24 22:38已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。hr02仅 HR 可见 · 内部备注 · 11/24 22:38HR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。hr02员工可见回复 · 11/24 22:39两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。处理时间线请求已提交11/24 22:38状态更新待接单11/24 22:38状态更新处理中11/24 22:38HR 公开回复已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。11/24 22:38notification_recorded11/24 22:38internal_noteHR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。11/24 22:38创建协同任务11/24 22:38创建协同任务11/24 22:38协同任务完成11/24 22:38协同任务完成11/24 22:38HR 公开回复两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。11/24 22:39notification_recorded11/24 22:39状态更新待员工确认11/24 22:39处理此请求刷新请求员工可见回复生成可编辑回复草稿发送公开回复重开原因申请重新处理HR 内部备注（员工不可见）保存内部备注取消请求取消原因确认取消请求未完成任务会同时取消。\"\u001b[39m\nTimeout: 8000ms\n\nCall log:\n\u001b[2m  - 账号设备事项不应显示材料延期获批提示 with timeout 8000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\u001b[2m    12 × locator resolved to <div role=\"dialog\" tabindex=\"-1\" aria-modal=\"true\" class=\"modal wide\" aria-label=\"OF-439783D2 · 账号 / 设备异常\">…</div>\u001b[22m\n\u001b[2m       - unexpected value \"OF-439783D2 · 账号 / 设备异常待员工确认拟真R03｜深圳首日：办公账号和Windows演示电脑都未准备，项目培训即将开始请查看处理结果，并确认是否解决了你的问题当前负责人hr02 · 深圳HR到期时间 11/25 22:38 · 连续自然小时事项信息申请人演示员工02创建时间11/24 22:38账号或设备类型both处理结论批准延期补交补交安排已获批。申请处理完毕不代表材料收齐，实际补交状态仍单独记录。深圳账号设备准备与异常处理 v1.0 · section-1协同任务账号准备it01 · 办结前必须完成已完成设备准备it02 · 办结前必须完成已完成沟通记录hr02员工可见回复 · 11/24 22:38已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。hr02仅 HR 可见 · 内部备注 · 11/24 22:38HR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。hr02员工可见回复 · 11/24 22:39两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。处理时间线请求已提交11/24 22:38状态更新待接单11/24 22:38状态更新处理中11/24 22:38HR 公开回复已接单。我会先安排办公账号，再安排Windows演示电脑；两个演示任务都完成后请你核对，培训时间由HR协调。11/24 22:38notification_recorded11/24 22:38internal_noteHR内部：已与培训负责人商量缓冲时间，不展示给IT或员工。11/24 22:38创建协同任务11/24 22:38创建协同任务11/24 22:38协同任务完成11/24 22:38协同任务完成11/24 22:38HR 公开回复两个演示任务已完成：办公账号及电脑准备流程已记录，请核对是否满足培训要求；这不是实际账号开通。11/24 22:39notification_recorded11/24 22:39状态更新待员工确认11/24 22:39处理此请求刷新请求员工可见回复生成可编辑回复草稿发送公开回复重开原因申请重新处理HR 内部备注（员工不可见）保存内部备注取消请求取消原因确认取消请求未完成任务会同时取消。\"\u001b[22m\n\n\n  92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');\n  93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');\n> 94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');\n     |                                                                               ^\n  95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;\n  96 |     });\n  97 |     await diary.step('员工 emp02','核对结果发现仍不符合预期','暂不确认，说明演示电脑缺少培训展示安排并申请重开',async()=>{\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:94:79\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R03 员工 emp02 · 入职第一天上午（情境设定） · 查看当前账号进度，再明确创建新的培训设备事项",
+                      "duration": 621
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 收到员工紧急请求 · 接单、解释安排，并分开保存内部协调说明",
+                      "duration": 673
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 需要跨两位IT协同 · 账号任务派it01，电脑任务派it02并设为依赖账号",
+                      "duration": 552
+                    },
+                    {
+                      "title": "R03 设备IT it02 · 先看到自己的任务 · 尝试在账号尚未完成时先完成电脑任务，确认拦截及信息边界",
+                      "duration": 346
+                    },
+                    {
+                      "title": "R03 账号IT it01 → 设备IT it02 · 前置依赖交接 · 先完成账号演示任务，再由另一账号完成电脑演示任务",
+                      "duration": 509
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 · 两个演示任务已完成 · 核对依赖后明确交付结果",
+                      "duration": 8431,
+                      "error": {
+                        "message": "Error: 账号设备事项不应带补交审批代码\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"approved_deferred\"\u001b[39m",
+                        "stack": "Error: 账号设备事项不应带补交审批代码\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mnot\u001b[2m.\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: not \u001b[32m\"approved_deferred\"\u001b[39m\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:92:64\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/02-it.spec.ts:84:5",
+                        "location": {
+                          "file": "<repo>/frontend/tests/roleplay/02-it.spec.ts",
+                          "column": 64,
+                          "line": 92
+                        },
+                        "snippet": "  90 |       await diary.photo(hr.page,'hr-delivery');\n  91 |       // A device result must not announce deferred material approval.\n> 92 |       expect.soft(state.resolution_code,'账号设备事项不应带补交审批代码').not.toBe('approved_deferred');\n     |                                                                ^\n  93 |       expect.soft(state.resolution_code,'账号设备事项不应带材料拒绝审批代码').not.toBe('rejected');\n  94 |       await expect.soft(hr.page.getByRole('dialog'),'账号设备事项不应显示材料延期获批提示').not.toContainText('补交安排已获批');\n  95 |       return `主单状态${state.status}；处理结论代码实际为${state.resolution_code}。专项断言检查是否错误带入材料审批提示。`;"
+                      }
+                    },
+                    {
+                      "title": "R03 员工 emp02 · 核对结果发现仍不符合预期 · 暂不确认，说明演示电脑缺少培训展示安排并申请重开",
+                      "duration": 290
+                    },
+                    {
+                      "title": "R03 深圳HR hr02 → 设备IT it02 · 收到员工纠正 · HR明确新增修正任务，设备IT完成后再次交付",
+                      "duration": 1100
+                    },
+                    {
+                      "title": "R03 员工 emp02 · 再次核对后 · 确认结果，提交模拟反馈并刷新页面验证留存",
+                      "duration": 630
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:38:56.144Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-4.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/test-failed-3.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531136132/02-it-R03-深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/roleplay/02-it.spec.ts",
+                    "column": 64,
+                    "line": 92
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-96a9619da4252bb20c8c",
+          "file": "02-it.spec.ts",
+          "line": 39,
+          "column": 1
+        },
+        {
+          "title": "R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3314,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R04 员工 emp06 → 深圳HR hr02 · 提前准备备用培训方案 · 提交账号设备请求，HR接单并安排两个任务",
+                      "duration": 887
+                    },
+                    {
+                      "title": "R04 账号IT it01 · 收到准备任务 · 先完成账号演示任务，电脑仍待准备",
+                      "duration": 246
+                    },
+                    {
+                      "title": "R04 员工 emp06 · 培训安排改变（情境设定） · 在原请求说明撤销原因并取消",
+                      "duration": 441
+                    },
+                    {
+                      "title": "R04 设备IT it02 → 深圳HR hr02 · 准备开始设备工作前 · 刷新自己的待办和HR原请求，确认已终止",
+                      "duration": 367
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:39:11.367Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531151357/02-it-R04-深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-bae5b6b092e7801e468e",
+          "file": "02-it.spec.ts",
+          "line": 211,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "03-admin.spec.ts",
+      "file": "03-admin.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R05 档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1500,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:97:31\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:90:5",
+                    "location": {
+                      "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                      "column": 31,
+                      "line": 97
+                    },
+                    "snippet": "   95 |    await diary.photo(admin.page,'published');return '原v1.0结束于新版本开始日，临时v1.1结束于2027版开始日。作者和发布审核人不同，日期边界无重叠。';\n   96 |   });\n>  97 |   await diary.step('实习生 emp07','再次查最新安排并回看旧请求','当前回答匹配新版本，同时旧请求打开原版本全文',async()=>{\n      |                               ^\n   98 |    await closeDialog(employee.page);await ask(employee.page,'深圳报到地点和联系人是什么？');\n   99 |    await expect(employee.page.locator('.answer-card .citations')).toContainText(version);await expect(employee.page.locator('.answer-text')).toContainText('4楼');\n  100 |    await diary.photo(employee.page,'current-citation');await openCase(employee.page,title);"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                        "column": 31,
+                        "line": 97
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n   95 |    await diary.photo(admin.page,'published');return '原v1.0结束于新版本开始日，临时v1.1结束于2027版开始日。作者和发布审核人不同，日期边界无重叠。';\n   96 |   });\n>  97 |   await diary.step('实习生 emp07','再次查最新安排并回看旧请求','当前回答匹配新版本，同时旧请求打开原版本全文',async()=>{\n      |                               ^\n   98 |    await closeDialog(employee.page);await ask(employee.page,'深圳报到地点和联系人是什么？');\n   99 |    await expect(employee.page.locator('.answer-card .citations')).toContainText(version);await expect(employee.page.locator('.answer-text')).toContainText('4楼');\n  100 |    await diary.photo(employee.page,'current-citation');await openCase(employee.page,title);\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:97:31\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:90:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R05 实习生 emp07 · 入职前整理通知（情境设定） · 用自然语言询问报到信息，补充系统缺少的城市和日期",
+                      "duration": 228
+                    },
+                    {
+                      "title": "R05 实习生 emp07 · 需要人工确认行程 · 创建入职咨询并查看主责团队",
+                      "duration": 386
+                    },
+                    {
+                      "title": "R05 广州HR hr01 与 深圳HR hr02 · 两个城市独立登录 · 验证跨城市不可见，并由深圳HR接单公开解释",
+                      "duration": 34,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m403\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:97:31\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:90:5",
+                        "location": {
+                          "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                          "column": 31,
+                          "line": 97
+                        },
+                        "snippet": "   95 |    await diary.photo(admin.page,'published');return '原v1.0结束于新版本开始日，临时v1.1结束于2027版开始日。作者和发布审核人不同，日期边界无重叠。';\n   96 |   });\n>  97 |   await diary.step('实习生 emp07','再次查最新安排并回看旧请求','当前回答匹配新版本，同时旧请求打开原版本全文',async()=>{\n      |                               ^\n   98 |    await closeDialog(employee.page);await ask(employee.page,'深圳报到地点和联系人是什么？');\n   99 |    await expect(employee.page.locator('.answer-card .citations')).toContainText(version);await expect(employee.page.locator('.answer-text')).toContainText('4楼');\n  100 |    await diary.photo(employee.page,'current-citation');await openCase(employee.page,title);"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:39:15.009Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-3.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/test-failed-2.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531151357/03-admin-R05-档案缺城市与日期的实习生，经澄清后进入深圳HR服务闭环/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                    "column": 31,
+                    "line": 97
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-f1b7f7a06df8201ef1ac",
+          "file": "03-admin.spec.ts",
+          "line": 65,
+          "column": 1
+        },
+        {
+          "title": "R06 HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13664,
+                  "error": {
+                    "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:167:10\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:153:5",
+                    "location": {
+                      "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                      "column": 10,
+                      "line": 167
+                    },
+                    "snippet": ""
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                        "column": 10,
+                        "line": 167
+                      },
+                      "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:167:10\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:153:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R06 实习生 emp07 · 制度变更前提出咨询 · 查看旧报到说明，创建需保留原始依据的请求",
+                      "duration": 579
+                    },
+                    {
+                      "title": "R06 深圳HR hr02 · 准备一次临时楼层调整 · 创建v1.0后续草稿，先遗漏结束日期以还原实际编写失误",
+                      "duration": 12095,
+                      "error": {
+                        "message": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n",
+                        "stack": "TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:167:10\n    at <repo>/frontend/tests/roleplay/helpers.ts:7:172\n    at Diary.step (<repo>/frontend/tests/roleplay/helpers.ts:7:82)\n    at <repo>/frontend/tests/roleplay/03-admin.spec.ts:153:5",
+                        "location": {
+                          "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                          "column": 10,
+                          "line": 167
+                        },
+                        "snippet": ""
+                      }
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:39:16.929Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-1.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-2.png"
+                    },
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/test-failed-3.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531156841/03-admin-R06-HR拟定未来报到版本，管理员处理日期重叠，员工保留旧案依据/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/roleplay/03-admin.spec.ts",
+                    "column": 10,
+                    "line": 167
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-fc20bec0867c006fb697",
+          "file": "03-admin.spec.ts",
+          "line": 135,
+          "column": 1
+        },
+        {
+          "title": "R07 管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3190,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "R07 管理员 admin01 · 晨间服务复盘（情境设定） · 明确选择自动测试数据，记录首次完整率基线",
+                      "duration": 157
+                    },
+                    {
+                      "title": "R07 员工 emp06 · 通勤途中赶着提交（情境设定） · 漏填事项说明仍点确认，阅读缺项提示后在同一草稿补填重试",
+                      "duration": 477
+                    },
+                    {
+                      "title": "R07 深圳HR hr02 → 员工 emp06 · 收到解释但仍觉得不清楚 · HR提交结果，员工如实选择困难与未解决，而不是被迫打高分",
+                      "duration": 930
+                    },
+                    {
+                      "title": "R07 管理员 admin01 · 寻找具体改进对象 · 从一次提交完整率追到缺项记录，再检查评价明细并复算",
+                      "duration": 674
+                    }
+                  ],
+                  "startTime": "2026-11-24T14:39:31.094Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/roleplay_20261124/artifacts-1795531171086/03-admin-R07-管理员从首次缺项与低分评价追溯真实测试记录，不把重试算完整/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "00d1dc282a57458eecc7-4f829d0bb5ecfc5dd520",
+          "file": "03-admin.spec.ts",
+          "line": 246,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T14:38:36.203Z",
+    "duration": 58355.094000000005,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "started_at": "2026-11-24T13:09:47.800636+00:00",
+  "python": "3.14.2",
+  "platform": "macOS-26.6.2-x86_64-i386-64bit-Mach-O",
+  "source_hashes": {
+    "backend/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/auth.py": "b193621d79e280bb9cc73d0ff131c42d3e2941b93c3867adcfb501946986a8f7",
+    "backend/app/db.py": "8b8ffad0beb42858a0fd6a0d9002021f86f8e62c738bfdbd324836658a7b1078",
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/cases.py": "c9c19d27d7862bd77c1749fe7941c2fa136dca7625da01cb03b198fb88b4b833",
+    "backend/app/providers.py": "7aa0d071896298e5130aacc08eafdb235f0bf1b3c4742d7c9d253f9cdc30c6cf",
+    "backend/app/seed.py": "24d695a817644e338a66a8592e5acdfade2304254fd714d7b5faef5f246f3e4d",
+    "backend/app/schemas.py": "c709fdd73b4cde9f55f4ab1cca3ee3eb6791fc4c40eca70a3cc078568d686b2c",
+    "backend/app/analytics.py": "f7b32de4888e0cc3248f00a16b6336a01f18d9a17071722ac7a6b683c051eb84",
+    "backend/app/main.py": "45f3b201eb21c147dea4f2d0f4022186167c3473e34b71bd93c334354da26ca2",
+    "backend/app/knowledge.py": "2595dd61bbebf7a9cdb976b39b0f5ecda6775fc2d39cfabdb9ef904301bb76ef",
+    "backend/tests/test_metrics.py": "bcace49cbaf041dcb4e225c9493444f1bd815f4e96d0995cbecca15a6695ad24",
+    "backend/tests/test_knowledge.py": "944101b50d69ac3abc8d691abf831c97342ec3968188dc7b4231614a46705080",
+    "backend/tests/test_integrity.py": "b9c0987f041d09b6b349c0a72f57e39775e9dce1366ab2a5c8414ba5d4ce62e2",
+    "backend/tests/test_cases.py": "cf47fb3228e7e8343b0d78e13dd493bf6ae6031283327cf2c6aba2715012bfd2",
+    "frontend/src/App.tsx": "efe567e09d46a8860991c1b2ef4086b6b6006a1a4e61374715367c3dac94aba3",
+    "frontend/src/main.tsx": "e34b50223ac942759bc00c81a3d886fa77fc39645c31a32bd14841cbaceb2300",
+    "frontend/src/styles.css": "d5da44af25a1a301bad6d5be07e600d4c008fefa29c9dda7209601db3634f7e5",
+    "frontend/src/api.ts": "7cd5ba595887dab79c25ed5ca8618e217d5056d446186b58afbfd96dc30eb8fd",
+    "frontend/package-lock.json": "ba6d76c9a9e52d8d34ff5c55df382c4379bb4a50d1f953338665d694983246db",
+    "frontend/package.json": "44360222e1a985e5072bf082fc56496b0dec5b8a5d78a95c19a0f9fc8f8778af",
+    "backend/requirements.lock": "d86555ff9f6fea11cffa0e288e6bb52c37b895a5a3f4e42887623d1e8accf5ca"
+  },
+  "demo_database_counts_before": {
+    "users": 13,
+    "cases": 76,
+    "tasks": 37,
+    "messages": 102,
+    "policies": 16,
+    "events": 720,
+    "submission_attempts": 97
+  },
+  "git_commit": null,
+  "goal": "independent risk-based qualification of local demo, not production certification"
+}

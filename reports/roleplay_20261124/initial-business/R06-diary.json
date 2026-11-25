@@ -1,0 +1,20 @@
+{
+  "scenario": "R06",
+  "disclaimer": "AI模拟角色与情境，通过真实浏览器操作；不是人类访谈或人类任务耗时",
+  "steps": [
+    {
+      "actor": "实习生 emp07",
+      "scene": "制度变更前提出咨询",
+      "action": "查看旧报到说明，创建需保留原始依据的请求",
+      "observation": "OF-42FFB2E6 创建时保留report-sz v1.0引用，员工计划入职日2026-12-06。",
+      "wall_time": "2026-11-24T14:39:18.493Z"
+    },
+    {
+      "actor": "深圳HR hr02",
+      "scene": "准备一次临时楼层调整",
+      "action": "创建v1.0后续草稿，先遗漏结束日期以还原实际编写失误",
+      "observation": "未达到预期：TimeoutError: locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByLabel('正文（Markdown）', { exact: true })\u001b[22m\n",
+      "wall_time": "2026-11-24T14:39:30.588Z"
+    }
+  ]
+}

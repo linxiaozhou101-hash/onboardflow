@@ -1,0 +1,12 @@
+<testsuites id="" name="" tests="2" failures="0" skipped="2" errors="0" time="0.08520799999999996">
+<testsuite name="02-it.spec.ts" timestamp="2026-11-24T14:35:05.045Z" hostname="" tests="2" failures="0" skipped="2" time="0" errors="0">
+<testcase name="R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正" classname="02-it.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+<testcase name="R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止" classname="02-it.spec.ts" time="0">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

@@ -1,0 +1,13 @@
+
+> onboardflow@1.0.0 build
+> tsc -b && vite build
+
+vite v6.3.5 building for production...
+transforming...
+✓ 1630 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.43 kB │ gzip:  0.33 kB
+dist/assets/index-CVr41wvG.css   26.94 kB │ gzip:  6.58 kB
+dist/assets/index-lkRVqmzv.js   252.96 kB │ gzip: 78.33 kB
+✓ built in 641ms

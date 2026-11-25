@@ -1,0 +1,42 @@
+{
+  "captured_at": "2026-11-24T14:48:00.890466+00:00",
+  "baseline_counts": {
+    "users": 13,
+    "cases": 76,
+    "tasks": 37,
+    "messages": 102,
+    "events": 720,
+    "policies": 16,
+    "submission_attempts": 97
+  },
+  "final_counts": {
+    "users": 13,
+    "cases": 76,
+    "tasks": 37,
+    "messages": 102,
+    "events": 720,
+    "policies": 16,
+    "submission_attempts": 97
+  },
+  "counts_unchanged": true,
+  "source_hashes": {
+    "backend/app/auth.py": "8105f3da610f42221de66ba4a5a1d848269eb4b5653d4d0503edc47e9ce3c64c",
+    "backend/app/db.py": "8b8ffad0beb42858a0fd6a0d9002021f86f8e62c738bfdbd324836658a7b1078",
+    "backend/app/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/app/cases.py": "0bb8fcb6993a284107c04fc31b73218ea5739c148dbe3caf5fadfa0a33c931e9",
+    "backend/app/providers.py": "7aa0d071896298e5130aacc08eafdb235f0bf1b3c4742d7c9d253f9cdc30c6cf",
+    "backend/app/seed.py": "24d695a817644e338a66a8592e5acdfade2304254fd714d7b5faef5f246f3e4d",
+    "backend/app/schemas.py": "c709fdd73b4cde9f55f4ab1cca3ee3eb6791fc4c40eca70a3cc078568d686b2c",
+    "backend/app/analytics.py": "9432e19c12e49236818a4dd82edcab37f02481e0d0dd3def7035bf5c4c3e4822",
+    "backend/app/main.py": "45f3b201eb21c147dea4f2d0f4022186167c3473e34b71bd93c334354da26ca2",
+    "backend/app/knowledge.py": "83157d132350a3ae5ed1bce0c12df6b504271bcd512eb53c34ebcfa5a790abd8",
+    "frontend/src/App.tsx": "42ef28dce40e0fb1649cfc57ade5dc0be920cf9da3a47dff32e625217b7a51df",
+    "frontend/src/main.tsx": "e34b50223ac942759bc00c81a3d886fa77fc39645c31a32bd14841cbaceb2300",
+    "frontend/src/styles.css": "13f1d773804e4e68925280626e9bb8905526c35b294790d90e70a1a3472927bf",
+    "frontend/src/api.ts": "f73e88a28453da3a1b15e1d62c8a567efb506dbfe4010296d12837d4a99c955f"
+  },
+  "platform": "macOS-26.6.2-x86_64-i386-64bit-Mach-O",
+  "node": "v24.13.0",
+  "python": "Python 3.14.2",
+  "chrome": "Google Chrome 158.0.8127.88"
+}

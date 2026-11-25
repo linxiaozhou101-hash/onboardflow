@@ -1,0 +1,132 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.roleplay.config.ts",
+    "rootDir": "<repo>/frontend/tests/roleplay",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/roleplay_20261124/journeys.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/roleplay_20261124/artifacts-1795530904957",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests/roleplay",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 120000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8004",
+      "url": "http://127.0.0.1:8004/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-roleplay-31182.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8004"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "02-it.spec.ts",
+      "file": "02-it.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "R03 深圳账号与电脑双团队交接，员工发现结果不符后重开并完成修正",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-96a9619da4252bb20c8c",
+          "file": "02-it.spec.ts",
+          "line": 43,
+          "column": 1
+        },
+        {
+          "title": "R04 深圳临时设备请求取消，已完成账号留档、未完成电脑任务同步终止",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b60cd15f9e2ccf5885e5-bae5b6b092e7801e468e",
+          "file": "02-it.spec.ts",
+          "line": 211,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T14:35:04.960Z",
+    "duration": 85.20799999999997,
+    "expected": 0,
+    "skipped": 2,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

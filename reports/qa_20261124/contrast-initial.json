@@ -1,0 +1,82 @@
+[
+  {
+    "text": "从准备到报到，我们陪你把每一步安排好。",
+    "selector": "",
+    "foreground": "rgb(138, 150, 135)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "12px",
+    "ratio": 2.871364662076094
+  },
+  {
+    "text": "工作城市",
+    "selector": "",
+    "foreground": "rgb(141, 153, 133)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 2.7754795178490106
+  },
+  {
+    "text": "雇佣类型",
+    "selector": "",
+    "foreground": "rgb(141, 153, 133)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 2.7754795178490106
+  },
+  {
+    "text": "计划入职日",
+    "selector": "",
+    "foreground": "rgb(141, 153, 133)",
+    "background": "rgb(245, 247, 245)",
+    "fontSize": "10px",
+    "ratio": 2.7754795178490106
+  },
+  {
+    "text": "有依据 · 可核查",
+    "selector": "subtle",
+    "foreground": "rgb(138, 151, 134)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "ratio": 3.0650024521812367
+  },
+  {
+    "text": "按计划入职日 2026-12-01 匹配",
+    "selector": "subtle",
+    "foreground": "rgb(138, 151, 134)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 3.0650024521812367
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(160, 170, 152)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 2.4143463279008346
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(160, 170, 152)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 2.4143463279008346
+  },
+  {
+    "text": "待准备 · 仅材料元信息",
+    "selector": "",
+    "foreground": "rgb(160, 170, 152)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "10px",
+    "ratio": 2.4143463279008346
+  },
+  {
+    "text": "12 项处理中 · 3 项待我补充",
+    "selector": "subtle",
+    "foreground": "rgb(138, 151, 134)",
+    "background": "rgb(255, 255, 255)",
+    "fontSize": "11px",
+    "ratio": 3.0650024521812367
+  }
+]

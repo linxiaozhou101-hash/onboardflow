@@ -1,0 +1,652 @@
+{
+  "config": {
+    "configFile": "<repo>/frontend/playwright.qa.config.ts",
+    "rootDir": "<repo>/frontend/tests/qa",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../reports/qa_20261124/browser-results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "<repo>/reports/qa_20261124/browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "<repo>/frontend/tests/qa",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": {
+      "command": "../.venv/bin/python -m uvicorn backend.app.main:app --app-dir .. --host 127.0.0.1 --port 8003",
+      "url": "http://127.0.0.1:8003/api/health",
+      "reuseExistingServer": false,
+      "env": {
+        "DATABASE_PATH": "<tmp>/onboardflow-qa-browser-28370.sqlite3",
+        "DATA_ORIGIN": "test",
+        "BIND_HOST": "127.0.0.1",
+        "APP_MODE": "demo",
+        "LLM_MODE": "offline",
+        "ALLOWED_ORIGINS": "http://127.0.0.1:8003"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "exploratory.spec.ts",
+      "file": "exploratory.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "QA-UI-01 real keyboard typing preserves focus and full text in modal",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1043,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:12:37.303Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-e52c8fae9d3297d83ddb",
+          "file": "exploratory.spec.ts",
+          "line": 31,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-02 modal initially traps reverse tab and restores opener on Escape",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 377,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:15:125",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 125,
+                      "line": 15
+                    },
+                    "snippet": "  13 | test('QA-UI-02 modal initially traps reverse tab and restores opener on Escape',async({page})=>{\n  14 |  await login(page,'emp01');const opener=page.getByRole('button',{name:'新建服务请求'});await opener.click();\n> 15 |  await page.keyboard.press('Shift+Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('[role=dialog]'))).toBe(true);\n     |                                                                                                                             ^\n  16 |  await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).toHaveCount(0);await expect(opener).toBeFocused();\n  17 | });\n  18 | test('QA-UI-03 failed submission response retry creates only one case and preserves draft',async({page})=>{"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 125,
+                        "line": 15
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  13 | test('QA-UI-02 modal initially traps reverse tab and restores opener on Escape',async({page})=>{\n  14 |  await login(page,'emp01');const opener=page.getByRole('button',{name:'新建服务请求'});await opener.click();\n> 15 |  await page.keyboard.press('Shift+Tab');expect(await page.evaluate(()=>!!document.activeElement?.closest('[role=dialog]'))).toBe(true);\n     |                                                                                                                             ^\n  16 |  await page.keyboard.press('Escape');await expect(page.getByRole('dialog')).toHaveCount(0);await expect(opener).toBeFocused();\n  17 | });\n  18 | test('QA-UI-03 failed submission response retry creates only one case and preserves draft',async({page})=>{\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:15:125"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:12:38.657Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-02-modal-3550e-d-restores-opener-on-Escape/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-02-modal-3550e-d-restores-opener-on-Escape/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-02-modal-3550e-d-restores-opener-on-Escape/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 125,
+                    "line": 15
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-f72e55cf1d1704787614",
+          "file": "exploratory.spec.ts",
+          "line": 46,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-03 failed submission response retry creates only one case and preserves draft",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 745,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:12:39.331Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-59ead7179c1c0313f90e",
+          "file": "exploratory.spec.ts",
+          "line": 63,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-04 delayed HR01 list never replaces HR02 list after identity switch",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4732,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:32:42",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 42,
+                      "line": 32
+                    },
+                    "snippet": "  30 |  await page.getByLabel('状态').selectOption('assigned');await ready;\n  31 |  await switchTo(page,'hr02');await expect(page.locator('.user-block')).toContainText('深圳');release();await page.waitForTimeout(200);\n> 32 |  await expect(page.locator('tbody')).not.toContainText('广州');\n     |                                          ^\n  33 | });\n  34 | test('QA-UI-05 delayed case detail cannot surface under a new employee session',async({page})=>{\n  35 |  await login(page,'hr01');await expect(page.locator('tbody tr').first()).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 42,
+                        "line": 32
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).not.\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('tbody')\nExpected substring: not \u001b[32m\"广州\"\u001b[39m\nTimeout: 4000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"not toContainText\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('tbody')\u001b[22m\n\n\n  30 |  await page.getByLabel('状态').selectOption('assigned');await ready;\n  31 |  await switchTo(page,'hr02');await expect(page.locator('.user-block')).toContainText('深圳');release();await page.waitForTimeout(200);\n> 32 |  await expect(page.locator('tbody')).not.toContainText('广州');\n     |                                          ^\n  33 | });\n  34 | test('QA-UI-05 delayed case detail cannot surface under a new employee session',async({page})=>{\n  35 |  await login(page,'hr01');await expect(page.locator('tbody tr').first()).toBeVisible();\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:32:42"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:12:40.240Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-04-delay-aebf4--list-after-identity-switch/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 42,
+                    "line": 32
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-581365722696e50221e1",
+          "file": "exploratory.spec.ts",
+          "line": 94,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-05 delayed case detail cannot surface under a new employee session",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30135,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:12:45.312Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-05-delay-62a27-nder-a-new-employee-session/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-761b5df4fa634bf93824",
+          "file": "exploratory.spec.ts",
+          "line": 121,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-06 rejected analytics filters must not keep previous metric results as current",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 4576,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.metric-card')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m14\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('.metric-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 14 elements\u001b[22m\n\u001b[2m      - unexpected value \"14\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.metric-card')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m14\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('.metric-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 14 elements\u001b[22m\n\u001b[2m      - unexpected value \"14\"\u001b[22m\n\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:44:45",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 45,
+                      "line": 44
+                    },
+                    "snippet": "  42 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();\n  43 |  await page.getByLabel('开始日期').fill('2027-12-31');await expect(page.getByRole('alert')).toBeVisible();\n> 44 |  await expect(page.locator('.metric-card')).toHaveCount(0);\n     |                                             ^\n  45 | });\n  46 | test('QA-UI-07 ordinary text contrast sampling is at least 4.5 to 1',async({page})=>{\n  47 |  await login(page,'emp04');await expect(page.locator('.checklist-items')).toBeVisible();"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 45,
+                        "line": 44
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('.metric-card')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m14\u001b[39m\nTimeout:  4000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveCount\" with timeout 4000ms\u001b[22m\n\u001b[2m  - waiting for locator('.metric-card')\u001b[22m\n\u001b[2m    8 × locator resolved to 14 elements\u001b[22m\n\u001b[2m      - unexpected value \"14\"\u001b[22m\n\n\n  42 |  await login(page,'admin01');await page.getByRole('link',{name:'服务分析'}).click();await expect(page.locator('.metric-card').first()).toBeVisible();\n  43 |  await page.getByLabel('开始日期').fill('2027-12-31');await expect(page.getByRole('alert')).toBeVisible();\n> 44 |  await expect(page.locator('.metric-card')).toHaveCount(0);\n     |                                             ^\n  45 | });\n  46 | test('QA-UI-07 ordinary text contrast sampling is at least 4.5 to 1',async({page})=>{\n  47 |  await login(page,'emp04');await expect(page.locator('.checklist-items')).toBeVisible();\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:44:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:13:31.107Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-06-rejec-bec87-s-metric-results-as-current/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-06-rejec-bec87-s-metric-results-as-current/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-06-rejec-bec87-s-metric-results-as-current/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 45,
+                    "line": 44
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-ea51031e2eeed019cd5f",
+          "file": "exploratory.spec.ts",
+          "line": 145,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-07 ordinary text contrast sampling is at least 4.5 to 1",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 417,
+                  "error": {
+                    "message": "Error: [{\"text\":\"从准备到报到，我们陪你把每一步安排好。\",\"selector\":\"\",\"foreground\":\"rgb(138, 150, 135)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"12px\",\"ratio\":2.871364662076094},{\"text\":\"工作城市\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"雇佣类型\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"计划入职日\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"有依据 · 可核查\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367},{\"text\":\"按计划入职日 2026-12-01 匹配\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":3.0650024521812367},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"12 项处理中 · 3 项待我补充\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 82\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"12px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 150, 135)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.871364662076094,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"从准备到报到，我们陪你把每一步安排好。\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"工作城市\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"雇佣类型\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"计划入职日\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"有依据 · 可核查\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"按计划入职日 2026-12-01 匹配\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"12 项处理中 · 3 项待我补充\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: [{\"text\":\"从准备到报到，我们陪你把每一步安排好。\",\"selector\":\"\",\"foreground\":\"rgb(138, 150, 135)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"12px\",\"ratio\":2.871364662076094},{\"text\":\"工作城市\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"雇佣类型\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"计划入职日\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"有依据 · 可核查\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367},{\"text\":\"按计划入职日 2026-12-01 匹配\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":3.0650024521812367},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"12 项处理中 · 3 项待我补充\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 82\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"12px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 150, 135)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.871364662076094,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"从准备到报到，我们陪你把每一步安排好。\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"工作城市\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"雇佣类型\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"计划入职日\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"有依据 · 可核查\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"按计划入职日 2026-12-01 匹配\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"12 项处理中 · 3 项待我补充\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:51:153",
+                    "location": {
+                      "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                      "column": 153,
+                      "line": 51
+                    },
+                    "snippet": "  49 |  const rgb=(s:string)=>s.match(/[\\d.]+/g)?.map(Number)||[255,255,255];const lum=(v:number[])=>v.slice(0,3).map(x=>{x/=255;return x<=.04045?x/12.92:Math.pow((x+.055)/1.055,2.4)}).reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0);\n  50 |  return nodes.filter(n=>(n as HTMLElement).offsetParent!==null).map(n=>{const c=getComputedStyle(n);let bg='';let p:Element|null=n;while(p){const s=getComputedStyle(p).backgroundColor;if(s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){bg=s;break}p=p.parentElement}const a=lum(rgb(c.color)),b=lum(rgb(bg||'rgb(255,255,255)'));return{text:n.textContent?.slice(0,60),selector:n.className,foreground:c.color,background:bg,fontSize:c.fontSize,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)}});\n> 51 |  });writeFileSync('../reports/qa_20261124/contrast.json',JSON.stringify(results,null,2));expect(results.filter(r=>r.ratio<4.5),JSON.stringify(results)).toEqual([]);\n     |                                                                                                                                                         ^\n  52 | });\n  53 | test('QA-UI-08 mobile 320 and 390 allow horizontal table scrolling without body overflow',async({page})=>{\n  54 |  await login(page,'emp02');for(const width of [320,390]){await page.setViewportSize({width,height:844});await expect(page.locator('tbody tr').first()).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);const table=page.locator('.table-wrap');expect(await table.evaluate(e=>getComputedStyle(e).overflowX)).toMatch(/auto|scroll/);await table.evaluate(e=>{e.scrollLeft=e.scrollWidth});expect(await table.evaluate(e=>e.scrollLeft)).toBeGreaterThan(0);await page.screenshot({path:`../reports/qa_20261124/screenshots/mobile-${width}.png`,fullPage:true})}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 153,
+                        "line": 51
+                      },
+                      "message": "Error: [{\"text\":\"从准备到报到，我们陪你把每一步安排好。\",\"selector\":\"\",\"foreground\":\"rgb(138, 150, 135)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"12px\",\"ratio\":2.871364662076094},{\"text\":\"工作城市\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"雇佣类型\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"计划入职日\",\"selector\":\"\",\"foreground\":\"rgb(141, 153, 133)\",\"background\":\"rgb(245, 247, 245)\",\"fontSize\":\"10px\",\"ratio\":2.7754795178490106},{\"text\":\"有依据 · 可核查\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367},{\"text\":\"按计划入职日 2026-12-01 匹配\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":3.0650024521812367},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"待准备 · 仅材料元信息\",\"selector\":\"\",\"foreground\":\"rgb(160, 170, 152)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"10px\",\"ratio\":2.4143463279008346},{\"text\":\"12 项处理中 · 3 项待我补充\",\"selector\":\"subtle\",\"foreground\":\"rgb(138, 151, 134)\",\"background\":\"rgb(255, 255, 255)\",\"fontSize\":\"11px\",\"ratio\":3.0650024521812367}]\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 82\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"12px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 150, 135)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.871364662076094,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"从准备到报到，我们陪你把每一步安排好。\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"工作城市\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"雇佣类型\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(245, 247, 245)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(141, 153, 133)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.7754795178490106,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"计划入职日\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"有依据 · 可核查\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"按计划入职日 2026-12-01 匹配\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"10px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(160, 170, 152)\",\u001b[39m\n\u001b[31m+     \"ratio\": 2.4143463279008346,\u001b[39m\n\u001b[31m+     \"selector\": \"\",\u001b[39m\n\u001b[31m+     \"text\": \"待准备 · 仅材料元信息\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+   Object {\u001b[39m\n\u001b[31m+     \"background\": \"rgb(255, 255, 255)\",\u001b[39m\n\u001b[31m+     \"fontSize\": \"11px\",\u001b[39m\n\u001b[31m+     \"foreground\": \"rgb(138, 151, 134)\",\u001b[39m\n\u001b[31m+     \"ratio\": 3.0650024521812367,\u001b[39m\n\u001b[31m+     \"selector\": \"subtle\",\u001b[39m\n\u001b[31m+     \"text\": \"12 项处理中 · 3 项待我补充\",\u001b[39m\n\u001b[31m+   },\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  49 |  const rgb=(s:string)=>s.match(/[\\d.]+/g)?.map(Number)||[255,255,255];const lum=(v:number[])=>v.slice(0,3).map(x=>{x/=255;return x<=.04045?x/12.92:Math.pow((x+.055)/1.055,2.4)}).reduce((a,x,i)=>a+x*[.2126,.7152,.0722][i],0);\n  50 |  return nodes.filter(n=>(n as HTMLElement).offsetParent!==null).map(n=>{const c=getComputedStyle(n);let bg='';let p:Element|null=n;while(p){const s=getComputedStyle(p).backgroundColor;if(s!=='rgba(0, 0, 0, 0)'&&s!=='transparent'){bg=s;break}p=p.parentElement}const a=lum(rgb(c.color)),b=lum(rgb(bg||'rgb(255,255,255)'));return{text:n.textContent?.slice(0,60),selector:n.className,foreground:c.color,background:bg,fontSize:c.fontSize,ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)}});\n> 51 |  });writeFileSync('../reports/qa_20261124/contrast.json',JSON.stringify(results,null,2));expect(results.filter(r=>r.ratio<4.5),JSON.stringify(results)).toEqual([]);\n     |                                                                                                                                                         ^\n  52 | });\n  53 | test('QA-UI-08 mobile 320 and 390 allow horizontal table scrolling without body overflow',async({page})=>{\n  54 |  await login(page,'emp02');for(const width of [320,390]){await page.setViewportSize({width,height:844});await expect(page.locator('tbody tr').first()).toBeVisible();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);const table=page.locator('.table-wrap');expect(await table.evaluate(e=>getComputedStyle(e).overflowX)).toMatch(/auto|scroll/);await table.evaluate(e=>{e.scrollLeft=e.scrollWidth});expect(await table.evaluate(e=>e.scrollLeft)).toBeGreaterThan(0);await page.screenshot({path:`../reports/qa_20261124/screenshots/mobile-${width}.png`,fullPage:true})}\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:51:153"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:13:36.154Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-07-ordin-5b002-mpling-is-at-least-4-5-to-1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-07-ordin-5b002-mpling-is-at-least-4-5-to-1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-07-ordin-5b002-mpling-is-at-least-4-5-to-1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                    "column": 153,
+                    "line": 51
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-d5b27206185e74d8a75c",
+          "file": "exploratory.spec.ts",
+          "line": 157,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-08 mobile 320 and 390 allow horizontal table scrolling without body overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:13:37.072Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-d35301149930c57c6685",
+          "file": "exploratory.spec.ts",
+          "line": 199,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-09 independent HR author/admin publish and new policy is searchable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1256,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:13:37.736Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-3b73106613183bee1143",
+          "file": "exploratory.spec.ts",
+          "line": 222,
+          "column": 1
+        },
+        {
+          "title": "QA-UI-10 expired case row detects conflict and allows refresh without losing response",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30127,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "<repo>/frontend/tests/qa/exploratory.spec.ts",
+                        "column": 126,
+                        "line": 67
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '刷新请求', exact: true })\u001b[22m\n\n\n  65 |  const me=await(await page.request.get('/api/me')).json();expect((await page.request.post(`/api/cases/${ca.id}/actions/accept`,{headers:{'X-CSRF-Token':me.csrf_token},data:{row_version:ca.row_version}})).ok()).toBe(true);\n  66 |  await page.getByLabel('员工可见回复').fill('并发更新期间新输入的回复');await page.getByRole('button',{name:'接单并开始处理'}).click();await expect(page.getByRole('alert')).toContainText('刷新');\n> 67 |  await expect(page.getByLabel('员工可见回复')).toHaveValue('并发更新期间新输入的回复');await page.getByRole('button',{name:'刷新请求',exact:true}).click();await expect(page.locator('.detail-summary')).toContainText('处理中');await expect(page.getByLabel('员工可见回复')).toHaveValue('并发更新期间新输入的回复');\n     |                                                                                                                              ^\n  68 | });\n  69 | test('QA-UI-11 knowledge editor supports typing without per-keystroke focus reset',async({page})=>{\n  70 |  await login(page,'hr01');await page.getByRole('link',{name:'制度知识库'}).click();await page.getByRole('button',{name:'新建制度草稿'}).click();\n    at <repo>/frontend/tests/qa/exploratory.spec.ts:67:126"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-24T13:13:38.997Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-10-expir-58266-esh-without-losing-response/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-10-expir-58266-esh-without-losing-response/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "<repo>/reports/qa_20261124/browser-artifacts/exploratory-QA-UI-10-expir-58266-esh-without-losing-response/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8240705bb3a6378a0e94-22fc81930822cf722c98",
+          "file": "exploratory.spec.ts",
+          "line": 269,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-24T13:12:36.691Z",
+    "duration": 106541.24399999999,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}
